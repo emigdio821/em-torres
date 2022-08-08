@@ -24,17 +24,18 @@ export default function HomeTitle() {
     <Flex
       pt={20}
       pb={20}
-      minH="100vh"
+      h="100vh"
       bgImage={titleBg}
       mb={{ base: 4, md: 20 }}
+      minH={{ base: "768px", md: "100vh" }}
       bgColor={useColorModeValue("#ededed", "#141414")}
     >
       <VStack px={4} w="100%" justify="center">
         <MotionDiv y={-10}>
           <Stack
-            mb={20}
             w="100%"
             maxW="4xl"
+            mb={{ base: 10, md: 20 }}
             align={{ base: "left", md: "center" }}
             direction={{ base: "column-reverse", md: "row" }}
           >
@@ -48,8 +49,8 @@ export default function HomeTitle() {
               </Heading>
               <Button
                 as="a"
-                size="md"
                 mb={4}
+                size="md"
                 target="_blank"
                 colorScheme="gray"
                 borderRadius="full"
