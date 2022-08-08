@@ -3,8 +3,8 @@ import { FaSpotify } from "react-icons/fa";
 import useNowPlaying from "hooks/useNowPlaying";
 import { Flex, Text, Image, Stack, VStack, Tooltip } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
-import styles from "assets/css/common.module.css";
 import MotionDiv from "./MotionDiv";
+import Equalizer from "./Equalizer";
 // import useRecentlyPlayed from "hooks/useRecentlyPlayed";
 
 function SongTooltip({ children }: { children: React.ReactNode }) {
@@ -89,11 +89,8 @@ export default function Spotify() {
           alignItems="flex-start"
         >
           <Stack direction="row" align="center">
-            <FaSpotify
-              size={20}
-              style={{ height: "24px" }}
-              className={song ? styles["spotify-icon"] : undefined}
-            />
+            <FaSpotify size={20} style={{ height: "24px" }} />
+            {song && <Equalizer />}
           </Stack>
           {song ? (
             <AnimatePresence exitBeforeEnter key={song.name}>
