@@ -1,20 +1,20 @@
 .bar-1 {
-  animation: equalizer 2s 1s ease-out alternate infinite;
+  animation: equalizer 3s 1s ease-out alternate infinite;
 }
 .bar-2 {
-  animation: equalizer 2s 0.5s ease-out alternate infinite;
+  animation: equalizer 3s 0.5s ease-out alternate infinite;
 }
 .bar-3 {
-  animation: equalizer 2s 1.5s ease-out alternate infinite;
+  animation: equalizer 3s 1.5s ease-out alternate infinite;
 }
 .bar-4 {
-  animation: equalizer 2s 0.7s ease-out alternate infinite;
+  animation: equalizer 3s 0.7s ease-out alternate infinite;
 }
 .bar-5 {
-  animation: equalizer 2s 2s ease-out alternate infinite;
+  animation: equalizer 3s 2s ease-out alternate infinite;
 }
 .bar-6 {
-  animation: equalizer 2s 1.25s ease-out alternate infinite;
+  animation: equalizer 3s 1.25s ease-out alternate infinite;
 }
 
 @keyframes equalizer {
