@@ -10,6 +10,7 @@ import {
   Heading,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa";
 import TextColorModeVal from "utils/TextColorModeVal";
 import styles from "assets/css/common.module.css";
@@ -19,12 +20,28 @@ import CardText from "./CardText";
 import Spotify from "./Spotify";
 
 export default function HomeTitle() {
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const titleEl = titleRef.current;
+
+    function handleScroll() {
+      if (titleEl)
+        titleEl.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const titleBg = useColorModeValue(bgDark, bgLight);
   return (
     <Flex
       pt={20}
       pb={20}
       h="100vh"
+      ref={titleRef}
       bgImage={titleBg}
       mb={{ base: 4, md: 20 }}
       minH={{ base: "768px", md: "100vh" }}
