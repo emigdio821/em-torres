@@ -40,6 +40,7 @@ export default function Spotify() {
             <SongTooltip>
               <Image
                 mr={2}
+                minW="80px"
                 alt="Album"
                 boxSize={20}
                 boxShadow="2xl"
