@@ -25,28 +25,35 @@ import styles from "assets/css/common.module.css";
 import SemiBoldText from "./SemiBoldText";
 import SectionTitle from "./SectionTitle";
 
+interface ITimeLine {
+  isLast?: boolean;
+}
+
+function TimeLine({ isLast = false }: ITimeLine) {
+  return (
+    <Box pr={4} position="relative">
+      <Box w={2} h={2} mt={1.5} bg={TextColorModeVal()} borderRadius="full" />
+      {!isLast && (
+        <Box
+          w="2px"
+          h="110%"
+          opacity={0.6}
+          position="absolute"
+          bg={TextColorModeVal()}
+          transform="translate(3px, 0)"
+        />
+      )}
+    </Box>
+  );
+}
+
 export default function ResumeRight() {
   return (
     <Box p={4} bg={useColorModeValue("#fafafa", "#212121")}>
       <Box mb={6}>
         <SectionTitle>Experience</SectionTitle>
         <Flex mb={3}>
-          <Box pr={4}>
-            <Box
-              w={3}
-              h={3}
-              mt={1}
-              bg={TextColorModeVal()}
-              borderRadius="full"
-            />
-            <Box
-              w="2px"
-              h="100%"
-              opacity={0.6}
-              bg={TextColorModeVal()}
-              transform="translate(5px, 0)"
-            />
-          </Box>
+          <TimeLine />
           <Box color={TextColorModeVal()} textAlign="left">
             <Heading as="h5" size="sm" fontWeight={600}>
               Web Developer
@@ -62,22 +69,7 @@ export default function ResumeRight() {
           </Box>
         </Flex>
         <Flex mb={3}>
-          <Box pr={4}>
-            <Box
-              w={3}
-              h={3}
-              mt={1}
-              bg={TextColorModeVal()}
-              borderRadius="full"
-            />
-            <Box
-              w="2px"
-              h="100%"
-              opacity={0.6}
-              bg={TextColorModeVal()}
-              transform="translate(5px, 0)"
-            />
-          </Box>
+          <TimeLine />
           <Box color={TextColorModeVal()} textAlign="left">
             <Heading as="h5" size="sm" fontWeight={600}>
               Software Engineer
@@ -94,22 +86,7 @@ export default function ResumeRight() {
           </Box>
         </Flex>
         <Flex mb={3}>
-          <Box pr={4}>
-            <Box
-              w={3}
-              h={3}
-              mt={1}
-              bg={TextColorModeVal()}
-              borderRadius="full"
-            />
-            <Box
-              w="2px"
-              h="100%"
-              opacity={0.6}
-              bg={TextColorModeVal()}
-              transform="translate(5px, 0)"
-            />
-          </Box>
+          <TimeLine />
           <Box color={TextColorModeVal()} textAlign="left">
             <Heading as="h5" size="sm" fontWeight={600}>
               Software Engineer
@@ -124,15 +101,7 @@ export default function ResumeRight() {
           </Box>
         </Flex>
         <Flex>
-          <Box pr={4}>
-            <Box
-              w={3}
-              h={3}
-              mt={1}
-              bg={TextColorModeVal()}
-              borderRadius="full"
-            />
-          </Box>
+          <TimeLine isLast />
           <Box color={TextColorModeVal()} textAlign="left">
             <Heading as="h5" size="sm" fontWeight={600}>
               Software Engineer

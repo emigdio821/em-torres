@@ -4,7 +4,6 @@ import {
   Button,
   Heading,
   useColorModeValue,
-  Spinner,
 } from "@chakra-ui/react";
 import {
   FaAt,
@@ -47,25 +46,46 @@ export default function ResumeLeft({
         </Box>
         <Button
           mb={6}
+          rounded="full"
           color="#f0efef"
           variant="outline"
           onClick={pdfCallback}
           disabled={isLoadingPdf}
-          leftIcon={
-            isLoadingPdf ? (
-              <Spinner size="sm" speed="0.6s" color="#B2ABCC" thickness="4px" />
-            ) : (
-              <FaFilePdf />
-            )
-          }
+          isLoading={isLoadingPdf}
+          loadingText="Downloading"
+          leftIcon={<FaFilePdf />}
           className={styles["download-pdf-btn"]}
           bg={useColorModeValue("#333", "inherit")}
           _active={{ bg: useColorModeValue("#333", "inherit") }}
           _hover={{ bg: useColorModeValue("#4C4C4C", "#4C4C4C") }}
         >
-          {isLoadingPdf ? "Downloading" : "Download"}
+          Download
         </Button>
         <Box>
+          <Box>
+            <BtnLink
+              variant="link"
+              text="@emigdio821"
+              Icon={FaLinkedinIn}
+              href="https://www.linkedin.com/in/emigdio821/"
+            />
+          </Box>
+          <Box>
+            <BtnLink
+              variant="link"
+              text="@emigdio821"
+              Icon={FaGithubAlt}
+              href="https://github.com/emigdio821/"
+            />
+          </Box>
+          <Box>
+            <BtnLink
+              variant="link"
+              text="Jalisco, Mexico"
+              Icon={FaMapMarkedAlt}
+              href="https://www.google.com.mx/maps/place/Jalisco"
+            />
+          </Box>
           <Box>
             <BtnLink
               variant="link"
@@ -83,30 +103,6 @@ export default function ResumeLeft({
               href="mailto:emigdio821@gmail.com"
             />
           </Box>
-          <Box>
-            <BtnLink
-              variant="link"
-              text="Jalisco, Mexico"
-              Icon={FaMapMarkedAlt}
-              href="https://www.google.com.mx/maps/place/Jalisco"
-            />
-          </Box>
-          <Box>
-            <BtnLink
-              variant="link"
-              text="@emigdio821"
-              Icon={FaLinkedinIn}
-              href="https://www.linkedin.com/in/emigdio821/"
-            />
-          </Box>
-          <Box>
-            <BtnLink
-              variant="link"
-              text="@emigdio821"
-              Icon={FaGithubAlt}
-              href="https://github.com/emigdio821/"
-            />
-          </Box>
         </Box>
       </Box>
       <Box mb={6} className={styles["common-box"]}>
@@ -118,8 +114,7 @@ export default function ResumeLeft({
           </Text>
           <Text fontSize="sm">
             Currently I am a Software Engineer at{" "}
-            <SemiBoldText>Wizeline</SemiBoldText>. I have no problem to adapt in
-            new environments and technologies.
+            <SemiBoldText>Wizeline</SemiBoldText>.
           </Text>
         </Box>
       </Box>
