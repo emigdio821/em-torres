@@ -52,8 +52,8 @@ export default function ResumeLeft({
           onClick={pdfCallback}
           disabled={isLoadingPdf}
           isLoading={isLoadingPdf}
-          loadingText="Downloading"
           leftIcon={<FaFilePdf />}
+          loadingText="Downloading"
           className={styles["download-pdf-btn"]}
           bg={useColorModeValue("#333", "inherit")}
           _active={{ bg: useColorModeValue("#333", "inherit") }}

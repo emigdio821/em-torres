@@ -21,10 +21,13 @@ export default function NotFound({ title }: NotFoundProps) {
 
   return (
     <Flex
-      pt={{ base: 10, sm: 20 }}
-      minH={{ base: "calc(100vh - 222px)", sm: "calc(100vh - 150px)" }}
+      w="100%"
+      minW="xs"
       maxW="4xl"
       margin="0 auto"
+      pt={{ base: 10, sm: 20 }}
+      minH={{ base: "md", md: "xl" }}
+      h={{ base: "calc(100vh - 222px)", sm: "calc(100vh - 150px)" }}
     >
       <VStack px={{ base: 4, lg: 0 }} justify="center" w="100%">
         <Box

@@ -1,5 +1,3 @@
-import bgLight from "assets/images/title-bg.svg";
-import bgDark from "assets/images/title-bg-light.svg";
 import {
   Box,
   Flex,
@@ -12,8 +10,10 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa";
-import TextColorModeVal from "utils/TextColorModeVal";
+import bgLight from "assets/images/title-bg.svg";
 import styles from "assets/css/common.module.css";
+import bgDark from "assets/images/title-bg-light.svg";
+import TextColorModeVal from "utils/TextColorModeVal";
 import EmAvatar from "./EmAvatar";
 import MotionDiv from "./MotionDiv";
 import CardText from "./CardText";
