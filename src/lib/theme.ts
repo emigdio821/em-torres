@@ -1,4 +1,9 @@
-import { extendTheme, type ThemeConfig, Spinner } from "@chakra-ui/react";
+import {
+  Spinner,
+  extendTheme,
+  theme as base,
+  type ThemeConfig,
+} from "@chakra-ui/react";
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 import TextColorModeVal from "utils/TextColorModeVal";
 
@@ -9,6 +14,11 @@ const styles = {
       bg: mode("#fafafa", "#333")(props),
     },
   }),
+};
+
+const fonts = {
+  heading: `Inter, ${base.fonts.heading}`,
+  body: `Inter, ${base.fonts.body}`,
 };
 
 const shadows = {
@@ -28,5 +38,5 @@ Spinner.defaultProps = {
   color: "#B2ABCC",
 };
 
-const theme = extendTheme({ config, styles, shadows });
+const theme = extendTheme({ config, styles, shadows, fonts });
 export default theme;
