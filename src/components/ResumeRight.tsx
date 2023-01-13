@@ -110,8 +110,8 @@ export default function ResumeRight() {
               Present | <SemiBoldText>Wizeline</SemiBoldText>
             </Text>
             <Text fontSize="sm">
-              Currently working on Frontend, using Vanilla JS, Typescript,
-              React, NextJS and Chakra UI. Development and support for the Dow
+              Currently working on Frontend, using Vanilla JS, CSS, Typescript,
+              React, NextJS, and Chakra UI. Development and support for the Dow
               Jones products.
             </Text>
           </Box>
