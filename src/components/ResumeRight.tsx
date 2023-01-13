@@ -79,7 +79,7 @@ export default function ResumeRight() {
               <SemiBoldText>Advanced Methods Co. (Amco)</SemiBoldText>
             </Text>
             <Text fontSize="sm">
-              Frontend side, using SASS, JQuery, Bootstrap. Sometimes Backend
+              Frontend, using SASS, JQuery and Bootstrap. Sometimes Backend
               side, using Ruby on Rails. Development of Payments portal for an
               education platform.
             </Text>
@@ -95,8 +95,8 @@ export default function ResumeRight() {
               2019- 2021 | <SemiBoldText>HCL Technologies</SemiBoldText>
             </Text>
             <Text fontSize="sm">
-              Frontend side, using IBM Dojo toolkit, migrating to React, Redux
-              and MaterialUI. Development of an application builder.
+              Frontend, using IBM Dojo toolkit, migrating to React, Redux and
+              MaterialUI. Development of an application builder.
             </Text>
           </Box>
         </Flex>
@@ -110,8 +110,9 @@ export default function ResumeRight() {
               Present | <SemiBoldText>Wizeline</SemiBoldText>
             </Text>
             <Text fontSize="sm">
-              Currently working on Frontend, using React and AWS. Development
-              and support for the Dow Jones login page products.
+              Currently working on Frontend, using Vanilla JS, Typescript,
+              React, NextJS and Chakra UI. Development and support for the Dow
+              Jones products.
             </Text>
           </Box>
         </Flex>
@@ -135,7 +136,7 @@ export default function ResumeRight() {
           </Box>
           <Box>
             <Icon as={FaJsSquare} fontSize="2xl" />
-            <Text fontSize="sm">JS</Text>
+            <Text fontSize="sm">JS/TS</Text>
           </Box>
           <Box>
             <Icon as={FaGitAlt} fontSize="2xl" />
