@@ -20,6 +20,7 @@ import {
   FaKeyboard,
   FaHeadphonesAlt,
 } from "react-icons/fa";
+import expData from "data";
 import TextColorModeVal from "utils/TextColorModeVal";
 import styles from "assets/css/common.module.css";
 import SemiBoldText from "./SemiBoldText";
@@ -27,12 +28,19 @@ import SectionTitle from "./SectionTitle";
 
 interface ITimeLine {
   isLast?: boolean;
+  isFirst?: boolean;
 }
 
-function TimeLine({ isLast = false }: ITimeLine) {
+function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
   return (
     <Box pr={4} position="relative">
-      <Box w={2} h={2} mt={1.5} bg={TextColorModeVal()} borderRadius="full" />
+      <Box
+        w={2}
+        h={2}
+        mt={1.5}
+        bg={TextColorModeVal()}
+        rounded={isFirst ? "sm" : "full"}
+      />
       {!isLast && (
         <Box
           w="2px"
@@ -52,70 +60,20 @@ export default function ResumeRight() {
     <Box p={4} bg={useColorModeValue("#fafafa", "#212121")}>
       <Box mb={6}>
         <SectionTitle>Experience</SectionTitle>
-        <Flex mb={3}>
-          <TimeLine />
-          <Box color={TextColorModeVal()} textAlign="left">
-            <Heading as="h5" size="sm" fontWeight={600}>
-              Web Developer
-            </Heading>
-            <Text fontSize="sm">
-              2014 - 2017 |{" "}
-              <SemiBoldText>TATA Consultancy Services</SemiBoldText>
-            </Text>
-            <Text fontSize="sm">
-              Frontend side, using JavaScript under a framework called: ExtJS.
-              Development of banking web apps for Morgan Stanley.
-            </Text>
-          </Box>
-        </Flex>
-        <Flex mb={3}>
-          <TimeLine />
-          <Box color={TextColorModeVal()} textAlign="left">
-            <Heading as="h5" size="sm" fontWeight={600}>
-              Software Engineer
-            </Heading>
-            <Text fontSize="sm">
-              2017 - 2019 |{" "}
-              <SemiBoldText>Advanced Methods Co. (Amco)</SemiBoldText>
-            </Text>
-            <Text fontSize="sm">
-              Frontend, using SASS, JQuery and Bootstrap. Sometimes Backend
-              side, using Ruby on Rails. Development of Payments portal for an
-              education platform.
-            </Text>
-          </Box>
-        </Flex>
-        <Flex mb={3}>
-          <TimeLine />
-          <Box color={TextColorModeVal()} textAlign="left">
-            <Heading as="h5" size="sm" fontWeight={600}>
-              Software Engineer
-            </Heading>
-            <Text fontSize="sm">
-              2019- 2021 | <SemiBoldText>HCL Technologies</SemiBoldText>
-            </Text>
-            <Text fontSize="sm">
-              Frontend, using IBM Dojo toolkit, migrating to React, Redux and
-              MaterialUI. Development of an application builder.
-            </Text>
-          </Box>
-        </Flex>
-        <Flex>
-          <TimeLine isLast />
-          <Box color={TextColorModeVal()} textAlign="left">
-            <Heading as="h5" size="sm" fontWeight={600}>
-              Software Engineer
-            </Heading>
-            <Text fontSize="sm">
-              Present | <SemiBoldText>Wizeline</SemiBoldText>
-            </Text>
-            <Text fontSize="sm">
-              Currently working on Frontend, using Vanilla JS, CSS, Typescript,
-              React, NextJS, and Chakra UI. Development and support for the Dow
-              Jones products.
-            </Text>
-          </Box>
-        </Flex>
+        {expData.map((item, idx) => (
+          <Flex mb={3} key={`${item.id}-${item.company}`}>
+            <TimeLine isFirst={idx === 0} isLast={idx + 1 === expData.length} />
+            <Box color={TextColorModeVal()} textAlign="left">
+              <Heading as="h5" size="sm" fontWeight={600}>
+                {item.title}
+              </Heading>
+              <Text fontSize="sm">
+                {item.year} | <SemiBoldText>{item.company}</SemiBoldText>
+              </Text>
+              <Text fontSize="sm">{item.description}</Text>
+            </Box>
+          </Flex>
+        ))}
       </Box>
       <Box mb={6}>
         <SectionTitle>Skills</SectionTitle>
