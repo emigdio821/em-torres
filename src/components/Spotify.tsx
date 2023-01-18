@@ -35,7 +35,7 @@ export default function Spotify() {
   return (
     <>
       <Flex borderRadius="full" bg="dark" alignItems="center" direction="row">
-        <AnimatePresence exitBeforeEnter key={song?.album.images[0].url}>
+        <AnimatePresence mode="wait" key={song?.album.images[0].url}>
           <MotionDiv y={10}>
             <SongTooltip>
               <Image
@@ -94,7 +94,7 @@ export default function Spotify() {
             {song && <Equalizer />}
           </Stack>
           {song ? (
-            <AnimatePresence exitBeforeEnter key={song.name}>
+            <AnimatePresence mode="wait" key={song.name}>
               <MotionDiv y={5}>
                 <Text fontWeight={600} noOfLines={2}>
                   {song.name}

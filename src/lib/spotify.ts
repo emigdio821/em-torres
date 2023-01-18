@@ -1,7 +1,7 @@
-const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-const refreshToken: string = process.env
-  .REACT_APP_SPOTIFY_REFRESH_TOKEN as string;
+const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
+const refreshToken: string = import.meta.env
+  .VITE_SPOTIFY_REFRESH_TOKEN as string;
 
 const encodeStr = btoa(`${clientId}:${clientSecret}`);
 const NOW_PLAYING_ENDPOINT =
