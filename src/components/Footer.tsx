@@ -38,6 +38,7 @@ export default function Footer() {
             as="a"
             size="sm"
             target="_blank"
+            variant="simple"
             borderRadius="full"
             leftIcon={<FaGithub />}
             rel="noopener noreferrer"
@@ -49,6 +50,7 @@ export default function Footer() {
             as="a"
             size="sm"
             target="_blank"
+            variant="simple"
             aria-label="LinkedIn"
             icon={<FaLinkedinIn />}
             rel="noopener noreferrer"

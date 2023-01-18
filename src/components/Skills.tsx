@@ -3,6 +3,7 @@ import jsSvg from "assets/images/js.svg";
 import tsSvg from "assets/images/ts.svg";
 import reactSvg from "assets/images/react.svg";
 import nodeSvg from "assets/images/node.svg";
+import { motion } from "framer-motion";
 import MotionDiv from "./MotionDiv";
 import CardText from "./CardText";
 
@@ -13,9 +14,27 @@ interface ImgListProps {
 
 function ImgList({ src, alt }: ImgListProps) {
   return (
-    <Image maxW="50px" maxH="50px" src={src} alt={alt} borderRadius="md" />
+    <Image
+      alt={alt}
+      src={src}
+      maxW="50px"
+      maxH="50px"
+      width="100%"
+      borderRadius="md"
+    />
   );
 }
+
+const variants = {
+  offscreen: {
+    y: 10,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 export default function Skills() {
   return (
@@ -42,10 +61,18 @@ export default function Skills() {
             filter="grayscale(70%);"
             spacing={{ base: 2, sm: 6 }}
           >
-            <ImgList src={jsSvg} alt="JavaScript" />
-            <ImgList src={tsSvg} alt="TypeScript" />
-            <ImgList src={reactSvg} alt="React" />
-            <ImgList src={nodeSvg} alt="Node" />
+            <motion.div variants={variants} transition={{ delay: 0.1 }}>
+              <ImgList src={jsSvg} alt="JavaScript" />
+            </motion.div>
+            <motion.div variants={variants} transition={{ delay: 0.2 }}>
+              <ImgList src={tsSvg} alt="TypeScript" />
+            </motion.div>
+            <motion.div variants={variants} transition={{ delay: 0.3 }}>
+              <ImgList src={reactSvg} alt="React" />
+            </motion.div>
+            <motion.div variants={variants} transition={{ delay: 0.4 }}>
+              <ImgList src={nodeSvg} alt="Node" />
+            </motion.div>
           </Stack>
         </Box>
       </Box>

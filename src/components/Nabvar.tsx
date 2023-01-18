@@ -52,17 +52,10 @@ export default function Navbar() {
           <Button
             to="/resume"
             as={NavLink}
-            bg="#ECF5FB"
-            color="#333"
-            variant="solid"
-            leftIcon={<BiFile />}
+            variant="simple"
+            fontWeight="normal"
             borderRadius="full"
-            _hover={{
-              bg: "#D7EAF7",
-              transform: "translateY(-2px)",
-            }}
-            _activeLink={{ bg: "#D7EAF7" }}
-            _active={{ transform: "translateY(0)" }}
+            leftIcon={<BiFile />}
           >
             Resume
           </Button>

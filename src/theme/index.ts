@@ -2,10 +2,12 @@ import {
   Spinner,
   extendTheme,
   theme as base,
+  Button as ChakraBtn,
   type ThemeConfig,
 } from "@chakra-ui/react";
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 import TextColorModeVal from "utils/TextColorModeVal";
+import Button from "./components/Button";
 
 const styles = {
   global: (props: StyleFunctionProps) => ({
@@ -30,6 +32,10 @@ const config: ThemeConfig = {
   useSystemColorMode: true,
 };
 
+const components = {
+  Button,
+};
+
 Spinner.defaultProps = {
   ...Spinner.defaultProps,
   size: "sm",
@@ -38,5 +44,11 @@ Spinner.defaultProps = {
   color: "#B2ABCC",
 };
 
-const theme = extendTheme({ config, styles, shadows, fonts });
+ChakraBtn.defaultProps = {
+  ...ChakraBtn.defaultProps,
+  fontSize: "sm",
+  fontWeight: "normal",
+};
+
+const theme = extendTheme({ config, styles, shadows, fonts, components });
 export default theme;

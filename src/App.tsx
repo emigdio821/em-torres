@@ -1,4 +1,4 @@
-import theme from "lib/theme";
+import theme from "theme";
 import Navbar from "components/Nabvar";
 import Footer from "components/Footer";
 import AppdRoutes from "components/AppRoutes";

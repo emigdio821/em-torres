@@ -69,6 +69,7 @@ export default function HomeTitle() {
                 mb={4}
                 size="md"
                 target="_blank"
+                variant="simple"
                 colorScheme="gray"
                 borderRadius="full"
                 aria-label="Github"
@@ -76,7 +77,7 @@ export default function HomeTitle() {
                 rel="noopener noreferrer"
                 href="https://github.com/emigdio821/"
               >
-                GitHub
+                Github
               </Button>
               <Spotify />
             </Box>
