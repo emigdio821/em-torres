@@ -1,40 +1,42 @@
-import { Box, Image, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Stack, useColorModeValue } from "@chakra-ui/react";
 import jsSvg from "assets/images/js.svg";
 import tsSvg from "assets/images/ts.svg";
 import reactSvg from "assets/images/react.svg";
+import styles from "assets/css/common.module.css";
 import nodeSvg from "assets/images/node.svg";
 import { motion } from "framer-motion";
 import MotionDiv from "./MotionDiv";
 import CardText from "./CardText";
 
-interface ImgListProps {
+interface SkillIconProps {
   src: string;
   alt: string;
+  delay?: number;
 }
 
-function ImgList({ src, alt }: ImgListProps) {
+function SkillIcon({ src, alt, delay }: SkillIconProps) {
+  const variants = {
+    offscreen: {
+      y: 10,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <Image
+    <motion.img
       alt={alt}
       src={src}
-      maxW="50px"
-      maxH="50px"
       width="100%"
-      borderRadius="md"
+      variants={variants}
+      transition={{ delay }}
+      className={styles["skills-stack-icons"]}
     />
   );
 }
-
-const variants = {
-  offscreen: {
-    y: 10,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-  },
-};
 
 export default function Skills() {
   return (
@@ -61,18 +63,10 @@ export default function Skills() {
             filter="grayscale(70%);"
             spacing={{ base: 2, sm: 6 }}
           >
-            <motion.div variants={variants} transition={{ delay: 0.1 }}>
-              <ImgList src={jsSvg} alt="JavaScript" />
-            </motion.div>
-            <motion.div variants={variants} transition={{ delay: 0.2 }}>
-              <ImgList src={tsSvg} alt="TypeScript" />
-            </motion.div>
-            <motion.div variants={variants} transition={{ delay: 0.3 }}>
-              <ImgList src={reactSvg} alt="React" />
-            </motion.div>
-            <motion.div variants={variants} transition={{ delay: 0.4 }}>
-              <ImgList src={nodeSvg} alt="Node" />
-            </motion.div>
+            <SkillIcon src={jsSvg} alt="JavaScript" delay={0.1} />
+            <SkillIcon src={tsSvg} alt="TypeScript" delay={0.2} />
+            <SkillIcon src={reactSvg} alt="React" delay={0.3} />
+            <SkillIcon src={nodeSvg} alt="Node" delay={0.4} />
           </Stack>
         </Box>
       </Box>

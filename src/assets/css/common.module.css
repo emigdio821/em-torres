@@ -8,6 +8,12 @@
   animation: coffee 2s alternate infinite;
 }
 
+.skills-stack-icons {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 0.375rem;
+}
+
 @keyframes blinking {
   from {
     opacity: 0;
