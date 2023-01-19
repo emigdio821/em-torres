@@ -1,10 +1,4 @@
-import {
-  Box,
-  Text,
-  Button,
-  Heading,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Text, Button, Heading, useColorModeValue } from '@chakra-ui/react'
 import {
   FaAt,
   FaPhone,
@@ -12,18 +6,18 @@ import {
   FaGithubAlt,
   FaLinkedinIn,
   FaMapMarkedAlt,
-} from "react-icons/fa";
-import TextColorModeVal from "utils/TextColorModeVal";
-import styles from "assets/css/common.module.css";
-import BtnLink from "./BtnLink";
-import EmAvatar from "./EmAvatar";
-import MotionDiv from "./MotionDiv";
-import SemiBoldText from "./SemiBoldText";
-import SectionTitle from "./SectionTitle";
+} from 'react-icons/fa'
+import TextColorModeVal from 'utils/TextColorModeVal'
+import styles from 'assets/css/common.module.css'
+import BtnLink from './BtnLink'
+import EmAvatar from './EmAvatar'
+import MotionDiv from './MotionDiv'
+import SemiBoldText from './SemiBoldText'
+import SectionTitle from './SectionTitle'
 
 interface ResumeLeftProps {
-  isLoadingPdf: boolean;
-  pdfCallback: () => void;
+  isLoadingPdf: boolean
+  pdfCallback: () => void
 }
 
 export default function ResumeLeft({
@@ -31,7 +25,7 @@ export default function ResumeLeft({
   isLoadingPdf,
 }: ResumeLeftProps) {
   return (
-    <Box p={4} bg={useColorModeValue("#f0efef", "#1c1c1c")}>
+    <Box p={4} bg={useColorModeValue('#f0efef', '#1c1c1c')}>
       <Box mb={6}>
         <MotionDiv y={-10}>
           <EmAvatar width={120} height={120} />
@@ -54,10 +48,10 @@ export default function ResumeLeft({
           isLoading={isLoadingPdf}
           leftIcon={<FaFilePdf />}
           loadingText="Downloading"
-          className={styles["download-pdf-btn"]}
-          bg={useColorModeValue("#333", "inherit")}
-          _active={{ bg: useColorModeValue("#333", "inherit") }}
-          _hover={{ bg: useColorModeValue("#4C4C4C", "#4C4C4C") }}
+          className={styles['download-pdf-btn']}
+          bg={useColorModeValue('#333', 'inherit')}
+          _active={{ bg: useColorModeValue('#333', 'inherit') }}
+          _hover={{ bg: useColorModeValue('#4C4C4C', '#4C4C4C') }}
         >
           Download
         </Button>
@@ -104,7 +98,7 @@ export default function ResumeLeft({
           </Box>
         </Box>
       </Box>
-      <Box mb={6} className={styles["common-box"]}>
+      <Box mb={6} className={styles['common-box']}>
         <SectionTitle>Profile</SectionTitle>
         <Box color={TextColorModeVal()}>
           <Text fontSize="sm">
@@ -112,7 +106,7 @@ export default function ResumeLeft({
             Software Engineering using current programming standards.
           </Text>
           <Text fontSize="sm">
-            Currently I am a Software Engineer at{" "}
+            Currently I am a Software Engineer at{' '}
             <SemiBoldText>Wizeline</SemiBoldText>.
           </Text>
         </Box>
@@ -129,5 +123,5 @@ export default function ResumeLeft({
         </Box>
       </Box>
     </Box>
-  );
+  )
 }

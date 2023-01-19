@@ -7,9 +7,9 @@ import {
   Container,
   IconButton,
   ButtonGroup,
-} from "@chakra-ui/react";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { BiCoffee } from "react-icons/bi";
+} from '@chakra-ui/react'
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
+import { BiCoffee } from 'react-icons/bi'
 
 export default function Footer() {
   return (
@@ -22,7 +22,7 @@ export default function Footer() {
         align="center"
         justify="space-between"
         px={{ base: 4, md: 0 }}
-        direction={{ base: "column", sm: "row" }}
+        direction={{ base: 'column', sm: 'row' }}
       >
         <Flex direction="row" alignItems="center" alignContent="center">
           <BiCoffee fontSize="1.3rem" />
@@ -68,5 +68,5 @@ export default function Footer() {
         </ButtonGroup>
       </Stack>
     </Container>
-  );
+  )
 }

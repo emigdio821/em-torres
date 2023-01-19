@@ -1,9 +1,9 @@
-import { Box, Image, Spinner, VStack } from "@chakra-ui/react";
-import ProfileImg from "assets/images/em.jpg";
+import { Box, Image, Spinner, VStack } from '@chakra-ui/react'
+import ProfileImg from 'assets/images/em.jpg'
 
 interface EmAvatarProps {
-  width?: number;
-  height?: number;
+  width?: number
+  height?: number
 }
 
 export default function EmAvatar({ width = 180, height = 180 }: EmAvatarProps) {
@@ -30,5 +30,5 @@ export default function EmAvatar({ width = 180, height = 180 }: EmAvatarProps) {
         }
       />
     </Box>
-  );
+  )
 }

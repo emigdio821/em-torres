@@ -6,7 +6,7 @@ import {
   Flex,
   Heading,
   useColorModeValue,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 import {
   FaDrum,
   FaHtml5,
@@ -19,16 +19,16 @@ import {
   FaJsSquare,
   FaKeyboard,
   FaHeadphonesAlt,
-} from "react-icons/fa";
-import expData from "data";
-import TextColorModeVal from "utils/TextColorModeVal";
-import styles from "assets/css/common.module.css";
-import SemiBoldText from "./SemiBoldText";
-import SectionTitle from "./SectionTitle";
+} from 'react-icons/fa'
+import expData from 'data'
+import TextColorModeVal from 'utils/TextColorModeVal'
+import styles from 'assets/css/common.module.css'
+import SemiBoldText from './SemiBoldText'
+import SectionTitle from './SectionTitle'
 
 interface ITimeLine {
-  isLast?: boolean;
-  isFirst?: boolean;
+  isLast?: boolean
+  isFirst?: boolean
 }
 
 function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
@@ -39,7 +39,7 @@ function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
         h={2}
         mt={1.5}
         bg={TextColorModeVal()}
-        rounded={isFirst ? "sm" : "full"}
+        rounded={isFirst ? 'sm' : 'full'}
       />
       {!isLast && (
         <Box
@@ -52,12 +52,12 @@ function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
         />
       )}
     </Box>
-  );
+  )
 }
 
 export default function ResumeRight() {
   return (
-    <Box p={4} bg={useColorModeValue("#fafafa", "#212121")}>
+    <Box p={4} bg={useColorModeValue('#fafafa', '#212121')}>
       <Box mb={6}>
         <SectionTitle>Experience</SectionTitle>
         {expData.map((item, idx) => (
@@ -81,7 +81,7 @@ export default function ResumeRight() {
           columnGap={6}
           textAlign="center"
           color={TextColorModeVal()}
-          className={styles["skills-grid"]}
+          className={styles['skills-grid']}
           templateColumns="repeat(6, max-content)"
         >
           <Box>
@@ -116,7 +116,7 @@ export default function ResumeRight() {
           columnGap={6}
           textAlign="center"
           color={TextColorModeVal()}
-          className={styles["hobbies-grid"]}
+          className={styles['hobbies-grid']}
           templateColumns="repeat(5, max-content)"
         >
           <Box>
@@ -142,5 +142,5 @@ export default function ResumeRight() {
         </Grid>
       </Box>
     </Box>
-  );
+  )
 }

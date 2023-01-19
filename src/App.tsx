@@ -1,9 +1,9 @@
-import theme from "theme";
-import Navbar from "components/Nabvar";
-import Footer from "components/Footer";
-import AppdRoutes from "components/AppRoutes";
-import { BrowserRouter } from "react-router-dom";
-import { Flex, ChakraProvider } from "@chakra-ui/react";
+import theme from 'theme'
+import Navbar from 'components/Nabvar'
+import Footer from 'components/Footer'
+import AppdRoutes from 'components/AppRoutes'
+import { BrowserRouter } from 'react-router-dom'
+import { Flex, ChakraProvider } from '@chakra-ui/react'
 
 export default function App() {
   return (
@@ -16,5 +16,5 @@ export default function App() {
         </Flex>
       </ChakraProvider>
     </BrowserRouter>
-  );
+  )
 }

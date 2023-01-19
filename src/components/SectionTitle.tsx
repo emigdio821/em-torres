@@ -1,8 +1,8 @@
-import { Heading } from "@chakra-ui/react";
-import TextColorModeVal from "utils/TextColorModeVal";
+import { Heading } from '@chakra-ui/react'
+import TextColorModeVal from 'utils/TextColorModeVal'
 
 interface SectionTitleProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function SectionTitle({ children }: SectionTitleProps) {
@@ -10,5 +10,5 @@ export default function SectionTitle({ children }: SectionTitleProps) {
     <Heading mb={3} as="h4" size="md" color={TextColorModeVal()}>
       {children}
     </Heading>
-  );
+  )
 }

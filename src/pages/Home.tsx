@@ -1,11 +1,11 @@
-import Skills from "components/Skills";
-import Hobbies from "components/Hobbies";
-import { Container } from "@chakra-ui/react";
-import HomeTitle from "components/HomeTitle";
-import useTitle from "hooks/useTitle";
+import Skills from 'components/Skills'
+import Hobbies from 'components/Hobbies'
+import { Container } from '@chakra-ui/react'
+import HomeTitle from 'components/HomeTitle'
+import useTitle from 'hooks/useTitle'
 
 export default function Home() {
-  useTitle();
+  useTitle()
 
   return (
     <>
@@ -15,5 +15,5 @@ export default function Home() {
         <Hobbies />
       </Container>
     </>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from '@chakra-ui/react'
 
 export default function TextColorModeVal() {
-  return useColorModeValue("#333", "#f0efef");
+  return useColorModeValue('#333', '#f0efef')
 }

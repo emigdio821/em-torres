@@ -1,10 +1,10 @@
-import { BiMusic } from "react-icons/bi";
-import { FaSpotify } from "react-icons/fa";
-import useNowPlaying from "hooks/useNowPlaying";
-import { Flex, Text, Image, Stack, VStack, Tooltip } from "@chakra-ui/react";
-import { AnimatePresence } from "framer-motion";
-import MotionDiv from "./MotionDiv";
-import Equalizer from "./Equalizer";
+import { BiMusic } from 'react-icons/bi'
+import { FaSpotify } from 'react-icons/fa'
+import useNowPlaying from 'hooks/useNowPlaying'
+import { Flex, Text, Image, Stack, VStack, Tooltip } from '@chakra-ui/react'
+import { AnimatePresence } from 'framer-motion'
+import MotionDiv from './MotionDiv'
+import Equalizer from './Equalizer'
 // import useRecentlyPlayed from "hooks/useRecentlyPlayed";
 
 function SongTooltip({ children }: { children: React.ReactNode }) {
@@ -20,14 +20,14 @@ function SongTooltip({ children }: { children: React.ReactNode }) {
     >
       {children}
     </Tooltip>
-  );
+  )
 }
 
 export default function Spotify() {
-  const nowPlaying = useNowPlaying();
+  const nowPlaying = useNowPlaying()
   // const recentlyPlayed = useRecentlyPlayed();
-  const { playing, refreshSongData } = nowPlaying;
-  const { song, error } = playing;
+  const { playing, refreshSongData } = nowPlaying
+  const { song, error } = playing
 
   // if (!currSong) currSong = recentlyPlayed.song;
   // if (!error) error = recentlyPlayed.error;
@@ -47,15 +47,15 @@ export default function Spotify() {
                 cursor="pointer"
                 objectFit="cover"
                 _hover={{
-                  filter: "brightness(0.6)",
+                  filter: 'brightness(0.6)',
                 }}
                 _active={{
-                  filter: "brightness(1)",
+                  filter: 'brightness(1)',
                 }}
                 borderRadius="md"
                 onClick={() => refreshSongData()}
                 transition="all 0.2s ease-in-out"
-                src={song?.album.images[0].url || ""}
+                src={song?.album.images[0].url || ''}
                 fallback={
                   <SongTooltip>
                     <VStack
@@ -67,10 +67,10 @@ export default function Spotify() {
                       justify="center"
                       borderRadius="md"
                       _hover={{
-                        filter: "brightness(0.6)",
+                        filter: 'brightness(0.6)',
                       }}
                       _active={{
-                        filter: "brightness(1)",
+                        filter: 'brightness(1)',
                       }}
                       transition="all 0.2s ease-in-out"
                       onClick={() => refreshSongData()}
@@ -90,7 +90,7 @@ export default function Spotify() {
           alignItems="flex-start"
         >
           <Stack direction="row" align="center">
-            <FaSpotify size={20} style={{ height: "24px" }} />
+            <FaSpotify size={20} style={{ height: '24px' }} />
             {song && <Equalizer />}
           </Stack>
           {song ? (
@@ -118,5 +118,5 @@ export default function Spotify() {
         </Text>
       )}
     </>
-  );
+  )
 }

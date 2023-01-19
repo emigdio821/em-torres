@@ -1,8 +1,8 @@
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from 'framer-motion'
 
 interface MotionDivProps {
-  children: React.ReactNode;
-  y?: number;
+  children: React.ReactNode
+  y?: number
 }
 
 export default function MotionDiv({ children, y = 50 }: MotionDivProps) {
@@ -12,7 +12,7 @@ export default function MotionDiv({ children, y = 50 }: MotionDivProps) {
       opacity: 0,
       scale: 1.01,
       transition: {
-        type: "spring",
+        type: 'spring',
         bounce: 0.6,
         duration: 1,
       },
@@ -22,10 +22,10 @@ export default function MotionDiv({ children, y = 50 }: MotionDivProps) {
       scale: 1,
       opacity: 1,
       transition: {
-        type: "tween",
+        type: 'tween',
       },
     },
-  };
+  }
 
   return (
     <motion.div
@@ -36,5 +36,5 @@ export default function MotionDiv({ children, y = 50 }: MotionDivProps) {
     >
       {children}
     </motion.div>
-  );
+  )
 }

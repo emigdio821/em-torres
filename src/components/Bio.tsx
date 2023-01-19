@@ -1,8 +1,8 @@
-import { Box, Heading, chakra, Stack } from "@chakra-ui/react";
-import SemiBoldText from "./SemiBoldText";
+import { Box, Heading, chakra, Stack } from '@chakra-ui/react'
+import SemiBoldText from './SemiBoldText'
 
 interface CmpChildrenProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 function BioSection({ children }: CmpChildrenProps) {
@@ -10,7 +10,7 @@ function BioSection({ children }: CmpChildrenProps) {
     <Box fontSize="2xl">
       <Stack direction="row">{children}</Stack>
     </Box>
-  );
+  )
 }
 
 function BioYear({ children }: CmpChildrenProps) {
@@ -18,7 +18,7 @@ function BioYear({ children }: CmpChildrenProps) {
     <chakra.span mr={6}>
       <chakra.span fontWeight={700}>{children}</chakra.span>
     </chakra.span>
-  );
+  )
 }
 
 export default function Bio() {
@@ -65,5 +65,5 @@ export default function Bio() {
         </chakra.span>
       </BioSection>
     </Box>
-  );
+  )
 }

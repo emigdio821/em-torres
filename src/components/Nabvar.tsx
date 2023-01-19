@@ -1,9 +1,9 @@
-import { BiCoffee, BiFile } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
-import { Box, Flex, Button, useColorModeValue } from "@chakra-ui/react";
-import TextColorModeVal from "utils/TextColorModeVal";
-import styles from "assets/css/common.module.css";
-import ThemeSwitcher from "./ThemeSwitcher";
+import { BiCoffee, BiFile } from 'react-icons/bi'
+import { NavLink } from 'react-router-dom'
+import { Box, Flex, Button, useColorModeValue } from '@chakra-ui/react'
+import TextColorModeVal from 'utils/TextColorModeVal'
+import styles from 'assets/css/common.module.css'
+import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Navbar() {
   return (
@@ -14,11 +14,11 @@ export default function Navbar() {
       zIndex={1}
       position="fixed"
       css={{
-        backdropFilter: "blur(10px)",
+        backdropFilter: 'blur(10px)',
       }}
       bg={useColorModeValue(
-        "rgba(237, 237, 237, 0.9)",
-        "rgba(20, 20, 20, 0.9)",
+        'rgba(237, 237, 237, 0.9)',
+        'rgba(20, 20, 20, 0.9)',
       )}
     >
       <Flex
@@ -36,13 +36,13 @@ export default function Navbar() {
               variant="link"
               fontSize="1.3rem"
               fontWeight={700}
-              leftIcon={<BiCoffee className={styles["coffe-anim"]} />}
+              leftIcon={<BiCoffee className={styles['coffe-anim']} />}
               _hover={{
-                transform: "translateY(-2px)",
-                background: "transparent",
+                transform: 'translateY(-2px)',
+                background: 'transparent',
               }}
               color={TextColorModeVal()}
-              _active={{ transform: "translateY(0)" }}
+              _active={{ transform: 'translateY(0)' }}
             >
               Em<span style={{ fontWeight: 800 }}>.</span>
             </Button>
@@ -63,5 +63,5 @@ export default function Navbar() {
         </Flex>
       </Flex>
     </Box>
-  );
+  )
 }

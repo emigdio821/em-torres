@@ -1,7 +1,7 @@
-import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
-const colorDarkMode = "255, 255, 255";
-const colorWhiteMode = "0, 0, 0";
+const colorDarkMode = '255, 255, 255'
+const colorWhiteMode = '0, 0, 0'
 
 const ButtonSyles = {
   variants: {
@@ -25,8 +25,8 @@ const ButtonSyles = {
         )(props),
       },
       _activeLink: {
-        cursor: "default",
-        transform: "unset !important",
+        cursor: 'default',
+        transform: 'unset !important',
         bg: mode(
           `rgba(${colorWhiteMode}, 0.08)`,
           `rgba(${colorDarkMode}, 0.1)`,
@@ -36,9 +36,9 @@ const ButtonSyles = {
           `rgba(${colorDarkMode}, 1)`,
         )(props),
       },
-      _active: { transform: "translateY(1px)" },
+      _active: { transform: 'translateY(1px)' },
     }),
   },
-};
+}
 
-export default ButtonSyles;
+export default ButtonSyles

@@ -1,9 +1,9 @@
-import { Box, Stack, useColorModeValue } from "@chakra-ui/react";
-import styles from "assets/css/equalizer.module.css";
+import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
+import styles from 'assets/css/equalizer.module.css'
 
 function EQBar({ className }: { className: string }) {
-  const barColor = useColorModeValue("#333", "#fafafa");
-  return <Box h="0.5rem" bg={barColor} w="0.1875rem" className={className} />;
+  const barColor = useColorModeValue('#333', '#fafafa')
+  return <Box h="0.5rem" bg={barColor} w="0.1875rem" className={className} />
 }
 
 export default function Equalizer() {
@@ -13,5 +13,5 @@ export default function Equalizer() {
         <EQBar key={i} className={styles[`bar-${i + 1}`]} />
       ))}
     </Stack>
-  );
+  )
 }

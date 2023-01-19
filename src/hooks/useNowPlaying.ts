@@ -1,53 +1,53 @@
-import { useCallback, useEffect, useState } from "react";
-import { getNowPlaying } from "lib/spotify";
+import { useCallback, useEffect, useState } from 'react'
+import { getNowPlaying } from 'lib/spotify'
 
 interface NowPlayingState {
-  error?: string;
-  isPlaying: boolean;
+  error?: string
+  isPlaying: boolean
   song?: {
     album: {
       images: {
-        url: string;
-      }[];
-    };
-    name: string;
+        url: string
+      }[]
+    }
+    name: string
     artists: {
-      name: string;
-    }[];
-  };
+      name: string
+    }[]
+  }
 }
 
 const initialState: NowPlayingState = {
   isPlaying: false,
-};
+}
 
 export default function useNowPlaying() {
-  const [playing, setPlaying] = useState<NowPlayingState>(initialState);
+  const [playing, setPlaying] = useState<NowPlayingState>(initialState)
 
   const getNowPlayingData = useCallback(async () => {
-    const response = await getNowPlaying();
+    const response = await getNowPlaying()
     if (response.status === 204 || response.status > 400) {
-      setPlaying(initialState);
+      setPlaying(initialState)
     } else {
-      const res = await response.json();
+      const res = await response.json()
 
       if (res.error) {
-        setPlaying({ isPlaying: false, error: res.error.message });
+        setPlaying({ isPlaying: false, error: res.error.message })
       } else if (res.item !== null) {
-        setPlaying({ isPlaying: true, song: res.item });
+        setPlaying({ isPlaying: true, song: res.item })
       } else {
-        setPlaying(initialState);
+        setPlaying(initialState)
       }
     }
-  }, []);
+  }, [])
 
   function refreshSongData() {
-    getNowPlayingData();
+    getNowPlayingData()
   }
 
   useEffect(() => {
-    getNowPlayingData();
-  }, [getNowPlayingData]);
+    getNowPlayingData()
+  }, [getNowPlayingData])
 
-  return { playing, refreshSongData };
+  return { playing, refreshSongData }
 }
