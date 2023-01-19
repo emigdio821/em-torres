@@ -1,4 +1,8 @@
-import { Button, useColorModeValue } from "@chakra-ui/react";
+import {
+  Button,
+  useColorModeValue,
+  Icon as ChakraIcon,
+} from "@chakra-ui/react";
 
 interface FooterBtnProps {
   text: string;
@@ -20,12 +24,20 @@ export default function BtnLink({
       as="a"
       size={size}
       href={href}
+      role="group"
       target="_blank"
       variant={variant}
       aria-label={text}
-      leftIcon={<Icon />}
       rel="noopener noreferrer"
+      style={{ textDecoration: "none" }}
       color={useColorModeValue("#333", "#f0efef")}
+      leftIcon={
+        <ChakraIcon
+          as={Icon}
+          transition="all 0.2s"
+          _groupHover={{ transform: "scale(1.15)" }}
+        />
+      }
     >
       {text}
     </Button>

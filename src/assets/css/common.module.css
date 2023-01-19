@@ -20,7 +20,7 @@
 
 @keyframes coffee {
   0% {
-    transform: rotate(40deg);
+    transform: rotate(40deg) scale(1.15);
   }
 
   30%,

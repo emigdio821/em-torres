@@ -92,11 +92,10 @@ export default function HomeTitle() {
                 fontSize="lg"
                 variant="link"
                 target="_blank"
+                transition="all 0.2s"
                 textUnderlineOffset={4}
                 rel="noopener noreferrer"
-                textDecoration="underline"
                 color={TextColorModeVal()}
-                transition="all 0.2s"
                 _hover={{
                   textDecoration: "#B2ABCC underline",
                 }}

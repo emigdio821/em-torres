@@ -81,25 +81,24 @@ export default function ResumeLeft({
           <Box>
             <BtnLink
               variant="link"
-              text="Jalisco, Mexico"
               Icon={FaMapMarkedAlt}
+              text="Jalisco, Mexico"
               href="https://www.google.com.mx/maps/place/Jalisco"
             />
           </Box>
           <Box>
             <BtnLink
               variant="link"
-              text="+52 (313) 961-7676"
               Icon={FaPhone}
-              size="sm"
               href="tel:+523139617676"
+              text="+52 (313) 961-7676"
             />
           </Box>
           <Box>
             <BtnLink
+              Icon={FaAt}
               variant="link"
               text="emigdio821@gmail.com"
-              Icon={FaAt}
               href="mailto:emigdio821@gmail.com"
             />
           </Box>
