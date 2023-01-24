@@ -21,7 +21,6 @@ import {
   FaHeadphonesAlt,
 } from 'react-icons/fa'
 import expData from 'data'
-import TextColorModeVal from 'utils/TextColorModeVal'
 import styles from 'assets/css/common.module.css'
 import SemiBoldText from './SemiBoldText'
 import SectionTitle from './SectionTitle'
@@ -32,22 +31,18 @@ interface ITimeLine {
 }
 
 function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
+  const bg = useColorModeValue('#333', '#f0efef')
+
   return (
     <Box pr={4} position="relative">
-      <Box
-        w={2}
-        h={2}
-        mt={1.5}
-        bg={TextColorModeVal()}
-        rounded={isFirst ? 'sm' : 'full'}
-      />
+      <Box w={2} h={2} mt={1.5} bg={bg} rounded={isFirst ? 'sm' : 'full'} />
       {!isLast && (
         <Box
           w="2px"
+          bg={bg}
           h="110%"
           opacity={0.6}
           position="absolute"
-          bg={TextColorModeVal()}
           transform="translate(3px, 0)"
         />
       )}
@@ -63,7 +58,7 @@ export default function ResumeRight() {
         {expData.map((item, idx) => (
           <Flex mb={3} key={`${item.id}-${item.company}`}>
             <TimeLine isFirst={idx === 0} isLast={idx + 1 === expData.length} />
-            <Box color={TextColorModeVal()} textAlign="left">
+            <Box textAlign="left">
               <Heading as="h5" size="sm" fontWeight={600}>
                 {item.title}
               </Heading>
@@ -80,7 +75,6 @@ export default function ResumeRight() {
         <Grid
           columnGap={6}
           textAlign="center"
-          color={TextColorModeVal()}
           className={styles['skills-grid']}
           templateColumns="repeat(6, max-content)"
         >
@@ -115,7 +109,6 @@ export default function ResumeRight() {
         <Grid
           columnGap={6}
           textAlign="center"
-          color={TextColorModeVal()}
           className={styles['hobbies-grid']}
           templateColumns="repeat(5, max-content)"
         >

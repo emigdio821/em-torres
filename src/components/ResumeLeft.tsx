@@ -7,7 +7,6 @@ import {
   FaLinkedinIn,
   FaMapMarkedAlt,
 } from 'react-icons/fa'
-import TextColorModeVal from 'utils/TextColorModeVal'
 import styles from 'assets/css/common.module.css'
 import BtnLink from './BtnLink'
 import EmAvatar from './EmAvatar'
@@ -30,13 +29,13 @@ export default function ResumeLeft({
         <MotionDiv y={-10}>
           <EmAvatar width={120} height={120} />
         </MotionDiv>
-        <Box flexGrow={1} mb={6} mt={4}>
-          <Heading as="h3" size="lg" color={TextColorModeVal()}>
+        <Box mb={6} mt={4}>
+          <Heading as="h3" size="lg">
             Emigdio Torres
           </Heading>
-          <Text fontSize="lg" color={TextColorModeVal()}>
+          <Heading as="h4" size="md" className={styles.subtitle}>
             Software Engineer
-          </Text>
+          </Heading>
         </Box>
         <Button
           mb={6}
@@ -100,7 +99,7 @@ export default function ResumeLeft({
       </Box>
       <Box mb={6} className={styles['common-box']}>
         <SectionTitle>Profile</SectionTitle>
-        <Box color={TextColorModeVal()}>
+        <Box>
           <Text fontSize="sm">
             <SemiBoldText>Telematics Engineer</SemiBoldText> with experience in
             Software Engineering using current programming standards.
@@ -113,10 +112,10 @@ export default function ResumeLeft({
       </Box>
       <Box>
         <SectionTitle>Education</SectionTitle>
-        <Heading as="h5" size="sm" fontWeight={600} color={TextColorModeVal()}>
+        <Heading as="h5" size="sm" fontWeight={600}>
           Telematics Engineer
         </Heading>
-        <Box color={TextColorModeVal()}>
+        <Box>
           <Text fontSize="sm">Engineer&apos;s Degree</Text>
           <Text fontSize="sm">University of Colima</Text>
           <Text fontSize="sm">2010 - 2014</Text>

@@ -18,7 +18,7 @@ export default function Footer() {
       <Stack
         pt={4}
         pb={4}
-        opacity={0.8}
+        opacity={0.85}
         align="center"
         justify="space-between"
         px={{ base: 4, md: 0 }}

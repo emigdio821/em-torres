@@ -1,7 +1,6 @@
 import { BiCoffee, BiFile } from 'react-icons/bi'
 import { NavLink } from 'react-router-dom'
 import { Box, Flex, Button, useColorModeValue } from '@chakra-ui/react'
-import TextColorModeVal from 'utils/TextColorModeVal'
 import styles from 'assets/css/common.module.css'
 import ThemeSwitcher from './ThemeSwitcher'
 
@@ -33,18 +32,19 @@ export default function Navbar() {
             <Button
               to="/"
               as={NavLink}
+              fontSize="xl"
               variant="link"
-              fontSize="1.3rem"
-              fontWeight={700}
+              color="inherit"
+              transition="0.2s"
+              fontWeight="bold"
               leftIcon={<BiCoffee className={styles['coffe-anim']} />}
               _hover={{
-                transform: 'translateY(-2px)',
                 background: 'transparent',
+                transform: 'translateY(-1.2px)',
               }}
-              color={TextColorModeVal()}
               _active={{ transform: 'translateY(0)' }}
             >
-              Em<span style={{ fontWeight: 800 }}>.</span>
+              Em<span style={{ fontWeight: 'bold' }}>.</span>
             </Button>
           </Flex>
         </Box>

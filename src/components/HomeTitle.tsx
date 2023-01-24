@@ -13,7 +13,6 @@ import { FaGithub } from 'react-icons/fa'
 import bgLight from 'assets/images/title-bg.svg'
 import styles from 'assets/css/common.module.css'
 import bgDark from 'assets/images/title-bg-light.svg'
-import TextColorModeVal from 'utils/TextColorModeVal'
 import EmAvatar from './EmAvatar'
 import MotionDiv from './MotionDiv'
 import CardText from './CardText'
@@ -92,10 +91,10 @@ export default function HomeTitle() {
                 fontSize="lg"
                 variant="link"
                 target="_blank"
-                transition="all 0.2s"
+                color="inherit"
+                transition="0.2s"
                 textUnderlineOffset={4}
                 rel="noopener noreferrer"
-                color={TextColorModeVal()}
                 _hover={{
                   textDecoration: '#B2ABCC underline',
                 }}

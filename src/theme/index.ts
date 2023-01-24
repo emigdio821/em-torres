@@ -6,20 +6,19 @@ import {
   type ThemeConfig,
 } from '@chakra-ui/react'
 import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
-import TextColorModeVal from 'utils/TextColorModeVal'
 import Button from './components/Button'
 
 const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      color: TextColorModeVal,
       bg: mode('#fafafa', '#333')(props),
+      color: mode('#333', '#f0efef')(props),
     },
   }),
 }
 
 const fonts = {
-  heading: `Inter, ${base.fonts.heading}`,
+  heading: `Cal Sans, ${base.fonts.heading}`,
   body: `Inter, ${base.fonts.body}`,
 }
 
@@ -34,6 +33,11 @@ const config: ThemeConfig = {
 
 const components = {
   Button,
+  Heading: {
+    baseStyle: {
+      letterSpacing: 0.4,
+    },
+  },
 }
 
 Spinner.defaultProps = {

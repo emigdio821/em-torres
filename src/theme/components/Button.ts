@@ -11,7 +11,7 @@ const ButtonSyles = {
         `rgba(${colorDarkMode}, 0.05)`,
       )(props),
       color: mode(
-        `rgba(${colorWhiteMode}, 0.8)`,
+        `rgba(${colorWhiteMode}, 0.85)`,
         `rgba(${colorDarkMode}, 0.8)`,
       )(props),
       _hover: {
@@ -26,6 +26,7 @@ const ButtonSyles = {
       },
       _activeLink: {
         cursor: 'default',
+        // borderRadius: 'full',
         transform: 'unset !important',
         bg: mode(
           `rgba(${colorWhiteMode}, 0.08)`,
