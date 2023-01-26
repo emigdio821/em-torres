@@ -35,6 +35,17 @@ export default function HomeTitle() {
   }, [])
 
   const titleBg = useColorModeValue(bgDark, bgLight)
+  const radiusBg = useColorModeValue('#ededed', '#141414')
+  const customRadius = {
+    content: '""',
+    position: 'absolute',
+    backgroundColor: 'transparent',
+    bottom: '-50px',
+    height: '50px',
+    width: '0.75rem',
+    boxShadow: `0 -0.75rem 0 0 ${radiusBg}`,
+  }
+
   return (
     <Flex
       pt={20}
@@ -42,6 +53,8 @@ export default function HomeTitle() {
       h="100vh"
       ref={titleRef}
       bgImage={titleBg}
+      _before={{ ...customRadius, borderTopLeftRadius: '0.75rem' }}
+      _after={{ ...customRadius, borderTopRightRadius: '0.75rem', right: 0 }}
       mb={{ base: 4, md: 20 }}
       minH={{ base: '768px', md: '100vh' }}
       bgColor={useColorModeValue('#ededed', '#141414')}
