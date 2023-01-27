@@ -1,4 +1,6 @@
-<img src="./public/images/_doge.png" width="64" height="64">
+<kbd>
+  <img src="./public/images/_doge.png" width="64" height="64" style="border-radius:50%">
+</kbd>
 
 ## Emigdio's Homepage
 This is just my personal homepage. <br/>
