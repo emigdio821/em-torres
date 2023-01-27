@@ -1,0 +1,10 @@
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: initial !important;
+    overflow: initial !important;
+    print-color-adjust: exact !important;
+  }
+}
