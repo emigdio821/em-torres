@@ -51,9 +51,11 @@ export default async function handler(
     isPlaying: false,
     albumImageUrl: '',
   }
-  if (response.status === 204 || response.status > 400) {
+
+  if (response.status === 204 || response.status >= 400) {
     return res.status(200).json(notPlayingState)
   }
+
   const song: ISpotiSong = await response.json()
   const title = song.item.name
   const isPlaying = song.is_playing
