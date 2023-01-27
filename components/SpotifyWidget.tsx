@@ -100,7 +100,7 @@ export default function SpotifyWidget() {
             <FaSpotify size={20} style={{ height: '24px' }} />
             {data?.isPlaying && <Equalizer />}
           </Stack>
-          {data ? (
+          {data && data.isPlaying ? (
             <AnimatePresence mode="wait" key={data.title}>
               <MotionDiv y={5}>
                 <Link
