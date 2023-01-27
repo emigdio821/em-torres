@@ -8,13 +8,15 @@ export default function Helmet({ title }: HelmetProps) {
   return (
     <NextHead>
       <title>{title}</title>
-      <meta name="description" content="Emigdio Torres homepage" />
+      <meta
+        name="description"
+        content="Emigdio Torres is a Software Engineer based in Mexico."
+      />
       <meta
         name="viewport"
         content="initial-scale=1.0, width=device-width,  maximum-scale=1.0"
       />
-      <meta property="og:image" content="/apple-touch-icon.png" />
-
+      <meta property="og:image" content="./images/_doge.png" />
       <link rel="icon" href="./images/favicon.ico" />
       <link
         rel="apple-touch-icon"
