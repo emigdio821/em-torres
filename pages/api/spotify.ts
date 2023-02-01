@@ -43,17 +43,9 @@ export default async function handler(
   res: NextApiResponse<ISpotiResponse>,
 ) {
   const response = await getNowPlaying()
-  const notPlayingState = {
-    album: '',
-    title: '',
-    artist: '',
-    songUrl: '',
-    isPlaying: false,
-    albumImageUrl: '',
-  }
 
   if (response.status === 204 || response.status >= 400) {
-    return res.status(200).json(notPlayingState)
+    return res.status(200).json({ isPlaying: false })
   }
 
   const song: ISpotiSong = await response.json()

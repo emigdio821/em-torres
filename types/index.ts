@@ -1,10 +1,10 @@
 export interface ISpotiResponse {
-  album: string
-  title: string
-  artist: string
-  songUrl: string
   isPlaying: boolean
-  albumImageUrl: string
+  album?: string
+  title?: string
+  artist?: string
+  songUrl?: string
+  albumImageUrl?: string
 }
 
 export interface ISpotiSong {

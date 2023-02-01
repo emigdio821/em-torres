@@ -1,5 +1,6 @@
 import {
   Spinner,
+  Skeleton,
   extendTheme,
   theme as base,
   Button as ChakraBtn,
@@ -14,6 +15,9 @@ const styles = {
       bg: mode('#fafafa', '#333')(props),
       color: mode('#333', '#f0efef')(props),
     },
+    ':root': {
+      '--chakra-colors-home-bg': mode('#ededed', '#141414')(props),
+    },
   }),
 }
 
@@ -23,7 +27,7 @@ const fonts = {
 }
 
 const shadows = {
-  outline: '0 0 0 3px #B2ABCC',
+  outline: '0 0 0 3px #b2abcc',
 }
 
 const config: ThemeConfig = {
@@ -45,7 +49,7 @@ Spinner.defaultProps = {
   size: 'sm',
   speed: '0.6s',
   thickness: '4px',
-  color: '#B2ABCC',
+  color: '#b2abcc',
 }
 
 ChakraBtn.defaultProps = {
@@ -54,5 +58,18 @@ ChakraBtn.defaultProps = {
   fontWeight: 'normal',
 }
 
-const theme = extendTheme({ config, styles, shadows, fonts, components })
+Skeleton.defaultProps = {
+  ...Skeleton.defaultProps,
+  fitContent: true,
+  endColor: '#333',
+  startColor: '#888',
+}
+
+const theme = extendTheme({
+  fonts,
+  config,
+  styles,
+  shadows,
+  components,
+})
 export default theme

@@ -56,9 +56,9 @@ export default function HomeTitle() {
       ref={titleRef}
       bgImage={titleBg}
       position="relative"
+      mb={{ base: 4, md: 20 }}
       _before={{ ...customRadius, borderTopLeftRadius: '0.75rem' }}
       _after={{ ...customRadius, borderTopRightRadius: '0.75rem', right: 0 }}
-      mb={{ base: 4, md: 20 }}
       minH={{ base: '768px', md: '100vh' }}
       bgColor={useColorModeValue('#ededed', '#141414')}
     >
@@ -106,6 +106,7 @@ export default function HomeTitle() {
                 fontSize="lg"
                 target="_blank"
                 color="inherit"
+                display="inline-block"
                 textUnderlineOffset={4}
                 href="https://www.wizeline.com/"
               >

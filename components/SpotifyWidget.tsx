@@ -6,6 +6,8 @@ import {
   Stack,
   VStack,
   Tooltip,
+  Spinner,
+  Skeleton,
   useColorModeValue,
 } from '@chakra-ui/react'
 import useSWR, { Fetcher } from 'swr'
@@ -37,12 +39,13 @@ function SongTooltip({ children }: { children: React.ReactNode }) {
 export default function SpotifyWidget() {
   const fetcher: Fetcher<ISpotiResponse> = (url: string) =>
     fetch(url).then((r) => r.json())
-  const { data, mutate, error } = useSWR('/api/spotify', fetcher)
+  const { data, mutate, error, isLoading } = useSWR('/api/spotify', fetcher)
+  const isPlaying = data?.isPlaying
 
   return (
     <>
       <Flex borderRadius="full" bg="dark" alignItems="center" direction="row">
-        <AnimatePresence mode="wait" key={data?.albumImageUrl}>
+        <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
           <MotionDiv y={10}>
             <SongTooltip>
               <Image
@@ -50,6 +53,7 @@ export default function SpotifyWidget() {
                 minW="80px"
                 alt="Album"
                 boxSize={20}
+                rounded="md"
                 boxShadow="2xl"
                 cursor="pointer"
                 objectFit="cover"
@@ -59,10 +63,9 @@ export default function SpotifyWidget() {
                 _active={{
                   filter: 'brightness(1)',
                 }}
-                borderRadius="md"
                 onClick={() => mutate()}
-                src={data?.albumImageUrl}
                 transition="all 0.2s ease-in-out"
+                src={isPlaying ? data.albumImageUrl : ''}
                 fallback={
                   <SongTooltip>
                     <VStack
@@ -70,9 +73,9 @@ export default function SpotifyWidget() {
                       mr={2}
                       h={20}
                       bg="#333"
+                      rounded="md"
                       cursor="pointer"
                       justify="center"
-                      borderRadius="md"
                       _hover={{
                         filter: 'brightness(0.6)',
                       }}
@@ -82,7 +85,11 @@ export default function SpotifyWidget() {
                       onClick={() => mutate()}
                       transition="all 0.2s ease-in-out"
                     >
-                      <BiMusic color="white" size={18} />
+                      {isLoading ? (
+                        <Spinner />
+                      ) : (
+                        <BiMusic color="white" size={18} />
+                      )}
                     </VStack>
                   </SongTooltip>
                 }
@@ -94,33 +101,43 @@ export default function SpotifyWidget() {
           px={2}
           borderRadius="md"
           direction="column"
+          alignContent="center"
           alignItems="flex-start"
+          gap={isLoading ? '18px' : 'unset'}
         >
           <Stack direction="row" align="center">
             <FaSpotify size={20} style={{ height: '24px' }} />
-            {data?.isPlaying && <Equalizer />}
+            {isPlaying && <Equalizer />}
           </Stack>
-          {data && data.isPlaying ? (
-            <AnimatePresence mode="wait" key={data.title}>
-              <MotionDiv y={5}>
-                <Link
-                  target="_blank"
-                  color="inherit"
-                  fontWeight={600}
-                  href={data.songUrl}
-                  textUnderlineOffset={4}
-                >
-                  {data.title}
-                </Link>
-                <Text fontWeight={400}>{data.artist}</Text>
-              </MotionDiv>
-            </AnimatePresence>
+          {isPlaying ? (
+            <>
+              <Link
+                target="_blank"
+                color="inherit"
+                fontWeight={600}
+                href={data?.songUrl}
+                textUnderlineOffset={4}
+              >
+                {data.title}
+              </Link>
+              <Text fontWeight={400}>{data.artist}</Text>
+            </>
           ) : (
             <>
-              <Text fontWeight={600} noOfLines={1}>
-                No song playing
-              </Text>
-              <Text>Spotify</Text>
+              <Skeleton
+                isLoaded={!isLoading}
+                height={isLoading ? '6px' : 'inherit'}
+              >
+                <Text fontWeight={600} noOfLines={1}>
+                  No song playing
+                </Text>
+              </Skeleton>
+              <Skeleton
+                isLoaded={!isLoading}
+                height={isLoading ? '6px' : 'inherit'}
+              >
+                <Text>Spotify</Text>
+              </Skeleton>
             </>
           )}
         </Flex>
