@@ -21,7 +21,7 @@ const experienceData: IExperienceData[] = [
     year: '2019 - 2021',
     company: 'HCL Technologies',
     description:
-      'Frontend, using IBM Dojo toolkit, migrating to React, Redux and MaterialUI. Development of an application builder.',
+      'Frontend, using IBM Dojo toolkit, migrating to React, Redux, and MaterialUI. Development of an application builder.',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const experienceData: IExperienceData[] = [
     year: '2017 - 2019',
     company: 'Advanced Methods Co. (Amco)',
     description:
-      'Frontend, using SASS, JQuery and Bootstrap. Sometimes Backend side, using Ruby on Rails. Development of Payments portal for an education platform.',
+      'Frontend, using SASS, JQuery, and Bootstrap. Sometimes Backend side, using Ruby on Rails. Development of Payments portal for an education platform.',
   },
   {
     id: 4,
