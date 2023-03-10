@@ -1,13 +1,17 @@
 import NextHead from 'next/head'
+import { useColorModeValue } from '@chakra-ui/react'
 
 interface HelmetProps {
   title: string
 }
 
 export default function Helmet({ title }: HelmetProps) {
+  const themeColor = useColorModeValue('#ededed', '#141414')
+
   return (
     <NextHead>
       <title>{title}</title>
+      <meta name="theme-color" content={themeColor} />
       <meta
         name="description"
         content="Emigdio Torres is a Software Engineer based in Mexico."
