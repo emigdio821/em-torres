@@ -46,11 +46,11 @@ export default function SpotifyWidget() {
     <>
       <Flex borderRadius="full" bg="dark" alignItems="center" direction="row">
         <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
-          <MotionDiv y={10}>
+          <MotionDiv y={6}>
             <SongTooltip>
               <Image
                 mr={2}
-                minW="80px"
+                minW={20}
                 alt="Album"
                 boxSize={20}
                 rounded="md"
@@ -110,18 +110,23 @@ export default function SpotifyWidget() {
             {isPlaying && <Equalizer />}
           </Stack>
           {isPlaying ? (
-            <>
-              <Link
-                target="_blank"
-                color="inherit"
-                fontWeight={600}
-                href={data?.songUrl}
-                textUnderlineOffset={4}
-              >
-                {data.title}
-              </Link>
-              <Text fontWeight={400}>{data.artist}</Text>
-            </>
+            <AnimatePresence
+              mode="wait"
+              key={isPlaying ? data.albumImageUrl : ''}
+            >
+              <MotionDiv y={6}>
+                <Link
+                  target="_blank"
+                  color="inherit"
+                  fontWeight={600}
+                  href={data?.songUrl}
+                  textUnderlineOffset={4}
+                >
+                  {data.title}
+                </Link>
+                <Text fontWeight={400}>{data.artist}</Text>
+              </MotionDiv>
+            </AnimatePresence>
           ) : (
             <>
               <Skeleton

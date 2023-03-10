@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { BiMoon, BiSun } from 'react-icons/bi'
 import { useColorMode, useColorModeValue, IconButton } from '@chakra-ui/react'
 
 export default function ThemeSwitcher() {
   const { toggleColorMode } = useColorMode()
   const text = useColorModeValue('dark', 'light')
-  const SwitchIcon = useColorModeValue(MoonIcon, SunIcon)
+  const SwitchIcon = useColorModeValue(BiMoon, BiSun)
 
   return (
     <IconButton

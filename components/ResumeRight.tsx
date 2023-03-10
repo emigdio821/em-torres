@@ -21,6 +21,7 @@ import {
   FaHeadphonesAlt,
 } from 'react-icons/fa'
 import experienceData from 'data'
+import { motion } from 'framer-motion'
 import styles from '@/styles/Common.module.css'
 import SemiBoldText from './SemiBoldText'
 import SectionTitle from './SectionTitle'
@@ -28,22 +29,39 @@ import SectionTitle from './SectionTitle'
 interface ITimeLine {
   isLast?: boolean
   isFirst?: boolean
+  delay?: number
 }
 
-function TimeLine({ isLast = false, isFirst = false }: ITimeLine) {
+function TimeLine({ isLast = false, isFirst = false, delay = 0 }: ITimeLine) {
   const bg = useColorModeValue('#333', '#f0efef')
 
   return (
     <Box pr={4} position="relative">
-      <Box w={2} h={2} mt={1.5} bg={bg} rounded={isFirst ? 'sm' : 'full'} />
+      <motion.div
+        style={{
+          width: '0.5rem',
+          height: '0.5rem',
+          backgroundColor: bg,
+          marginTop: '0.375rem',
+          borderRadius: isFirst ? '0.125rem' : '100%',
+        }}
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ delay: isFirst ? 0 : delay }}
+      />
       {!isLast && (
-        <Box
-          w="2px"
-          bg={bg}
-          h="110%"
-          opacity={0.6}
-          position="absolute"
-          transform="translate(3px, 0)"
+        <motion.div
+          style={{
+            width: '2px',
+            backgroundColor: bg,
+            position: 'absolute',
+            transform: 'translate(3px, 0)',
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+          initial={{ opacity: 0, height: '0%' }}
+          transition={{ delay: isFirst ? 0 : delay }}
+          whileInView={{ opacity: 0.6, height: '110%' }}
         />
       )}
     </Box>
@@ -58,6 +76,7 @@ export default function ResumeRight() {
         {experienceData.map((item, idx) => (
           <Flex mb={3} key={`${item.id}-${item.company}`}>
             <TimeLine
+              delay={idx * 0.15}
               isFirst={idx === 0}
               isLast={idx + 1 === experienceData.length}
             />
