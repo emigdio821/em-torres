@@ -12,9 +12,9 @@ export default function EmAvatar({ width = 180, height = 180 }: EmAvatarProps) {
       w={width}
       h={height}
       rounded="full"
-      boxShadow="2xl"
+      boxShadow="xl"
       objectFit="cover"
-      src="./images/em.jpg"
+      src="/images/em.jpg"
     />
   )
 }

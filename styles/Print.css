@@ -6,5 +6,6 @@
     height: initial !important;
     overflow: initial !important;
     print-color-adjust: exact !important;
+    background-color: white !important;
   }
 }

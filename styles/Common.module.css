@@ -49,9 +49,7 @@
     display: none !important;
   }
 
-  .hobbies-grid,
-  .skills-grid,
-  .languages-grid {
-    column-gap: 1.5rem;
+  .skills-grid {
+    grid-template-columns: repeat(7, max-content) !important;
   }
 }

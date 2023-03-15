@@ -39,6 +39,7 @@ export default function Navbar() {
               fontSize="xl"
               variant="link"
               color="inherit"
+              iconSpacing={1}
               transition="0.2s"
               fontWeight="bold"
               leftIcon={<BiCoffee className={styles['coffe-anim']} />}
@@ -48,7 +49,7 @@ export default function Navbar() {
               }}
               _active={{ transform: 'translateY(0)' }}
             >
-              Em<span style={{ fontWeight: 'bold' }}>.</span>
+              em.dev
             </Button>
           </Flex>
         </Box>

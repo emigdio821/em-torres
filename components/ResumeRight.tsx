@@ -12,14 +12,15 @@ import {
   FaHtml5,
   FaReact,
   FaSteam,
-  FaLaptop,
   FaGitAlt,
   FaNodeJs,
   FaCss3Alt,
   FaJsSquare,
   FaKeyboard,
+  FaLaptopCode,
   FaHeadphonesAlt,
 } from 'react-icons/fa'
+import { SiTailwindcss } from 'react-icons/si'
 import experienceData from 'data'
 import { motion } from 'framer-motion'
 import styles from '@/styles/Common.module.css'
@@ -95,10 +96,14 @@ export default function ResumeRight() {
       <Box mb={6}>
         <SectionTitle>Skills</SectionTitle>
         <Grid
+          rowGap={3}
           columnGap={6}
           textAlign="center"
           className={styles['skills-grid']}
-          templateColumns="repeat(6, max-content)"
+          templateColumns={{
+            base: 'repeat(5, max-content)',
+            sm: 'repeat(7, max-content)',
+          }}
         >
           <Box>
             <Icon as={FaCss3Alt} fontSize="2xl" />
@@ -111,6 +116,10 @@ export default function ResumeRight() {
           <Box>
             <Icon as={FaJsSquare} fontSize="2xl" />
             <Text fontSize="sm">JS/TS</Text>
+          </Box>
+          <Box>
+            <Icon as={SiTailwindcss} fontSize="2xl" />
+            <Text fontSize="sm">Tailwind</Text>
           </Box>
           <Box>
             <Icon as={FaGitAlt} fontSize="2xl" />
@@ -147,7 +156,7 @@ export default function ResumeRight() {
             <Text fontSize="sm">Games</Text>
           </Box>
           <Box>
-            <Icon as={FaLaptop} fontSize="2xl" />
+            <Icon as={FaLaptopCode} fontSize="2xl" />
             <Text fontSize="sm">Tech</Text>
           </Box>
           <Box>

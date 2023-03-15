@@ -24,10 +24,10 @@ export default function Footer() {
         px={{ base: 4, md: 0 }}
         direction={{ base: 'column', sm: 'row' }}
       >
-        <Flex direction="row" alignItems="center" alignContent="center">
-          <BiCoffee fontSize="1.3rem" />
-          <Text ml={2} fontWeight={700} fontSize="1.3rem">
-            Em<span style={{ fontWeight: 800 }}>.</span>
+        <Flex direction="row" alignItems="center" alignContent="center" gap={1}>
+          <BiCoffee fontSize="1.125rem" />
+          <Text fontWeight="bold" fontSize="lg">
+            em.dev
           </Text>
         </Flex>
         {/* <Text fontSize="sm" py={2} m="0 !important">
