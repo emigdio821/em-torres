@@ -13,7 +13,14 @@ import { BiCoffee } from 'react-icons/bi'
 
 export default function Footer() {
   return (
-    <Container as="footer" role="contentinfo" pt={20} px={0} maxW="2xl">
+    <Container
+      px={0}
+      pt={20}
+      mt="auto"
+      maxW="2xl"
+      as="footer"
+      role="contentinfo"
+    >
       <Divider opacity={0.4} />
       <Stack
         pt={4}

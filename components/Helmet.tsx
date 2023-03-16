@@ -12,34 +12,28 @@ export default function Helmet({ title }: HelmetProps) {
     <NextHead>
       <title>{title}</title>
       <meta name="theme-color" content={themeColor} />
-      <meta
-        name="description"
-        content="Emigdio Torres is a Software Engineer based in Mexico."
-      />
-      <meta
-        name="viewport"
-        content="initial-scale=1.0, width=device-width,  maximum-scale=1.0"
-      />
-      <meta property="og:image" content="./images/_doge.png" />
-      <link rel="icon" href="./images/favicon.ico" />
+      <meta name="description" content="Software Engineer based in Mexico." />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta property="og:image" content="/images/em-banner.png" />
+      <link rel="icon" href="/images/favicon.ico" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="./images/apple-touch-icon.png"
+        href="/images/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="./images/favicon-32x32.png"
+        href="/images/favicon-32x32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="./images/favicon-16x16.png"
+        href="/images/favicon-16x16.png"
       />
-      <link rel="manifest" href="./site.webmanifest" />
+      <link rel="manifest" href="/site.webmanifest" />
     </NextHead>
   )
 }

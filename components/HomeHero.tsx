@@ -34,8 +34,8 @@ export default function HomeTitle() {
   }, [])
 
   const titleBg = useColorModeValue(
-    './images/title-bg-light.svg',
-    './images/title-bg.svg',
+    '/images/title-bg-light.svg',
+    '/images/title-bg.svg',
   )
   const radiusBg = useColorModeValue('#ededed', '#141414')
   const customRadius = {
@@ -57,9 +57,9 @@ export default function HomeTitle() {
       bgImage={titleBg}
       position="relative"
       mb={{ base: 4, md: 20 }}
+      minH={{ base: '768px', md: '800px' }}
       _before={{ ...customRadius, borderTopLeftRadius: '0.75rem' }}
       _after={{ ...customRadius, borderTopRightRadius: '0.75rem', right: 0 }}
-      minH={{ base: '768px', md: '100vh' }}
       bgColor={useColorModeValue('#ededed', '#141414')}
     >
       <VStack px={4} w="100%" justify="center">

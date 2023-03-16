@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Flex
-        h="100vh"
+        minH="100vh"
         direction="column"
         justify="space-between"
         className={inter.className}
