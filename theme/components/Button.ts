@@ -16,8 +16,8 @@ const ButtonSyles = {
       )(props),
       _hover: {
         bg: mode(
-          `rgba(${colorWhiteMode}, 0.08)`,
-          `rgba(${colorDarkMode}, 0.1)`,
+          `rgba(${colorWhiteMode}, 0.06)`,
+          `rgba(${colorDarkMode}, 0.08)`,
         )(props),
         color: mode(
           `rgba(${colorWhiteMode}, 1)`,
@@ -29,8 +29,8 @@ const ButtonSyles = {
         pointerEvents: 'none',
         transform: 'unset !important',
         bg: mode(
-          `rgba(${colorWhiteMode}, 0.08)`,
-          `rgba(${colorDarkMode}, 0.1)`,
+          `rgba(${colorWhiteMode}, 0.06)`,
+          `rgba(${colorDarkMode}, 0.08)`,
         )(props),
         color: mode(
           `rgba(${colorWhiteMode}, 1)`,
