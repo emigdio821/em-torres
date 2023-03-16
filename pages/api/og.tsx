@@ -16,6 +16,7 @@ export default async function handler() {
     (
       <div
         style={{
+          gap: '16px',
           fontSize: 72,
           width: '100%',
           height: '100%',
@@ -26,15 +27,15 @@ export default async function handler() {
           alignItems: 'center',
           flexDirection: 'column',
           justifyContent: 'center',
-          backgroundColor: '#141414',
+          // backgroundColor: '#141414',
           backgroundImage:
             'url(https://emtorres.vercel.app/images/title-bg.svg)',
         }}
       >
         <img
           alt="em"
-          width={160}
-          height={160}
+          width={200}
+          height={200}
           src="https://emtorres.vercel.app/images/em.jpg"
           style={{
             borderRadius: 128,
@@ -45,8 +46,8 @@ export default async function handler() {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 1000,
+      height: 600,
       fonts: [
         {
           name: 'Inter',
