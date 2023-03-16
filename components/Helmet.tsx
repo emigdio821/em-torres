@@ -16,7 +16,7 @@ export default function Helmet({ title, description }: HelmetProps) {
       <meta name="theme-color" content={themeColor} />
       <meta name="description" content={desc} />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta property="og:image" content="/images/em-banner.png" />
+      <meta property="og:image" content="https://emtorres.vercel.app/api/og" />
       <link rel="icon" href="/images/favicon.ico" />
       <link
         rel="apple-touch-icon"
