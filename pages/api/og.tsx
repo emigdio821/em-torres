@@ -16,8 +16,7 @@ export default async function handler() {
     (
       <div
         style={{
-          gap: '16px',
-          fontSize: 72,
+          gap: '20px',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -34,15 +33,37 @@ export default async function handler() {
       >
         <img
           alt="em"
-          width={200}
-          height={200}
+          width={240}
+          height={240}
           src="https://emtorres.vercel.app/images/em.jpg"
           style={{
             borderRadius: 128,
             objectFit: 'cover',
           }}
         />
-        em.dev
+        <p
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <span
+            style={{
+              fontSize: 50,
+            }}
+          >
+            Emigdio Torres
+          </span>
+          <span
+            style={{
+              fontSize: 30,
+              opacity: 0.8,
+            }}
+          >
+            Software Engineer
+          </span>
+        </p>
       </div>
     ),
     {
