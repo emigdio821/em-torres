@@ -27,9 +27,9 @@ export default async function handler() {
           alignItems: 'center',
           flexDirection: 'column',
           justifyContent: 'center',
-          // backgroundColor: '#141414',
+          backgroundColor: '#141414',
           backgroundImage:
-            'url(https://emtorres.vercel.app/images/title-bg.svg)',
+            'url("https://emtorres.vercel.app/images/og-bg.png")',
         }}
       >
         <img
