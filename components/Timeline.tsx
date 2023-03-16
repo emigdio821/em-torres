@@ -21,7 +21,7 @@ export default function TimeLine({
           width: '0.5rem',
           height: '0.5rem',
           backgroundColor: bg,
-          marginTop: '0.375rem',
+          marginTop: '0.3rem',
           borderRadius: isFirst ? '0.125rem' : '100%',
         }}
         initial={{ opacity: 0, y: -10 }}
@@ -32,15 +32,15 @@ export default function TimeLine({
       {!isLast && (
         <motion.div
           style={{
-            width: '2px',
+            width: '0.125rem',
             backgroundColor: bg,
             position: 'absolute',
-            transform: 'translate(3px, 0)',
+            transform: 'translate(0.188rem, 0)',
           }}
           viewport={{ once: true, amount: 0.4 }}
           initial={{ opacity: 0, height: '0%' }}
           transition={{ delay: isFirst ? 0 : delay }}
-          whileInView={{ opacity: 0.6, height: '110%' }}
+          whileInView={{ opacity: 0.6, height: 'calc(100% + 10px)' }}
         />
       )}
     </Box>
