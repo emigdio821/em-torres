@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useRef, useState } from 'react'
 import Helmet from '@/components/Helmet'
 import ResumeLeft from 'components/ResumeLeft'
@@ -28,11 +27,7 @@ export default function Resume() {
 
   return (
     <>
-      <Helmet title="Resume" />
-      <Head>
-        <meta name="description" content="Emigdio's resume" />
-        <meta property="og:image" content="/images/resume-banner.png" />
-      </Head>
+      <Helmet title="Resume" description="Emigdio's resume" />
       <Container maxW="4xl" px={{ base: 0, md: 0 }} pt={20}>
         <Box ref={pdfRef}>
           <Grid
