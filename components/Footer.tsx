@@ -8,6 +8,7 @@ import {
   IconButton,
   ButtonGroup,
 } from '@chakra-ui/react'
+import styles from '@/styles/Common.module.css'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { BiCoffee } from 'react-icons/bi'
 
@@ -20,6 +21,7 @@ export default function Footer() {
       maxW="2xl"
       as="footer"
       role="contentinfo"
+      className={styles.footer}
     >
       <Divider opacity={0.4} />
       <Stack

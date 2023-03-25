@@ -23,6 +23,7 @@ export default function Navbar() {
         'rgba(237, 237, 237, 0.9)',
         'rgba(20, 20, 20, 0.9)',
       )}
+      className={styles.navbar}
     >
       <Flex
         h={16}

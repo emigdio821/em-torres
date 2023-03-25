@@ -25,7 +25,7 @@ export default function TimeLine({
           borderRadius: isFirst ? '0.125rem' : '100%',
         }}
         initial={{ opacity: 0, y: -10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ delay: isFirst ? 0 : delay }}
       />
@@ -40,7 +40,7 @@ export default function TimeLine({
           viewport={{ once: true, amount: 0.4 }}
           initial={{ opacity: 0, height: '0%' }}
           transition={{ delay: isFirst ? 0 : delay }}
-          whileInView={{ opacity: 0.6, height: 'calc(100% + 10px)' }}
+          animate={{ opacity: 0.6, height: 'calc(100% + 10px)' }}
         />
       )}
     </Box>
