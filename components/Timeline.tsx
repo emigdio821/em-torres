@@ -26,7 +26,6 @@ export default function TimeLine({
         }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
         transition={{ delay: isFirst ? 0 : delay }}
       />
       {!isLast && (
@@ -37,7 +36,6 @@ export default function TimeLine({
             position: 'absolute',
             transform: 'translate(0.188rem, 0)',
           }}
-          viewport={{ once: true, amount: 0.4 }}
           initial={{ opacity: 0, height: '0%' }}
           transition={{ delay: isFirst ? 0 : delay }}
           animate={{ opacity: 0.6, height: 'calc(100% + 10px)' }}
