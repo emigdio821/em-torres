@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 
 interface MotionDivProps {
   children: React.ReactNode

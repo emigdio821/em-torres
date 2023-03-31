@@ -10,17 +10,19 @@ export default function Resume() {
   const pdfRef = useRef<HTMLDivElement>(null)
   const [loadingPdf, setLoadingPdf] = useState<boolean>(false)
 
-  const handleBeforeAfterPrint = () =>
-    new Promise<void>((resolve) => {
+  const handleBeforeAfterPrint = async () => {
+    await new Promise<void>((resolve) => {
       setLoadingPdf((prev) => {
         resolve()
         return !prev
       })
     })
+  }
 
   const handlePdfDownload = useReactToPrint({
     content: () => pdfRef.current,
     documentTitle: 'Emigdio-Torres-CV',
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     onAfterPrint: handleBeforeAfterPrint,
     onBeforeGetContent: handleBeforeAfterPrint,
   })

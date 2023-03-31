@@ -10,8 +10,8 @@ import {
   Skeleton,
   useColorModeValue,
 } from '@chakra-ui/react'
-import useSWR, { Fetcher } from 'swr'
-import { ISpotiResponse } from '@/types'
+import useSWR, { type Fetcher } from 'swr'
+import { type ISpotiResponse } from 'types'
 import { BiMusic } from 'react-icons/bi'
 import { FaSpotify } from 'react-icons/fa'
 import { AnimatePresence } from 'framer-motion'
@@ -37,8 +37,9 @@ function SongTooltip({ children }: { children: React.ReactNode }) {
 }
 
 export default function SpotifyWidget() {
-  const fetcher: Fetcher<ISpotiResponse> = (url: string) =>
-    fetch(url).then((r) => r.json())
+  const fetcher: Fetcher<ISpotiResponse> = async (url: string) => {
+    return await fetch(url).then(async (r) => await r.json())
+  }
   const { data, mutate, error, isLoading } = useSWR('/api/spotify', fetcher)
   const isPlaying = data?.isPlaying
 
@@ -63,7 +64,9 @@ export default function SpotifyWidget() {
                 _active={{
                   filter: 'brightness(1)',
                 }}
-                onClick={() => mutate()}
+                onClick={() => {
+                  void mutate()
+                }}
                 transition="all 0.2s ease-in-out"
                 src={isPlaying ? data.albumImageUrl : ''}
                 fallback={
@@ -82,7 +85,9 @@ export default function SpotifyWidget() {
                       _active={{
                         filter: 'brightness(1)',
                       }}
-                      onClick={() => mutate()}
+                      onClick={() => {
+                        void mutate()
+                      }}
                       transition="all 0.2s ease-in-out"
                     >
                       {isLoading ? (

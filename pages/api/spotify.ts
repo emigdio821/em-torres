@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { ISpotiResponse, ISpotiSong } from '@/types'
+import type { ISpotiResponse, ISpotiSong, IAccessTokenRes } from 'types'
 
 const {
   SPOTIFY_CLIENT_ID: clientId,
@@ -7,6 +7,7 @@ const {
   SPOTIFY_REFRESH_TOKEN: refreshToken,
 } = process.env
 
+// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
 const NOW_PLAYING_ENDPOINT =
   'https://api.spotify.com/v1/me/player/currently-playing'
@@ -25,13 +26,13 @@ const getAccessToken = async () => {
     }),
   })
 
-  return response.json()
+  return (await response.json()) as IAccessTokenRes
 }
 
 const getNowPlaying = async () => {
   const { access_token: accessToken } = await getAccessToken()
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
+  return await fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -45,7 +46,8 @@ export default async function handler(
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status >= 400) {
-    return res.status(200).json({ isPlaying: false })
+    res.status(200).json({ isPlaying: false })
+    return
   }
 
   const song: ISpotiSong = await response.json()
@@ -56,7 +58,7 @@ export default async function handler(
   const albumImageUrl = song.item.album.images[0].url
   const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
 
-  return res.status(200).json({
+  res.status(200).json({
     album,
     title,
     artist,

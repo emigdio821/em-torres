@@ -1,6 +1,6 @@
 import {
   Button,
-  ButtonProps,
+  type ButtonProps,
   useColorModeValue,
   Icon as ChakraIcon,
 } from '@chakra-ui/react'

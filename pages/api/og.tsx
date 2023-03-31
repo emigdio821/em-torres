@@ -7,7 +7,7 @@ export const config = {
 
 const fontReq = fetch(
   new URL('../../public/fonts/Inter-Bold.ttf', import.meta.url),
-).then((res) => res.arrayBuffer())
+).then(async (res) => await res.arrayBuffer())
 
 export default async function handler() {
   const fontData = await fontReq

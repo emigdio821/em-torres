@@ -8,7 +8,7 @@ interface HelmetProps {
 
 export default function Helmet({ title, description }: HelmetProps) {
   const themeColor = useColorModeValue('#ededed', '#141414')
-  const desc = description || 'Software Engineer based in Mexico.'
+  const desc = description ?? 'Software Engineer based in Mexico.'
 
   return (
     <NextHead>

@@ -7,19 +7,23 @@ export interface ISpotiResponse {
   albumImageUrl?: string
 }
 
+export interface IAccessTokenRes {
+  access_token: string
+}
+
 export interface ISpotiSong {
   is_playing: boolean
   item: {
     album: {
       name: string
-      images: {
+      images: Array<{
         url: string
-      }[]
+      }>
     }
     name: string
-    artists: {
+    artists: Array<{
       name: string
-    }[]
+    }>
     external_urls: {
       spotify: string
     }
