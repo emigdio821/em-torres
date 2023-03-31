@@ -6,7 +6,7 @@ export const config = {
 }
 
 const fontReq = fetch(
-  new URL('../../public/fonts/Inter-Bold.ttf', import.meta.url),
+  new URL('../../public/fonts/Figtree-Bold.ttf', import.meta.url),
 ).then(async (res) => await res.arrayBuffer())
 
 export default async function handler() {
@@ -22,7 +22,7 @@ export default async function handler() {
           display: 'flex',
           color: '#ededed',
           textAlign: 'center',
-          fontFamily: 'Inter',
+          fontFamily: 'Figtree',
           alignItems: 'center',
           flexDirection: 'column',
           justifyContent: 'center',

@@ -6,8 +6,22 @@ import {
   Button as ChakraBtn,
   type ThemeConfig,
 } from '@chakra-ui/react'
+import localFont from 'next/font/local'
 import { mode, type StyleFunctionProps } from '@chakra-ui/theme-tools'
 import Button from './components/Button'
+
+const figtree = localFont({
+  src: [
+    {
+      path: '../public/fonts/Figtree-Variable.ttf',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Figtree-Italic-VariableFont.ttf',
+      style: 'italic',
+    },
+  ],
+})
 
 const styles = {
   global: (props: StyleFunctionProps) => ({
@@ -22,8 +36,8 @@ const styles = {
 }
 
 const fonts = {
-  heading: `Cal Sans, ${base.fonts.heading}`,
-  // body: `Inter, ${base.fonts.body}`,
+  heading: `${figtree.style.fontFamily}, ${base.fonts.heading}`,
+  body: `${figtree.style.fontFamily}, ${base.fonts.body}`,
 }
 
 const shadows = {
