@@ -5,27 +5,26 @@ import {
   Icon as ChakraIcon,
 } from '@chakra-ui/react'
 
-interface FooterBtnProps extends ButtonProps {
+interface ContactLinksProps extends ButtonProps {
   text: string
   href: string
   Icon: React.ComponentType
 }
 
-export default function BtnLink({
+export default function ContactLink({
   text,
-  href,
   Icon,
-  size = 'sm',
-  variant = 'solid',
-}: FooterBtnProps) {
+  ...props
+}: ContactLinksProps) {
   return (
     <Button
       as="a"
-      size={size}
-      href={href}
+      size="sm"
+      {...props}
       role="group"
+      variant="link"
       target="_blank"
-      variant={variant}
+      fontWeight={600}
       aria-label={text}
       rel="noopener noreferrer"
       style={{ textDecoration: 'none' }}
@@ -33,10 +32,13 @@ export default function BtnLink({
       leftIcon={
         <ChakraIcon
           as={Icon}
-          transition="all 0.2s"
+          transition="0.2s"
           _groupHover={{ transform: 'scale(1.15)' }}
         />
       }
+      _hover={{
+        opacity: 0.8,
+      }}
     >
       {text}
     </Button>

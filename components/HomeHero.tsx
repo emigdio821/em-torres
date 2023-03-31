@@ -74,7 +74,7 @@ export default function HomeTitle() {
             direction={{ base: 'column-reverse', md: 'row' }}
           >
             <Box mr={{ base: 'inherit', lg: 2 }} w={{ base: '100%', md: 'sm' }}>
-              <Heading as="h2" size="2xl">
+              <Heading as="h2" size="2xl" fontWeight={800}>
                 Emigdio Torres
                 <span className={styles['text-blinking']}>_</span>
               </Heading>

@@ -7,12 +7,12 @@ import {
   FaLinkedinIn,
   FaMapMarkedAlt,
 } from 'react-icons/fa'
-import styles from '@/styles/Common.module.css'
-import BtnLink from './BtnLink'
 import EmAvatar from './EmAvatar'
 import MotionDiv from './MotionDiv'
+import ContactLink from './ContactLink'
 import SemiBoldText from './SemiBoldText'
 import SectionTitle from './SectionTitle'
+import styles from '@/styles/Common.module.css'
 
 interface ResumeLeftProps {
   isLoadingPdf: boolean
@@ -24,13 +24,13 @@ export default function ResumeLeft({
   isLoadingPdf,
 }: ResumeLeftProps) {
   return (
-    <Box p={4} bg={useColorModeValue('#f0efef', '#1c1c1c')}>
+    <Box p={4} bg={useColorModeValue('#f2f2f2', '#1c1c1c')}>
       <Box mb={6}>
         <MotionDiv y={-10}>
           <EmAvatar width={120} height={120} />
         </MotionDiv>
         <Box mb={6} mt={4}>
-          <Heading as="h3" size="lg">
+          <Heading as="h3" size="lg" fontWeight={800}>
             Emigdio Torres
           </Heading>
           <Heading as="h4" size="md" className={styles.subtitle}>
@@ -39,58 +39,48 @@ export default function ResumeLeft({
         </Box>
         <Button
           mb={6}
-          rounded="full"
-          color="#f0efef"
-          variant="outline"
+          variant="simple"
+          colorScheme="gray"
           onClick={pdfCallback}
           disabled={isLoadingPdf}
           isLoading={isLoadingPdf}
           leftIcon={<FaFilePdf />}
-          loadingText="Downloading"
           className={styles['download-pdf-btn']}
-          bg={useColorModeValue('#333', 'inherit')}
-          _active={{ bg: useColorModeValue('#333', 'inherit') }}
-          _hover={{ bg: useColorModeValue('#4C4C4C', '#4C4C4C') }}
         >
           Download
         </Button>
         <Box>
           <Box>
-            <BtnLink
-              variant="link"
+            <ContactLink
               text="@emigdio821"
               Icon={FaLinkedinIn}
               href="https://www.linkedin.com/in/emigdio821/"
             />
           </Box>
           <Box>
-            <BtnLink
-              variant="link"
+            <ContactLink
               text="@emigdio821"
               Icon={FaGithubAlt}
               href="https://github.com/emigdio821/"
             />
           </Box>
           <Box>
-            <BtnLink
-              variant="link"
+            <ContactLink
               Icon={FaMapMarkedAlt}
               text="Jalisco, Mexico"
               href="https://www.google.com.mx/maps/place/Jalisco"
             />
           </Box>
           <Box>
-            <BtnLink
-              variant="link"
+            <ContactLink
               Icon={FaPhone}
               href="tel:+523139617676"
               text="+52 (313) 961-7676"
             />
           </Box>
           <Box>
-            <BtnLink
+            <ContactLink
               Icon={FaAt}
-              variant="link"
               text="emigdio821@gmail.com"
               href="mailto:emigdio821@gmail.com"
             />
