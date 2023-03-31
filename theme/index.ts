@@ -6,7 +6,7 @@ import {
   Button as ChakraBtn,
   type ThemeConfig,
 } from '@chakra-ui/react'
-import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { mode, type StyleFunctionProps } from '@chakra-ui/theme-tools'
 import Button from './components/Button'
 
 const styles = {
@@ -23,7 +23,7 @@ const styles = {
 
 const fonts = {
   heading: `Cal Sans, ${base.fonts.heading}`,
-  body: `Inter, ${base.fonts.body}`,
+  // body: `Inter, ${base.fonts.body}`,
 }
 
 const shadows = {
