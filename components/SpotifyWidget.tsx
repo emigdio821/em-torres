@@ -55,7 +55,7 @@ export default function SpotifyWidget() {
                 alt="Album"
                 boxSize={20}
                 rounded="md"
-                boxShadow="2xl"
+                boxShadow="lg"
                 cursor="pointer"
                 objectFit="cover"
                 _hover={{
@@ -121,6 +121,7 @@ export default function SpotifyWidget() {
             >
               <MotionDiv y={6}>
                 <Link
+                  noOfLines={2}
                   target="_blank"
                   color="inherit"
                   fontWeight={600}
@@ -129,7 +130,9 @@ export default function SpotifyWidget() {
                 >
                   {data.title}
                 </Link>
-                <Text fontWeight={400}>{data.artist}</Text>
+                <Text fontWeight={400} noOfLines={2}>
+                  {data.artist}
+                </Text>
               </MotionDiv>
             </AnimatePresence>
           ) : (
