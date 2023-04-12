@@ -36,7 +36,7 @@ export default function Footer() {
         <Flex direction="row" alignItems="center" alignContent="center" gap={1}>
           <BiCoffee fontSize="1.125rem" />
           <Text fontWeight="bold" fontSize="lg">
-            em.dev
+            emtorres
           </Text>
         </Flex>
         {/* <Text fontSize="sm" py={2} m="0 !important">

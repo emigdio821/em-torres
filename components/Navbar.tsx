@@ -50,7 +50,7 @@ export default function Navbar() {
               }}
               _active={{ transform: 'translateY(0)' }}
             >
-              em.dev
+              emtorres
             </Button>
           </Flex>
         </Box>
