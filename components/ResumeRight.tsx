@@ -91,7 +91,7 @@ export default function ResumeRight() {
           </Box>
           <Box>
             <Icon as={FaNodeJs} fontSize="2xl" />
-            <Text fontSize="sm">Node</Text>
+            <Text fontSize="sm">Node.js</Text>
           </Box>
         </Grid>
       </Box>

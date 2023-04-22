@@ -13,7 +13,7 @@ const experienceData: IExperienceData[] = [
     year: 'Present',
     company: 'Wizeline',
     description:
-      'Currently working on Frontend, using Vanilla JS, CSS, Typescript, React, NextJS, and Chakra UI. Development and support for the Dow Jones products.',
+      'Currently working on Frontend, using Vanilla JS, CSS, Typescript, React, Next.js, and Chakra UI. Development and support for the Dow Jones products.',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const experienceData: IExperienceData[] = [
     year: '2019 - 2021',
     company: 'HCL Technologies',
     description:
-      'Frontend, using IBM Dojo toolkit, migrating to React, Redux, and MaterialUI. Development of an application builder.',
+      'Frontend, using IBM Dojo toolkit, migrating to React, Redux, and Material UI. Development of an application builder.',
   },
   {
     id: 3,

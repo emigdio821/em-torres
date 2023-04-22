@@ -51,7 +51,7 @@ export default function Skills() {
         <Box>
           <CardText>
             These are some of the technologies I currently use: JavaScript,
-            TypeScript, React and Node.
+            TypeScript, React and Node.js.
           </CardText>
           <Stack
             mt={6}
@@ -62,7 +62,7 @@ export default function Skills() {
             <SkillIcon src="./images/js.svg" alt="JavaScript" delay={0.1} />
             <SkillIcon src="./images/ts.svg" alt="TypeScript" delay={0.2} />
             <SkillIcon src="./images/react.svg" alt="React" delay={0.3} />
-            <SkillIcon src="./images/node.svg" alt="Node" delay={0.4} />
+            <SkillIcon src="./images/node.svg" alt="Node.js" delay={0.4} />
           </Stack>
         </Box>
       </Box>
