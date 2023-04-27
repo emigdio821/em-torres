@@ -1,4 +1,4 @@
-import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { mode, type StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 const colorDarkMode = '255, 255, 255'
 const colorWhiteMode = '0, 0, 0'
