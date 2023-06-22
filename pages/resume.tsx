@@ -29,7 +29,7 @@ export default function Resume() {
 
   return (
     <>
-      <Helmet title="Resume" description="Emigdio's resume." />
+      <Helmet title="Em Torres · Resume" description="Emigdio's resume." />
       <Container maxW="4xl" px={{ base: 0, md: 0 }} pt={20}>
         <Grid
           ref={pdfRef}
