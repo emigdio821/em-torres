@@ -1,19 +1,21 @@
+import { useEffect, useRef } from 'react'
 import {
   Box,
+  Button,
+  chakra,
   Flex,
+  Heading,
   Link,
   Stack,
-  VStack,
-  chakra,
-  Button,
-  Heading,
   useColorModeValue,
+  VStack,
 } from '@chakra-ui/react'
-import styles from '@/styles/Common.module.css'
-import { useEffect, useRef } from 'react'
 import { FaGithub } from 'react-icons/fa'
-import EmAvatar from './EmAvatar'
+
+import styles from '@/styles/Common.module.css'
+
 import CardText from './CardText'
+import EmAvatar from './EmAvatar'
 import MotionDiv from './MotionDiv'
 import SpotifyWidget from './SpotifyWidget'
 
@@ -24,8 +26,7 @@ export default function HomeTitle() {
     const titleEl = titleRef.current
 
     function handleScroll() {
-      if (titleEl)
-        titleEl.style.backgroundPositionY = `${window.scrollY * 0.4}px`
+      if (titleEl) titleEl.style.backgroundPositionY = `${window.scrollY * 0.4}px`
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -35,10 +36,7 @@ export default function HomeTitle() {
     }
   }, [])
 
-  const titleBg = useColorModeValue(
-    '/images/title-bg-light.svg',
-    '/images/title-bg.svg',
-  )
+  const titleBg = useColorModeValue('/images/title-bg-light.svg', '/images/title-bg.svg')
   const radiusBg = useColorModeValue('#ededed', '#141414')
   const customRadius = {
     content: '""',
@@ -102,8 +100,8 @@ export default function HomeTitle() {
           </Stack>
           <Box maxW="4xl">
             <CardText>
-              Hi there, I&apos;m a Software Engineer, mainly focused on
-              front-end development. Currently, I&apos;m contributing to{' '}
+              Hi there, I&apos;m a Software Engineer, mainly focused on front-end development.
+              Currently, I&apos;m contributing to{' '}
               <Link
                 fontSize="lg"
                 target="_blank"
@@ -112,10 +110,7 @@ export default function HomeTitle() {
                 textUnderlineOffset={4}
                 href="https://www.wizeline.com/"
               >
-                <chakra.span
-                  fontWeight="700"
-                  fontSize={{ base: '2xl', md: '3xl' }}
-                >
+                <chakra.span fontWeight="700" fontSize={{ base: '2xl', md: '3xl' }}>
                   Wizeline
                 </chakra.span>
               </Link>{' '}

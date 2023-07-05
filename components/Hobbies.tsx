@@ -1,6 +1,7 @@
 import { Box, useColorModeValue } from '@chakra-ui/react'
-import MotionDiv from './MotionDiv'
+
 import CardText from './CardText'
+import MotionDiv from './MotionDiv'
 
 export default function Hobbies() {
   return (
@@ -12,9 +13,8 @@ export default function Hobbies() {
         bg={useColorModeValue('#f5f5f5', '#2e2e2e')}
       >
         <CardText>
-          I love music. On my free time I like to play videogames or play drums.
-          I like to build custom pc&apos;s and keyboards. I&apos;m also
-          passionate about new technology topics 🤓.
+          I love music. On my free time I like to play videogames or play drums. I like to build
+          custom pc&apos;s and keyboards. I&apos;m also passionate about new technology topics 🤓.
         </CardText>
       </Box>
     </MotionDiv>

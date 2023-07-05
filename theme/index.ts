@@ -1,13 +1,14 @@
+import localFont from 'next/font/local'
 import {
-  Spinner,
-  Skeleton,
-  extendTheme,
   theme as base,
   Button as ChakraBtn,
+  extendTheme,
+  Skeleton,
+  Spinner,
   type ThemeConfig,
 } from '@chakra-ui/react'
-import localFont from 'next/font/local'
 import { mode, type StyleFunctionProps } from '@chakra-ui/theme-tools'
+
 import Button from './components/Button'
 
 const figtree = localFont({

@@ -1,8 +1,9 @@
-import Skills from '@/components/Skills'
+import { Container } from '@chakra-ui/react'
+
 import Helmet from '@/components/Helmet'
 import Hobbies from '@/components/Hobbies'
 import HomeHero from '@/components/HomeHero'
-import { Container } from '@chakra-ui/react'
+import Skills from '@/components/Skills'
 
 export default function Home() {
   return (

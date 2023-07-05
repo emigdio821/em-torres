@@ -5,9 +5,9 @@ export const config = {
   runtime: 'edge',
 }
 
-const fontReq = fetch(
-  new URL('../../public/fonts/Figtree-Bold.ttf', import.meta.url),
-).then(async (res) => await res.arrayBuffer())
+const fontReq = fetch(new URL('../../public/fonts/Figtree-Bold.ttf', import.meta.url)).then(
+  async (res) => await res.arrayBuffer(),
+)
 
 export default async function handler() {
   const fontData = await fontReq
@@ -27,8 +27,7 @@ export default async function handler() {
           flexDirection: 'column',
           justifyContent: 'center',
           backgroundColor: '#141414',
-          backgroundImage:
-            'url("https://emtorres.vercel.app/images/og-bg.png")',
+          backgroundImage: 'url("https://emtorres.vercel.app/images/og-bg.png")',
         }}
       >
         <img

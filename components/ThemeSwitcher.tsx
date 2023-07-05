@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { IconButton, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { BiMoon, BiSun } from 'react-icons/bi'
-import { useColorMode, useColorModeValue, IconButton } from '@chakra-ui/react'
 
 export default function ThemeSwitcher() {
   const { toggleColorMode } = useColorMode()

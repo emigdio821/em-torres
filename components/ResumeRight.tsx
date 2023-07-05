@@ -1,31 +1,25 @@
+import experienceData from '@/data'
+import { Box, Flex, Grid, Heading, Icon, Text, useColorModeValue } from '@chakra-ui/react'
 import {
-  Box,
-  Text,
-  Grid,
-  Icon,
-  Flex,
-  Heading,
-  useColorModeValue,
-} from '@chakra-ui/react'
-import {
-  FaDrum,
-  FaHtml5,
-  FaReact,
-  FaSteam,
-  FaGitAlt,
-  FaNodeJs,
   FaCss3Alt,
+  FaDrum,
+  FaGitAlt,
+  FaHeadphonesAlt,
+  FaHtml5,
   FaJsSquare,
   FaKeyboard,
   FaLaptopCode,
-  FaHeadphonesAlt,
+  FaNodeJs,
+  FaReact,
+  FaSteam,
 } from 'react-icons/fa'
-import experienceData from 'data'
+
 import styles from '@/styles/Common.module.css'
-import TimeLine from './Timeline'
-import SemiBoldText from './SemiBoldText'
+
 import SectionTitle from './SectionTitle'
+import SemiBoldText from './SemiBoldText'
 import TailwindIcon from './svg/TailwindIcon'
+import TimeLine from './Timeline'
 
 export default function ResumeRight() {
   return (

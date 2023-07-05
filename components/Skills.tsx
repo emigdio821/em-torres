@@ -1,8 +1,10 @@
 import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
-import styles from '@/styles/Common.module.css'
 import { motion } from 'framer-motion'
-import MotionDiv from './MotionDiv'
+
+import styles from '@/styles/Common.module.css'
+
 import CardText from './CardText'
+import MotionDiv from './MotionDiv'
 
 interface SkillIconProps {
   src: string
@@ -44,21 +46,14 @@ export default function Skills() {
         bg={useColorModeValue('#f5f5f5', '#2e2e2e')}
       >
         <Box>
-          <CardText>
-            I have a strong background in front-end development.
-          </CardText>
+          <CardText>I have a strong background in front-end development.</CardText>
         </Box>
         <Box>
           <CardText>
-            These are some of the technologies I currently use: JavaScript,
-            TypeScript, React and Node.js.
+            These are some of the technologies I currently use: JavaScript, TypeScript, React and
+            Node.js.
           </CardText>
-          <Stack
-            mt={6}
-            direction="row"
-            filter="grayscale(70%);"
-            spacing={{ base: 2, sm: 6 }}
-          >
+          <Stack mt={6} direction="row" filter="grayscale(70%);" spacing={{ base: 2, sm: 6 }}>
             <SkillIcon src="./images/js.svg" alt="JavaScript" delay={0.1} />
             <SkillIcon src="./images/ts.svg" alt="TypeScript" delay={0.2} />
             <SkillIcon src="./images/react.svg" alt="React" delay={0.3} />

@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react'
-import Helmet from '@/components/Helmet'
-import ResumeLeft from 'components/ResumeLeft'
-import { useReactToPrint } from 'react-to-print'
-import ResumeRight from 'components/ResumeRight'
-import styles from '@/styles/Common.module.css'
 import { Container, Grid, useColorModeValue } from '@chakra-ui/react'
+import { useReactToPrint } from 'react-to-print'
+
+import Helmet from '@/components/Helmet'
+import ResumeLeft from '@/components/ResumeLeft'
+import ResumeRight from '@/components/ResumeRight'
+import styles from '@/styles/Common.module.css'
 
 export default function Resume() {
   const pdfRef = useRef<HTMLDivElement>(null)
@@ -22,7 +23,6 @@ export default function Resume() {
   const handlePdfDownload = useReactToPrint({
     content: () => pdfRef.current,
     documentTitle: 'Emigdio-Torres-CV',
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     onAfterPrint: handleBeforeAfterPrint,
     onBeforeGetContent: handleBeforeAfterPrint,
   })
@@ -39,10 +39,7 @@ export default function Resume() {
           templateColumns={{ base: 'inherit', md: '0.5fr 1fr' }}
           border={`1px solid ${useColorModeValue('#f0efef', '#1c1c1c')}`}
         >
-          <ResumeLeft
-            isLoadingPdf={loadingPdf}
-            pdfCallback={handlePdfDownload}
-          />
+          <ResumeLeft isLoadingPdf={loadingPdf} pdfCallback={handlePdfDownload} />
           <ResumeRight />
         </Grid>
       </Container>

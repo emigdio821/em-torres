@@ -1,16 +1,8 @@
-import {
-  Box,
-  Flex,
-  Icon,
-  Text,
-  VStack,
-  Button,
-  Heading,
-  useColorModeValue,
-} from '@chakra-ui/react'
 import NextLink from 'next/link'
+import { Box, Button, Flex, Heading, Icon, Text, useColorModeValue, VStack } from '@chakra-ui/react'
+import { BiArrowBack, BiGhost } from 'react-icons/bi'
+
 import Helmet from '@/components/Helmet'
-import { BiGhost, BiArrowBack } from 'react-icons/bi'
 
 export default function NotFound() {
   return (

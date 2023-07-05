@@ -1,16 +1,17 @@
 import {
-  Flex,
-  Text,
-  Stack,
   Button,
-  Divider,
-  Container,
-  IconButton,
   ButtonGroup,
+  Container,
+  Divider,
+  Flex,
+  IconButton,
+  Stack,
+  Text,
 } from '@chakra-ui/react'
-import styles from '@/styles/Common.module.css'
-import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { BiCoffee } from 'react-icons/bi'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+
+import styles from '@/styles/Common.module.css'
 
 export default function Footer() {
   return (

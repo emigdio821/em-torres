@@ -1,22 +1,23 @@
+import { type ISpotiResponse } from '@/types'
 import {
   Flex,
-  Text,
-  Link,
   Image,
-  Stack,
-  VStack,
-  Tooltip,
-  Spinner,
+  Link,
   Skeleton,
+  Spinner,
+  Stack,
+  Text,
+  Tooltip,
   useColorModeValue,
+  VStack,
 } from '@chakra-ui/react'
-import useSWR, { type Fetcher } from 'swr'
-import { type ISpotiResponse } from 'types'
+import { AnimatePresence } from 'framer-motion'
 import { BiMusic } from 'react-icons/bi'
 import { FaSpotify } from 'react-icons/fa'
-import { AnimatePresence } from 'framer-motion'
-import MotionDiv from './MotionDiv'
+import useSWR, { type Fetcher } from 'swr'
+
 import Equalizer from './Equalizer'
+import MotionDiv from './MotionDiv'
 
 function SongTooltip({ children }: { children: React.ReactNode }) {
   return (
@@ -90,11 +91,7 @@ export default function SpotifyWidget() {
                       }}
                       transition="all 0.2s ease-in-out"
                     >
-                      {isLoading ? (
-                        <Spinner />
-                      ) : (
-                        <BiMusic color="white" size={18} />
-                      )}
+                      {isLoading ? <Spinner /> : <BiMusic color="white" size={18} />}
                     </VStack>
                   </SongTooltip>
                 }
@@ -115,10 +112,7 @@ export default function SpotifyWidget() {
             {isPlaying && <Equalizer />}
           </Stack>
           {isPlaying ? (
-            <AnimatePresence
-              mode="wait"
-              key={isPlaying ? data.albumImageUrl : ''}
-            >
+            <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
               <MotionDiv y={6}>
                 <Link
                   noOfLines={2}
@@ -137,18 +131,12 @@ export default function SpotifyWidget() {
             </AnimatePresence>
           ) : (
             <>
-              <Skeleton
-                isLoaded={!isLoading}
-                height={isLoading ? '6px' : 'inherit'}
-              >
+              <Skeleton isLoaded={!isLoading} height={isLoading ? '6px' : 'inherit'}>
                 <Text fontWeight={600} noOfLines={1}>
                   No song playing
                 </Text>
               </Skeleton>
-              <Skeleton
-                isLoaded={!isLoading}
-                height={isLoading ? '6px' : 'inherit'}
-              >
+              <Skeleton isLoaded={!isLoading} height={isLoading ? '6px' : 'inherit'}>
                 <Text>Spotify</Text>
               </Skeleton>
             </>

@@ -1,4 +1,5 @@
-import { Box, Heading, chakra, Stack } from '@chakra-ui/react'
+import { Box, chakra, Heading, Stack } from '@chakra-ui/react'
+
 import SemiBoldText from './SemiBoldText'
 
 interface BioSectionProps {
@@ -36,8 +37,8 @@ export default function Bio() {
       <BioSection>
         <BioYear>2014</BioYear>
         <chakra.span>
-          <SemiBoldText>Telematics Engineering</SemiBoldText> Bachelor&apos;s
-          Degree, <SemiBoldText>University of Colima</SemiBoldText>.
+          <SemiBoldText>Telematics Engineering</SemiBoldText> Bachelor&apos;s Degree,{' '}
+          <SemiBoldText>University of Colima</SemiBoldText>.
         </chakra.span>
       </BioSection>
       <BioSection>

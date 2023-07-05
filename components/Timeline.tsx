@@ -1,5 +1,5 @@
+import { Box, useColorModeValue } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { useColorModeValue, Box } from '@chakra-ui/react'
 
 interface TimelineProps {
   isLast?: boolean
@@ -7,11 +7,7 @@ interface TimelineProps {
   delay?: number
 }
 
-export default function TimeLine({
-  isLast = false,
-  isFirst = false,
-  delay = 0,
-}: TimelineProps) {
+export default function TimeLine({ isLast = false, isFirst = false, delay = 0 }: TimelineProps) {
   const bg = useColorModeValue('#333', '#f0efef')
 
   return (

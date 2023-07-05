@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { ISpotiResponse, ISpotiSong, IAccessTokenRes } from 'types'
+import type { IAccessTokenRes, ISpotiResponse, ISpotiSong } from '@/types'
 
 const {
   SPOTIFY_CLIENT_ID: clientId,
@@ -7,10 +7,8 @@ const {
   SPOTIFY_REFRESH_TOKEN: refreshToken,
 } = process.env
 
-// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
-const NOW_PLAYING_ENDPOINT =
-  'https://api.spotify.com/v1/me/player/currently-playing'
+const basic = Buffer.from(`${clientId ?? ''}:${clientSecret ?? ''}`).toString('base64')
+const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
 const getAccessToken = async () => {
@@ -39,10 +37,7 @@ const getNowPlaying = async () => {
   })
 }
 
-export default async function handler(
-  _: NextApiRequest,
-  res: NextApiResponse<ISpotiResponse>,
-) {
+export default async function handler(_: NextApiRequest, res: NextApiResponse<ISpotiResponse>) {
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status >= 400) {

@@ -1,28 +1,20 @@
-import { Box, Text, Button, Heading, useColorModeValue } from '@chakra-ui/react'
-import {
-  FaAt,
-  FaPhone,
-  FaFilePdf,
-  FaGithubAlt,
-  FaLinkedinIn,
-  FaMapMarkedAlt,
-} from 'react-icons/fa'
+import { Box, Button, Heading, Text, useColorModeValue } from '@chakra-ui/react'
+import { FaAt, FaFilePdf, FaGithubAlt, FaLinkedinIn, FaMapMarkedAlt, FaPhone } from 'react-icons/fa'
+
+import styles from '@/styles/Common.module.css'
+
+import ContactLink from './ContactLink'
 import EmAvatar from './EmAvatar'
 import MotionDiv from './MotionDiv'
-import ContactLink from './ContactLink'
-import SemiBoldText from './SemiBoldText'
 import SectionTitle from './SectionTitle'
-import styles from '@/styles/Common.module.css'
+import SemiBoldText from './SemiBoldText'
 
 interface ResumeLeftProps {
   isLoadingPdf: boolean
   pdfCallback: () => void
 }
 
-export default function ResumeLeft({
-  pdfCallback,
-  isLoadingPdf,
-}: ResumeLeftProps) {
+export default function ResumeLeft({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
   return (
     <Box p={4} bg={useColorModeValue('#f2f2f2', '#1c1c1c')}>
       <Box mb={6}>
@@ -72,11 +64,7 @@ export default function ResumeLeft({
             />
           </Box>
           <Box>
-            <ContactLink
-              Icon={FaPhone}
-              href="tel:+523139617676"
-              text="+52 (313) 961-7676"
-            />
+            <ContactLink Icon={FaPhone} href="tel:+523139617676" text="+52 (313) 961-7676" />
           </Box>
           <Box>
             <ContactLink
@@ -91,12 +79,11 @@ export default function ResumeLeft({
         <SectionTitle>Profile</SectionTitle>
         <Box>
           <Text fontSize="sm">
-            <SemiBoldText>Telematics Engineer</SemiBoldText> with experience in
-            Software Engineering using current programming standards.
+            <SemiBoldText>Telematics Engineer</SemiBoldText> with experience in Software Engineering
+            using current programming standards.
           </Text>
           <Text fontSize="sm">
-            Currently I am a Software Engineer at{' '}
-            <SemiBoldText>Wizeline</SemiBoldText>.
+            Currently I am a Software Engineer at <SemiBoldText>Wizeline</SemiBoldText>.
           </Text>
         </Box>
       </Box>

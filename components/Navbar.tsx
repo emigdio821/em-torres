@@ -1,8 +1,10 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import styles from '@/styles/Common.module.css'
+import { Box, Button, Flex, useColorModeValue } from '@chakra-ui/react'
 import { BiCoffee, BiFile } from 'react-icons/bi'
-import { Box, Flex, Button, useColorModeValue } from '@chakra-ui/react'
+
+import styles from '@/styles/Common.module.css'
+
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Navbar() {
@@ -19,19 +21,10 @@ export default function Navbar() {
       css={{
         backdropFilter: 'blur(10px)',
       }}
-      bg={useColorModeValue(
-        'rgba(237, 237, 237, 0.9)',
-        'rgba(20, 20, 20, 0.9)',
-      )}
+      bg={useColorModeValue('rgba(237, 237, 237, 0.9)', 'rgba(20, 20, 20, 0.9)')}
       className={styles.navbar}
     >
-      <Flex
-        h={16}
-        maxW="4xl"
-        m="0 auto"
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <Flex h={16} maxW="4xl" m="0 auto" alignItems="center" justifyContent="space-between">
         <Box>
           <Flex alignItems="center">
             <Button
