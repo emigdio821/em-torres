@@ -1,11 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { IAccessTokenRes, ISpotiResponse, ISpotiSong } from '@/types'
+import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
 
 const {
   SPOTIFY_CLIENT_ID: clientId,
   SPOTIFY_CLIENT_SECRET: clientSecret,
   SPOTIFY_REFRESH_TOKEN: refreshToken,
 } = process.env
+
+const initialState = {
+  album: '',
+  title: '',
+  artist: '',
+  songUrl: '',
+  isPlaying: false,
+  albumImageUrl: '',
+}
 
 const basic = Buffer.from(`${clientId ?? ''}:${clientSecret ?? ''}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
@@ -24,7 +33,7 @@ const getAccessToken = async () => {
     }),
   })
 
-  return (await response.json()) as IAccessTokenRes
+  return (await response.json()) as SpotiAccessToken
 }
 
 const getNowPlaying = async () => {
@@ -37,15 +46,15 @@ const getNowPlaying = async () => {
   })
 }
 
-export default async function handler(_: NextApiRequest, res: NextApiResponse<ISpotiResponse>) {
+export default async function handler(_: NextApiRequest, res: NextApiResponse<SpotiResponse>) {
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status >= 400) {
-    res.status(200).json({ isPlaying: false })
+    res.status(200).json(initialState)
     return
   }
 
-  const song: ISpotiSong = await response.json()
+  const song: SpotiSong = await response.json()
   const title = song.item.name
   const isPlaying = song.is_playing
   const album = song.item.album.name

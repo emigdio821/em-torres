@@ -70,7 +70,7 @@ export default async function handler() {
       height: 600,
       fonts: [
         {
-          name: 'Inter',
+          name: 'Figtree',
           data: fontData,
           style: 'normal',
         },

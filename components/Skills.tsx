@@ -1,10 +1,6 @@
-import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
+'use client'
+
 import { motion } from 'framer-motion'
-
-import styles from '@/styles/Common.module.css'
-
-import CardText from './CardText'
-import MotionDiv from './MotionDiv'
 
 interface SkillIconProps {
   src: string
@@ -29,38 +25,34 @@ function SkillIcon({ src, alt, delay }: SkillIconProps) {
       alt={alt}
       src={src}
       width="100%"
+      initial="offscreen"
       variants={variants}
+      whileInView="onscreen"
       transition={{ delay }}
-      className={styles['skills-stack-icons']}
+      viewport={{ once: true, amount: 0.4 }}
+      className="max-h-[50px] max-w-[50px] rounded-md"
     />
   )
 }
 
-export default function Skills() {
+export function Skills() {
   return (
-    <MotionDiv>
-      <Box
-        borderRadius="xl"
-        p={{ base: 4, md: 10 }}
-        mb={{ base: 4, md: 20 }}
-        bg={useColorModeValue('#f5f5f5', '#2e2e2e')}
-      >
-        <Box>
-          <CardText>I have a strong background in front-end development.</CardText>
-        </Box>
-        <Box>
-          <CardText>
+    <section className="px-4">
+      <div className="mx-auto max-w-3xl rounded-lg border p-4 text-xl md:p-6 md:text-2xl">
+        <p className="font-bold">I have a strong background in front-end development.</p>
+        <div>
+          <p className="font-bold">
             These are some of the technologies I currently use: JavaScript, TypeScript, React and
             Node.js.
-          </CardText>
-          <Stack mt={6} direction="row" filter="grayscale(70%);" spacing={{ base: 2, sm: 6 }}>
-            <SkillIcon src="./images/js.svg" alt="JavaScript" delay={0.1} />
-            <SkillIcon src="./images/ts.svg" alt="TypeScript" delay={0.2} />
-            <SkillIcon src="./images/react.svg" alt="React" delay={0.3} />
-            <SkillIcon src="./images/node.svg" alt="Node.js" delay={0.4} />
-          </Stack>
-        </Box>
-      </Box>
-    </MotionDiv>
+          </p>
+          <div className="mt-6 flex gap-2 grayscale-[70%] md:gap-4">
+            <SkillIcon src="/images/js.svg" alt="JavaScript" delay={0.1} />
+            <SkillIcon src="/images/ts.svg" alt="TypeScript" delay={0.2} />
+            <SkillIcon src="/images/react.svg" alt="React" delay={0.3} />
+            <SkillIcon src="/images/node.svg" alt="Node.js" delay={0.4} />
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

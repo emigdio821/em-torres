@@ -1,17 +1,17 @@
-export interface ISpotiResponse {
+export interface SpotiResponse {
   isPlaying: boolean
-  album?: string
-  title?: string
-  artist?: string
-  songUrl?: string
-  albumImageUrl?: string
+  album: string
+  title: string
+  artist: string
+  songUrl: string
+  albumImageUrl: string
 }
 
-export interface IAccessTokenRes {
+export interface SpotiAccessToken {
   access_token: string
 }
 
-export interface ISpotiSong {
+export interface SpotiSong {
   is_playing: boolean
   item: {
     album: {

@@ -1,22 +1,12 @@
-import { Box, useColorModeValue } from '@chakra-ui/react'
-
-import CardText from './CardText'
-import MotionDiv from './MotionDiv'
-
-export default function Hobbies() {
+export function Hobbies() {
   return (
-    <MotionDiv>
-      <Box
-        borderRadius="xl"
-        p={{ base: 4, md: 10 }}
-        mt={{ base: 4, md: 20 }}
-        bg={useColorModeValue('#f5f5f5', '#2e2e2e')}
-      >
-        <CardText>
+    <section className="px-4">
+      <div className="mx-auto max-w-3xl rounded-lg border p-4 text-xl md:p-6 md:text-2xl">
+        <p className="font-bold">
           I love music. On my free time I like to play videogames or play drums. I like to build
           custom pc&apos;s and keyboards. I&apos;m also passionate about new technology topics 🤓.
-        </CardText>
-      </Box>
-    </MotionDiv>
+        </p>
+      </div>
+    </section>
   )
 }

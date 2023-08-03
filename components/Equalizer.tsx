@@ -1,17 +1,16 @@
-import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
-import styles from '@/styles/Equalizer.module.css'
+import { cn } from '@/lib/utils'
+import styles from '@/styles/eq.module.css'
 
 function EQBar({ className }: { className: string }) {
-  const barColor = useColorModeValue('#333', '#fafafa')
-  return <Box h="0.5rem" bg={barColor} w="0.1875rem" className={className} />
+  return <div className={cn(className, 'h-2 w-[2px] bg-foreground dark:bg-foreground')} />
 }
 
-export default function Equalizer() {
+export function Equalizer() {
   return (
-    <Stack direction="row" spacing={0.5} align="flex-end" h={4}>
+    <div className="flex h-4 items-end gap-[2px]">
       {Array.from(Array(6), (_, i) => i).map((i) => (
         <EQBar key={i} className={styles[`bar-${i + 1}`]} />
       ))}
-    </Stack>
+    </div>
   )
 }

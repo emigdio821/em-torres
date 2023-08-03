@@ -1,69 +1,49 @@
+'use client'
+
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
-import { Box, Button, Flex, useColorModeValue } from '@chakra-ui/react'
-import { BiCoffee, BiFile } from 'react-icons/bi'
+import { usePathname } from 'next/navigation'
+import { LuCoffee, LuFileText } from 'react-icons/lu'
 
-import styles from '@/styles/Common.module.css'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 
-import ThemeSwitcher from './ThemeSwitcher'
+import { ThemeToggler } from './theme-toggler'
+import { buttonVariants } from './ui/button'
 
-export default function Navbar() {
-  const router = useRouter()
-  const isResumePage = router.pathname === '/resume'
+export function Navbar() {
+  const pathname = usePathname()
+  const isResumePage = pathname === '/resume'
 
   return (
-    <Box
-      px={4}
-      as="nav"
-      w="100%"
-      zIndex={1}
-      position="fixed"
-      css={{
-        backdropFilter: 'blur(10px)',
-      }}
-      bg={useColorModeValue('rgba(237, 237, 237, 0.9)', 'rgba(20, 20, 20, 0.9)')}
-      className={styles.navbar}
-    >
-      <Flex h={16} maxW="4xl" m="0 auto" alignItems="center" justifyContent="space-between">
-        <Box>
-          <Flex alignItems="center">
-            <Button
-              href="/"
-              as={NextLink}
-              fontSize="xl"
-              variant="link"
-              color="inherit"
-              iconSpacing={1}
-              transition="0.2s"
-              fontWeight="bold"
-              leftIcon={<BiCoffee className={styles['coffe-anim']} />}
-              _hover={{
-                background: 'transparent',
-                transform: 'translateY(-1.2px)',
-              }}
-              _active={{ transform: 'translateY(0)' }}
-            >
-              emtorres
-            </Button>
-          </Flex>
-        </Box>
-        <Flex alignItems="center">
-          <Button
-            passHref
-            as={NextLink}
-            href="/resume"
-            variant="simple"
-            fontWeight="normal"
-            borderRadius="full"
-            leftIcon={<BiFile />}
-            className={isResumePage ? 'active' : undefined}
-            aria-current={isResumePage ? 'page' : undefined}
+    <header className="fixed z-10 w-full bg-white__nav_bg/90 px-4 backdrop-blur-md dark:bg-dark__nav_bg/90 print:hidden">
+      <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
+        <div>
+          <NextLink
+            href="/"
+            className={cn(
+              buttonVariants({ variant: 'link', size: 'sm' }),
+              'px-0 text-lg font-bold transition-opacity duration-200 hover:no-underline hover:opacity-80',
+            )}
           >
+            <LuCoffee className="mr-2 animate-coffee-icon" />
+            {siteConfig.brand}
+          </NextLink>
+        </div>
+        <div className="flex items-center gap-2">
+          <NextLink
+            href="/resume"
+            tabIndex={isResumePage ? -1 : undefined}
+            aria-current={isResumePage ? 'page' : undefined}
+            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), {
+              'pointer-events-none bg-accent': isResumePage,
+            })}
+          >
+            <LuFileText className="mr-2" />
             Resume
-          </Button>
-          <ThemeSwitcher />
-        </Flex>
-      </Flex>
-    </Box>
+          </NextLink>
+          <ThemeToggler />
+        </div>
+      </nav>
+    </header>
   )
 }
