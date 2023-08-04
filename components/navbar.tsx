@@ -15,7 +15,7 @@ export function Navbar() {
   const isResumePage = pathname === '/resume'
 
   return (
-    <header className="fixed z-10 w-full bg-white__nav_bg/90 px-4 backdrop-blur-md dark:bg-dark__nav_bg/90 print:hidden">
+    <header className="fixed z-10 w-full bg-background/90 px-4 backdrop-blur-md dark:bg-background/90 print:hidden">
       <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
         <div>
           <NextLink
@@ -34,8 +34,8 @@ export function Navbar() {
             href="/resume"
             tabIndex={isResumePage ? -1 : undefined}
             aria-current={isResumePage ? 'page' : undefined}
-            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), {
-              'pointer-events-none bg-accent': isResumePage,
+            className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }), {
+              'pointer-events-none opacity-70': isResumePage,
             })}
           >
             <LuFileText className="mr-2" />

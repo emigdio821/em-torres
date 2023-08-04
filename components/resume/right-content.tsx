@@ -1,17 +1,15 @@
-import { BiLogoTailwindCss } from 'react-icons/bi'
 import {
-  FaCss3Alt,
-  FaDrum,
-  FaGitAlt,
-  FaHeadphonesAlt,
-  FaHtml5,
-  FaJsSquare,
-  FaKeyboard,
-  FaLaptopCode,
-  FaNodeJs,
-  FaReact,
-  FaSteam,
-} from 'react-icons/fa'
+  LuAtom,
+  LuBinary,
+  LuGamepad2,
+  LuGitPullRequest,
+  LuGlobe2,
+  LuHeadphones,
+  LuHexagon,
+  LuKeyboard,
+  LuMusic3,
+} from 'react-icons/lu'
+import { TbBrandCss3, TbBrandHtml5, TbBrandJavascript, TbBrandTailwind } from 'react-icons/tb'
 
 import { expData } from '@/lib/exp-data'
 
@@ -58,23 +56,24 @@ export function RightContent() {
       <div>
         <h3 className="mb-2 text-lg font-bold">Skills</h3>
         <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 text-center md:grid-cols-[repeat(7,_max-content)]">
-          <IconWithText Icon={FaCss3Alt} text="CSS" />
-          <IconWithText Icon={FaHtml5} text="HTML" />
-          <IconWithText Icon={FaJsSquare} text="JS/TS" />
-          <IconWithText Icon={BiLogoTailwindCss} text="Tailwind" />
-          <IconWithText Icon={FaGitAlt} text="Git" />
-          <IconWithText Icon={FaReact} text="React" />
-          <IconWithText Icon={FaNodeJs} text="Node.js" />
+          <IconWithText Icon={TbBrandCss3} text="CSS" />
+          <IconWithText Icon={TbBrandHtml5} text="HTML" />
+          <IconWithText Icon={TbBrandJavascript} text="JS/TS" />
+          <IconWithText Icon={TbBrandTailwind} text="Tailwind" />
+          <IconWithText Icon={LuGitPullRequest} text="Git" />
+          <IconWithText Icon={LuAtom} text="React" />
+          <IconWithText Icon={LuHexagon} text="Node.js" />
         </div>
       </div>
       <div>
         <h3 className="mb-2 text-lg font-bold">Hobbies & Interests</h3>
         <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 text-center md:grid-cols-[repeat(7,_max-content)]">
-          <IconWithText Icon={FaDrum} text="Drums" />
-          <IconWithText Icon={FaHeadphonesAlt} text="Music" />
-          <IconWithText Icon={FaSteam} text="Games" />
-          <IconWithText Icon={FaLaptopCode} text="Tech" />
-          <IconWithText Icon={FaKeyboard} text="KBoards" />
+          <IconWithText Icon={LuMusic3} text="Drums" />
+          <IconWithText Icon={LuHeadphones} text="Music" />
+          <IconWithText Icon={LuGamepad2} text="Games" />
+          <IconWithText Icon={LuBinary} text="Tech" />
+          <IconWithText Icon={LuKeyboard} text="KBoards" />
+          <IconWithText Icon={LuGlobe2} text="Travel" />
         </div>
       </div>
     </section>

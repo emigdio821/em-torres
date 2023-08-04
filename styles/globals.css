@@ -76,12 +76,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@layer components {
-  .home-hero::before {
-    @apply absolute -bottom-6 left-0 h-6 w-3 rounded-tl-lg bg-transparent shadow-[0_-0.75rem_0_0] shadow-white__nav_bg content-[''] dark:shadow-dark__nav_bg;
-  }
-  .home-hero::after {
-    @apply absolute -bottom-6 right-0 h-6 w-3 rounded-tr-lg bg-transparent shadow-[0_-0.75rem_0_0] shadow-white__nav_bg content-[''] dark:shadow-dark__nav_bg;
-  }
-}

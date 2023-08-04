@@ -37,7 +37,7 @@ export default function SpotiWidget() {
                 {isPlaying ? (
                   <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                      <div className="relative h-20 w-20 overflow-hidden rounded-md bg-zinc-800 shadow-md transition-all hover:brightness-75">
+                      <div className="relative h-20 w-20 overflow-hidden rounded-md bg-transparent shadow-md transition-all hover:brightness-75">
                         <BlurImage src={data.albumImageUrl} alt="Album" priority />
                       </div>
                     </motion.div>
@@ -61,7 +61,7 @@ export default function SpotiWidget() {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="flex max-w-[300px] flex-col items-start gap-1">
+        <div className="flex w-full flex-col items-start gap-1 md:w-80">
           <div className="flex items-start gap-2">
             <FaSpotify
               size={20}

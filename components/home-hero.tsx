@@ -1,7 +1,5 @@
-'use client'
-
-import { useEffect, useRef } from 'react'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { LuGithub } from 'react-icons/lu'
+import { RiLinkedinLine } from 'react-icons/ri'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
@@ -11,27 +9,8 @@ import SpotiWidget from './spotify-widget'
 import { buttonVariants } from './ui/button'
 
 export function HomeHero() {
-  const titleRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const titleEl = titleRef.current
-
-    function handleScroll() {
-      if (titleEl != null) titleEl.style.backgroundPositionY = `${window.scrollY * 0.4}px`
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
   return (
-    <section
-      ref={titleRef}
-      className="home-hero relative h-screen min-h-[660px] bg-white__nav_bg bg-[url(/images/title-bg-light.svg)] px-4 dark:bg-dark__nav_bg dark:bg-[url(/images/title-bg.svg)]"
-    >
+    <section className="relative h-screen min-h-[660px] bg-background bg-[url(/images/title-bg-light.svg)] px-4 dark:bg-[url(/images/title-bg.svg)]">
       <div className="mx-auto flex h-full w-full max-w-3xl items-center justify-center">
         <div>
           <div className="flex w-full flex-col-reverse items-start gap-6 py-6 md:flex-row md:items-center">
@@ -47,13 +26,13 @@ export function HomeHero() {
                   href={siteConfig.links.github}
                   className={cn(
                     buttonVariants({
-                      variant: 'outline',
+                      variant: 'secondary',
                       size: 'sm',
                     }),
                     'my-4 font-semibold',
                   )}
                 >
-                  <FaGithub className="mr-2" />
+                  <LuGithub className="mr-2" />
                   GitHub
                 </a>
                 <a
@@ -61,13 +40,13 @@ export function HomeHero() {
                   href={siteConfig.links.linkedin}
                   className={cn(
                     buttonVariants({
-                      variant: 'outline',
+                      variant: 'secondary',
                       size: 'sm',
                     }),
                     'my-4 font-semibold',
                   )}
                 >
-                  <FaLinkedinIn className="mr-2" />
+                  <RiLinkedinLine className="mr-2" />
                   LinkedIn
                 </a>
               </div>

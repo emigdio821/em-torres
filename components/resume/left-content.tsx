@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { FaAt, FaFilePdf, FaGithubAlt, FaLinkedinIn, FaMapMarkedAlt, FaPhone } from 'react-icons/fa'
+import { LuAtSign, LuFileText, LuGithub, LuMapPin, LuSmartphone } from 'react-icons/lu'
+import { RiLinkedinLine } from 'react-icons/ri'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
@@ -25,7 +26,7 @@ function ContactLink({ Icon, href, text }: ContactLinkProps) {
       href={href}
       className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 transition-none')}
     >
-      <Icon className="mr-2" />
+      <Icon className="mr-2" size={16} />
       {text}
     </a>
   )
@@ -56,21 +57,21 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
             <Spinner />
           ) : (
             <>
-              <FaFilePdf className="mr-2" />
+              <LuFileText className="mr-2" />
               Download
             </>
           )}
         </Button>
         <div className="flex flex-col items-start gap-1">
-          <ContactLink Icon={FaLinkedinIn} href={siteConfig.links.linkedin} text="@emigdio821" />
-          <ContactLink Icon={FaGithubAlt} href={siteConfig.links.github} text="@emigdio821" />
+          <ContactLink Icon={RiLinkedinLine} href={siteConfig.links.linkedin} text="@emigdio821" />
+          <ContactLink Icon={LuGithub} href={siteConfig.links.github} text="@emigdio821" />
+          <ContactLink Icon={LuMapPin} href={siteConfig.links.location} text="Jalisco, Mexico" />
+          <ContactLink Icon={LuSmartphone} href="tel:+523139617676" text="+52 (313) 961-7676" />
           <ContactLink
-            Icon={FaMapMarkedAlt}
-            href={siteConfig.links.location}
-            text="Jalisco, Mexico"
+            Icon={LuAtSign}
+            href="mailto:emigdio821@gmail.com"
+            text="emigdio821@gmail.com"
           />
-          <ContactLink Icon={FaPhone} href="tel:+523139617676" text="+52 (313) 961-7676" />
-          <ContactLink Icon={FaAt} href="mailto:emigdio821@gmail.com" text="emigdio821@gmail.com" />
         </div>
       </div>
       <div>

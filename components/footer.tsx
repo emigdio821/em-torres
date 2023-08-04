@@ -1,4 +1,4 @@
-import { FaGithub } from 'react-icons/fa'
+import { LuGithub } from 'react-icons/lu'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
@@ -13,10 +13,10 @@ export function Footer() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={siteConfig.links.projectSource}
+            href={siteConfig.links.sourceCode}
             className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'font-semibold')}
           >
-            <FaGithub className="mr-2" />
+            <LuGithub className="mr-2" />
             Source
           </a>
         </div>

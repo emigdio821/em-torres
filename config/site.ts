@@ -15,10 +15,9 @@ export const siteConfig = {
   ],
   links: {
     github: 'https://github.com/emigdio821/',
-    sourceCode: 'https://github.com/emigdio821/emigdio821.github.io/',
+    sourceCode: 'https://github.com/emigdio821/em-torres',
     linkedin: 'https://www.linkedin.com/in/emigdio821/',
     jobCompany: 'https://www.wizeline.com/',
-    projectSource: 'https://github.com/emigdio821/emigdio821.github.io/',
     location: 'https://www.google.com.mx/maps/place/Jalisco',
   },
 }

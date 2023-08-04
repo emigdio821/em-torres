@@ -13,7 +13,7 @@ export function TimeLine({ isLast = false, isFirst = false, delay = 0 }: Timelin
     <div className="relative">
       <motion.div
         className={cn(
-          'mt-1 h-2 w-2 bg-[#333] dark:bg-[#f0efef] print:!translate-y-0 print:!opacity-100',
+          'mt-[6px] h-2 w-2 bg-[#333] dark:bg-[#f0efef] print:!translate-y-0 print:!opacity-100',
           isFirst ? 'rounded-[2px]' : 'rounded-full',
         )}
         initial={{ opacity: 0, y: -10 }}
