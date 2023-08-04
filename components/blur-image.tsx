@@ -8,10 +8,9 @@ import { cn } from '@/lib/utils'
 
 type BlurImageProps = {
   animation?: boolean
-  priority?: boolean
 } & ImageProps
 
-export function BlurImage({ src, alt, priority, animation = true }: BlurImageProps) {
+export function BlurImage({ animation = true, alt, ...props }: BlurImageProps) {
   const [isLoading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
 
@@ -25,8 +24,6 @@ export function BlurImage({ src, alt, priority, animation = true }: BlurImagePro
         <Image
           fill
           alt={alt}
-          src={src}
-          priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={cn(
             'rounded-[inherit] bg-zinc-800 object-cover duration-300',
@@ -40,6 +37,7 @@ export function BlurImage({ src, alt, priority, animation = true }: BlurImagePro
           onLoadingComplete={() => {
             setLoading(false)
           }}
+          {...props}
         />
       )}
     </>

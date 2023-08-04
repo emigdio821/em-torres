@@ -20,15 +20,10 @@ export function ThemeToggler() {
       }}
     >
       <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          key={resolvedTheme}
-          transition={{ duration: 0.2 }}
-          animate={{ opacity: 1, rotate: 0 }}
-          initial={{ opacity: 0.8, rotate: 40 }}
-        >
-          <LuSun className="hidden dark:flex" />
-          <LuMoonStar className="flex dark:hidden" />
-        </motion.div>
+        <motion.span key={resolvedTheme} animate={{ rotate: 0 }} initial={{ rotate: 90 }}>
+          <LuSun className="hidden dark:block" />
+          <LuMoonStar className="block dark:hidden" />
+        </motion.span>
       </AnimatePresence>
     </Button>
   )

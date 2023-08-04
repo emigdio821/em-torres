@@ -34,7 +34,7 @@ function IconWithText({ Icon, text }: IconWithTextProps) {
 export function RightContent() {
   return (
     <section className="flex flex-col gap-6 bg-white__nav_bg/20 p-4 dark:bg-dark__nav_bg/50">
-      <div>
+      <div className="flex flex-col">
         <h3 className="mb-2 text-lg font-bold">Experience</h3>
         <div className="flex flex-col gap-2">
           {expData.map((item, idx) => (

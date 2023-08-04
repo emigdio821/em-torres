@@ -24,43 +24,51 @@ export default function SpotiWidget() {
   return (
     <>
       <div className="flex items-center gap-4">
-        <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
-          <motion.div
-            className="h-20 w-20"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <TooltipProvider delayDuration={100}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    type="button"
-                    onClick={() => {
-                      void mutate()
-                    }}
-                    className="h-auto rounded-md bg-transparent p-0 hover:bg-transparent"
-                  >
-                    {isPlaying ? (
+        <TooltipProvider delayDuration={100}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                type="button"
+                onClick={() => {
+                  void mutate()
+                }}
+                className="h-auto rounded-md bg-transparent p-0 hover:bg-transparent"
+              >
+                {isPlaying ? (
+                  <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                       <div className="relative h-20 w-20 overflow-hidden rounded-md bg-zinc-800 shadow-md transition-all hover:brightness-75">
-                        <BlurImage src={data.albumImageUrl} priority alt="Album" />
+                        <BlurImage src={data.albumImageUrl} alt="Album" priority />
                       </div>
-                    ) : (
-                      <div className="flex h-20 w-20 items-center justify-center rounded-md bg-zinc-800 transition-all hover:brightness-75">
-                        <LuMusic2 className="text-white" />
-                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                ) : (
+                  <div
+                    className={cn(
+                      'flex h-20 w-20 items-center justify-center rounded-md bg-zinc-800 transition-all hover:brightness-75',
+                      {
+                        'animate-pulse': isLoading,
+                      },
                     )}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p>Refresh song data</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </motion.div>
-        </AnimatePresence>
+                  >
+                    <LuMusic2 className="text-white" />
+                  </div>
+                )}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">
+              <p>Refresh song data</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex max-w-[300px] flex-col items-start gap-1">
           <div className="flex items-start gap-2">
-            <FaSpotify size={20} />
+            <FaSpotify
+              size={20}
+              className={cn({
+                'animate-pulse': isLoading,
+              })}
+            />
             {isPlaying ? <Equalizer /> : null}
           </div>
           {isPlaying ? (
@@ -100,7 +108,7 @@ export default function SpotiWidget() {
           )}
         </div>
       </div>
-      {error ? <p className="mt-2 text-sm">{error}</p> : null}
+      {error ? <p className="mt-2 text-xs text-red-500 dark:text-red-400">{error}</p> : null}
     </>
   )
 }

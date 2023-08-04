@@ -1,16 +1,14 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
-import { LuChevronDown } from 'react-icons/lu'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 import { BlurImage } from './blur-image'
 import SpotiWidget from './spotify-widget'
-import { Button, buttonVariants } from './ui/button'
+import { buttonVariants } from './ui/button'
 
 export function HomeHero() {
   const titleRef = useRef<HTMLElement>(null)
@@ -35,7 +33,7 @@ export function HomeHero() {
       className="home-hero relative h-screen min-h-[660px] bg-white__nav_bg bg-[url(/images/title-bg-light.svg)] px-4 dark:bg-dark__nav_bg dark:bg-[url(/images/title-bg.svg)]"
     >
       <div className="mx-auto flex h-full w-full max-w-3xl items-center justify-center">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+        <div>
           <div className="flex w-full flex-col-reverse items-start gap-6 py-6 md:flex-row md:items-center">
             <div>
               <h1 className="text-4xl font-extrabold md:text-5xl">
@@ -96,21 +94,8 @@ export function HomeHero() {
             </a>{' '}
             projects.
           </p>
-        </motion.div>
+        </div>
       </div>
-      <Button
-        size="icon"
-        type="button"
-        variant="ghost"
-        aria-label="Scroll down"
-        onClick={() => {
-          window.scrollTo({ behavior: 'smooth', top: document.body.scrollHeight })
-        }}
-        className=" absolute bottom-1 left-1/2 -translate-x-1/2"
-      >
-        <span className="sr-only">Scroll down</span>
-        <LuChevronDown size={20} />
-      </Button>
     </section>
   )
 }
