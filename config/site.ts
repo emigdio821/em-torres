@@ -5,6 +5,8 @@ export const siteConfig = {
   brand: 'emtorres',
   url: 'https://emtorres.vercel.app/',
   description: 'Software Engineer based in Mexico.',
+  resumeDesc: "Emigdio's resume.",
+  ogUrl: 'https://emtorres.vercel.app/api/og',
   navItems: [
     {
       title: 'Resume',

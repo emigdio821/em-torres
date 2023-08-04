@@ -8,7 +8,16 @@ export const metadata: Metadata = {
     default: 'Resume',
     template: `%s · ${siteConfig.name}`,
   },
-  description: "Emigdio's resume.",
+  description: siteConfig.resumeDesc,
+  openGraph: {
+    title: 'Emigdio Torres · Resume',
+    description: siteConfig.resumeDesc,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: 'en-US',
+    type: 'website',
+    images: siteConfig.ogUrl,
+  },
 }
 
 export default async function ResumePage() {
