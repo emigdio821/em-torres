@@ -58,7 +58,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
-          <main className="flex flex-col gap-6">{children}</main>
+          <main className="flex flex-col gap-4">{children}</main>
           <Footer />
           <TailwindIndicator />
         </ThemeProvider>

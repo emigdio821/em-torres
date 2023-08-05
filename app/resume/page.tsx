@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default async function ResumePage() {
   return (
-    <section className="mt-auto px-4 pt-20">
+    <section className="mt-auto px-4 pt-4">
       <ResumeContent />
     </section>
   )

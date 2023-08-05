@@ -2,7 +2,7 @@
 
 import type { SpotiResponse } from '@/types'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FaSpotify } from 'react-icons/fa'
+import { BiLogoSpotify } from 'react-icons/bi'
 import { LuMusic2 } from 'react-icons/lu'
 import useSWR, { type Fetcher } from 'swr'
 
@@ -62,8 +62,8 @@ export default function SpotiWidget() {
           </Tooltip>
         </TooltipProvider>
         <div className="flex w-full flex-col items-start gap-1 md:w-80">
-          <div className="flex items-start gap-2">
-            <FaSpotify
+          <div className="flex items-center gap-2">
+            <BiLogoSpotify
               size={20}
               className={cn({
                 'animate-pulse': isLoading,

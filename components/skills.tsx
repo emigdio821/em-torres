@@ -40,17 +40,18 @@ export function Skills() {
     <section className="px-4">
       <div className="mx-auto max-w-3xl rounded-lg border p-4 text-xl md:p-6 md:text-2xl">
         <p className="font-bold">I have a strong background in front-end development.</p>
-        <div>
-          <p className="font-bold">
-            These are some of the technologies I currently use: JavaScript, TypeScript, React and
-            Node.js.
-          </p>
-          <div className="mt-6 flex gap-2 grayscale-[70%] md:gap-4">
-            <SkillIcon src="/images/js.svg" alt="JavaScript" delay={0.1} />
-            <SkillIcon src="/images/ts.svg" alt="TypeScript" delay={0.2} />
-            <SkillIcon src="/images/react.svg" alt="React" delay={0.3} />
-            <SkillIcon src="/images/node.svg" alt="Node.js" delay={0.4} />
-          </div>
+        <p className="font-bold">
+          These are some of the technologies I currently use:{' '}
+          <span className="font-extrabold">JavaScript</span>,{' '}
+          <span className="font-extrabold">TypeScript</span>,{' '}
+          <span className="font-extrabold">React</span>, and{' '}
+          <span className="font-extrabold">Node.js</span>.
+        </p>
+        <div className="mt-6 flex gap-2 grayscale-[70%] md:gap-4">
+          <SkillIcon src="/images/js.svg" alt="JavaScript" delay={0.1} />
+          <SkillIcon src="/images/ts.svg" alt="TypeScript" delay={0.2} />
+          <SkillIcon src="/images/react.svg" alt="React" delay={0.3} />
+          <SkillIcon src="/images/node.svg" alt="Node.js" delay={0.4} />
         </div>
       </div>
     </section>

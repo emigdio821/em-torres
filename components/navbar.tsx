@@ -15,7 +15,7 @@ export function Navbar() {
   const isResumePage = pathname === '/resume'
 
   return (
-    <header className="fixed z-10 w-full bg-background/90 px-4 backdrop-blur-md dark:bg-background/90 print:hidden">
+    <header className="sticky top-0 z-40 w-full bg-background/90 px-4 backdrop-blur-md dark:bg-background/90 print:hidden">
       <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
         <div>
           <NextLink

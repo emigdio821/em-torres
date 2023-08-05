@@ -10,12 +10,12 @@ import { buttonVariants } from './ui/button'
 
 export function HomeHero() {
   return (
-    <section className="relative h-screen min-h-[660px] bg-background bg-[url(/images/title-bg-light.svg)] px-4 dark:bg-[url(/images/title-bg.svg)]">
+    <section className="relative h-[calc(100vh-4rem)] bg-background bg-[url(/images/title-bg-light.svg)] px-4 dark:bg-[url(/images/title-bg.svg)]">
       <div className="mx-auto flex h-full w-full max-w-3xl items-center justify-center">
         <div>
-          <div className="flex w-full flex-col-reverse items-start gap-6 py-6 md:flex-row md:items-center">
+          <div className="flex w-full flex-col-reverse items-start gap-6 sm:flex-row sm:items-center">
             <div>
-              <h1 className="text-4xl font-extrabold md:text-5xl">
+              <h1 className="text-3xl font-extrabold md:text-4xl">
                 Emigdio Torres
                 <span className="ml-2 animate-blinking">_</span>
               </h1>
@@ -56,7 +56,7 @@ export function HomeHero() {
               <BlurImage src="/images/em.jpg" alt="Em Avatar" priority />
             </div>
           </div>
-          <p className="pt-6 text-xl font-bold md:text-2xl">
+          <p className="pt-4 text-xl font-bold md:text-2xl">
             Hey there, I&apos;m a Software Engineer, mainly focused on front-end development.
             Currently, I&apos;m contributing to{' '}
             <a
