@@ -27,6 +27,7 @@ export const metadata: Metadata = {
       url: siteConfig.url,
     },
   ],
+  metadataBase: new URL(siteConfig.url),
   creator: 'Emigdio Torres',
   icons: {
     icon: 'images/favicon.ico',

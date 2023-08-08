@@ -53,7 +53,7 @@ export function HomeHero() {
               <SpotiWidget />
             </div>
             <div className="relative h-36 w-36 overflow-hidden rounded-full bg-zinc-800 shadow-md md:h-44 md:w-44">
-              <BlurImage src="/images/em.jpg" alt="Em Avatar" priority />
+              <BlurImage src="/images/em.jpg" alt="Em Avatar" />
             </div>
           </div>
           <p className="pt-4 text-xl font-bold md:text-2xl">

@@ -1,7 +1,7 @@
 import {
   LuAtom,
   LuBinary,
-  LuGamepad2,
+  LuGamepad,
   LuGitPullRequest,
   LuGlobe2,
   LuHeadphones,
@@ -70,7 +70,7 @@ export function RightContent() {
         <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 text-center md:grid-cols-[repeat(7,_max-content)]">
           <IconWithText Icon={LuMusic3} text="Drums" />
           <IconWithText Icon={LuHeadphones} text="Music" />
-          <IconWithText Icon={LuGamepad2} text="Games" />
+          <IconWithText Icon={LuGamepad} text="Games" />
           <IconWithText Icon={LuBinary} text="Tech" />
           <IconWithText Icon={LuKeyboard} text="KBoards" />
           <IconWithText Icon={LuGlobe2} text="Travel" />
