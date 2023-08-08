@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
 
+export const revalidate = 0
+
 const {
   SPOTIFY_CLIENT_ID: clientId,
   SPOTIFY_CLIENT_SECRET: clientSecret,
@@ -20,7 +22,7 @@ const basic = Buffer.from(`${clientId ?? ''}:${clientSecret ?? ''}`).toString('b
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
-const getAccessToken = async () => {
+async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -39,15 +41,12 @@ const getAccessToken = async () => {
   return (await response.json()) as SpotiAccessToken
 }
 
-const getNowPlaying = async () => {
+async function getNowPlaying() {
   const { access_token: accessToken } = await getAccessToken()
 
   return await fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-    },
-    next: {
-      revalidate: 5,
     },
   })
 }
