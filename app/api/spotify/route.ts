@@ -28,7 +28,7 @@ const getAccessToken = async () => {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     next: {
-      revalidate: 0,
+      revalidate: 3600,
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
@@ -47,7 +47,7 @@ const getNowPlaying = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
     next: {
-      revalidate: 0,
+      revalidate: 5,
     },
   })
 }
