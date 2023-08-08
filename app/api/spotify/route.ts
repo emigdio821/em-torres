@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse } from 'next/server'
 import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
 
 const {
@@ -27,6 +27,7 @@ const getAccessToken = async () => {
       Authorization: `Basic ${basic}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
+    cache: 'no-cache',
     body: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: refreshToken as string,
@@ -43,15 +44,15 @@ const getNowPlaying = async () => {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
+    cache: 'no-cache',
   })
 }
 
-export default async function handler(_: NextApiRequest, res: NextApiResponse<SpotiResponse>) {
+export async function GET(): Promise<NextResponse<SpotiResponse>> {
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status >= 400) {
-    res.status(200).json(initialState)
-    return
+    return NextResponse.json(initialState)
   }
 
   const song: SpotiSong = await response.json()
@@ -62,7 +63,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse<Sp
   const albumImageUrl = song.item.album.images[0].url
   const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
 
-  res.status(200).json({
+  return NextResponse.json({
     album,
     title,
     artist,
