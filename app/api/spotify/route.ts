@@ -28,7 +28,7 @@ const getAccessToken = async () => {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     next: {
-      revalidate: 3600,
+      revalidate: 2400,
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
