@@ -27,7 +27,7 @@ export function BlurImage({ animation = true, alt, ...props }: BlurImageProps) {
           quality={75}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={cn(
-            'rounded-[inherit] bg-zinc-800 object-cover duration-300',
+            'rounded-[inherit] bg-transparent object-cover duration-300',
             isLoading ? 'blur-sm' : 'blur-0',
             animation && isLoading ? 'scale-105' : 'scale-100',
           )}

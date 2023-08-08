@@ -16,11 +16,17 @@ const initialState = {
   songUrl: '',
   isPlaying: false,
   albumImageUrl: '',
+  albumReleaseDate: '',
+  popularity: 0,
+  trackNumber: 0,
+  albumTotalTracks: 0,
+  audioFeats: {},
 }
 
 const basic = Buffer.from(`${clientId ?? ''}:${clientSecret ?? ''}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
+const AUDIO_FEATS_ENDPOINT = 'https://api.spotify.com/v1/audio-features'
 
 async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -51,6 +57,16 @@ async function getNowPlaying() {
   })
 }
 
+async function getAudioFeatures(trackId: string) {
+  const { access_token: accessToken } = await getAccessToken()
+
+  return await fetch(`${AUDIO_FEATS_ENDPOINT}/${trackId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+}
+
 export async function GET(): Promise<NextResponse<SpotiResponse>> {
   const response = await getNowPlaying()
 
@@ -59,12 +75,18 @@ export async function GET(): Promise<NextResponse<SpotiResponse>> {
   }
 
   const song: SpotiSong = await response.json()
+  const audioFeatsRes = await getAudioFeatures(song.item.id)
+  const audioFeats = await audioFeatsRes.json()
   const title = song.item.name
   const isPlaying = song.is_playing
   const album = song.item.album.name
   const songUrl = song.item.external_urls.spotify
   const albumImageUrl = song.item.album.images[0].url
   const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
+  const albumReleaseDate = song.item.album.release_date
+  const popularity = song.item.popularity
+  const trackNumber = song.item.track_number
+  const albumTotalTracks = song.item.album.total_tracks
 
   return NextResponse.json({
     album,
@@ -73,5 +95,10 @@ export async function GET(): Promise<NextResponse<SpotiResponse>> {
     songUrl,
     isPlaying,
     albumImageUrl,
+    albumReleaseDate,
+    popularity,
+    trackNumber,
+    albumTotalTracks,
+    audioFeats,
   })
 }
