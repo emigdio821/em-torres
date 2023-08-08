@@ -35,7 +35,7 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
   return (
     <div className="flex flex-col gap-4 bg-white__nav_bg p-4 dark:bg-dark__nav_bg">
       <div>
-        <div className="relative h-24 w-24 overflow-hidden rounded-full bg-zinc-800 shadow-md md:h-32 md:w-32">
+        <div className="relative h-24 w-24 overflow-hidden rounded-full bg-transparent shadow-md md:h-32 md:w-32">
           <BlurImage src="/images/em.jpg" alt="Em Avatar" priority />
         </div>
         <div className="mb-4 mt-6">
