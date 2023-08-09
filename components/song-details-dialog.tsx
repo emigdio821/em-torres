@@ -28,8 +28,8 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
                 <AnimatePresence mode="wait" key={data.albumImageUrl}>
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                     <Image
-                      width={80}
-                      height={80}
+                      width={140}
+                      height={140}
                       alt="Song cover"
                       src={data.albumImageUrl}
                       className="h-20 w-20 min-w-[5rem] rounded-md bg-zinc-800 object-cover shadow-md transition-all group-hover:brightness-50 group-focus-visible:brightness-50"
@@ -60,8 +60,9 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
               alt="Song cover"
               className="object-cover"
               src={data.albumImageUrl}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            <div className="absolute flex h-full w-full flex-col items-center justify-center bg-black/80 p-4 text-center text-white">
+            <div className="absolute flex h-full w-full flex-col items-center justify-center bg-black/70 p-4 text-center text-white">
               <h3 className="line-clamp-2 text-lg font-bold">{data.title}</h3>
               <h4 className="line-clamp-2 font-semibold">{data.artist}</h4>
               <a
