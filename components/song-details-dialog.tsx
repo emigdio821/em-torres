@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { SpotiResponse } from '@/types'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LuArrowUpRight } from 'react-icons/lu'
@@ -5,7 +6,6 @@ import { LuArrowUpRight } from 'react-icons/lu'
 import { cn } from '@/lib/utils'
 
 import { AudioFeatsChart } from './audio-feats-chart'
-import { BlurImage } from './blur-image'
 import { Button, buttonVariants } from './ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
@@ -27,9 +27,13 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
               >
                 <AnimatePresence mode="wait" key={data.albumImageUrl}>
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                    <div className="relative h-20 w-20 overflow-hidden rounded-md bg-transparent shadow-md transition-all group-hover:brightness-75 group-focus-visible:brightness-75">
-                      <BlurImage src={data.albumImageUrl} alt="Album" priority />
-                    </div>
+                    <Image
+                      width={80}
+                      height={80}
+                      alt="Song cover"
+                      src={data.albumImageUrl}
+                      className="h-20 w-20 min-w-[5rem] rounded-md bg-zinc-800 object-cover shadow-md transition-all group-hover:brightness-50 group-focus-visible:brightness-50"
+                    />
                   </motion.div>
                 </AnimatePresence>
               </Button>
@@ -48,28 +52,36 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold">Song details</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-6">
-          <div className="relative h-28 w-full overflow-hidden rounded-md bg-transparent shadow-md sm:h-40 sm:w-40 sm:min-w-[10rem]">
-            <BlurImage src={data.albumImageUrl} alt="Album" priority />
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className="relative h-48 w-full overflow-hidden rounded-md bg-zinc-800 shadow-md sm:h-56">
+            <Image
+              fill
+              priority
+              alt="Song cover"
+              className="object-cover"
+              src={data.albumImageUrl}
+            />
+            <div className="absolute flex h-full w-full flex-col items-center justify-center bg-black/80 p-4 text-center text-white">
+              <h3 className="line-clamp-2 text-lg font-bold">{data.title}</h3>
+              <h4 className="line-clamp-2 font-semibold">{data.artist}</h4>
+              <a
+                target="_blank"
+                href={data.songUrl}
+                className={cn(
+                  buttonVariants({ variant: 'unstyled', size: 'sm' }),
+                  'mt-2 h-8 bg-white/10 text-xs backdrop-blur-sm hover:bg-white/20 sm:h-9 sm:text-sm',
+                )}
+              >
+                Play on Spotify
+                <LuArrowUpRight className="ml-2" />
+              </a>
+            </div>
           </div>
-          <p className="flex flex-col text-center sm:text-left">
-            <span className="line-clamp-2 text-base font-bold sm:text-lg">{data.title}</span>
-            <span className="line-clamp-2 text-sm font-semibold sm:text-base">{data.artist}</span>
+          <p className="flex flex-col text-center font-semibold">
             <span className="text-xs opacity-80 sm:text-sm">
               {data.album} · {new Date(data.albumReleaseDate).getFullYear()}
             </span>
             <span className="text-xs opacity-80 sm:text-sm">Popularity · {data.popularity}%</span>
-            <a
-              target="_blank"
-              href={data.songUrl}
-              className={cn(
-                buttonVariants({ variant: 'secondary', size: 'sm' }),
-                'mt-2 h-8 self-center text-xs sm:h-9 sm:self-start sm:text-sm',
-              )}
-            >
-              Play on Spotify
-              <LuArrowUpRight className="ml-2" />
-            </a>
           </p>
         </div>
         <div className="h-64 w-full sm:h-80">

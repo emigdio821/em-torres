@@ -28,7 +28,7 @@ const featuresToShow = [
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-md border bg-popover px-3 py-1.5 text-sm">
+      <div className="rounded-md border bg-popover px-3 py-1.5 text-sm shadow-md">
         <p>
           <span className="font-medium capitalize">{label}</span>: <span>{payload[0].value}</span>
         </p>

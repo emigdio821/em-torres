@@ -33,7 +33,7 @@ export function ResumeContent() {
     <div
       ref={pdfRef}
       className={cn(
-        'mx-auto grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-lg border text-sm print:max-w-full print:grid-cols-[0.5fr_1fr] print:rounded-none print:border-none md:grid-cols-[0.5fr_1fr]',
+        'mx-auto grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-lg border text-sm print:max-w-full print:grid-cols-[0.5fr_1fr] print:rounded-none print:border-none sm:grid-cols-[0.5fr_1fr]',
         fontSans.className,
       )}
     >

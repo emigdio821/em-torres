@@ -1,9 +1,9 @@
+import Image from 'next/image'
 import { LuAtSign, LuFileText, LuGithub, LuMapPin, LuSmartphone } from 'react-icons/lu'
 import { RiLinkedinLine } from 'react-icons/ri'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-import { BlurImage } from '@/components/blur-image'
 
 import { Spinner } from '../spinner'
 import { Button, buttonVariants } from '../ui/button'
@@ -35,9 +35,14 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
   return (
     <div className="flex flex-col gap-4 bg-white__nav_bg p-4 dark:bg-dark__nav_bg">
       <div>
-        <div className="relative h-24 w-24 overflow-hidden rounded-full bg-transparent shadow-md md:h-32 md:w-32">
-          <BlurImage src="/images/em.jpg" alt="Em Avatar" priority />
-        </div>
+        <Image
+          priority
+          width={280}
+          height={280}
+          alt="Emigdio"
+          src="/images/em.jpg"
+          className="h-28 w-28 rounded-full object-cover shadow-md sm:h-32 sm:w-32"
+        />
         <div className="mb-4 mt-6">
           <h3 className="text-2xl font-extrabold">Emigdio Torres</h3>
           <h4 className="text-lg font-bold">Software Engineer</h4>

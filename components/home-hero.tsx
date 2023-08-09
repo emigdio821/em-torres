@@ -1,10 +1,10 @@
+import Image from 'next/image'
 import { LuGithub } from 'react-icons/lu'
 import { RiLinkedinLine } from 'react-icons/ri'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
-import { BlurImage } from './blur-image'
 import SpotiWidget from './spotify-widget'
 import { buttonVariants } from './ui/button'
 
@@ -52,9 +52,14 @@ export function HomeHero() {
               </div>
               <SpotiWidget />
             </div>
-            <div className="relative h-36 w-36 overflow-hidden rounded-full bg-transparent shadow-md md:h-44 md:w-44">
-              <BlurImage src="/images/em.jpg" alt="Em Avatar" priority />
-            </div>
+            <Image
+              priority
+              width={176}
+              height={176}
+              alt="Emigdio"
+              src="/images/em.jpg"
+              className="h-36 w-36 rounded-full object-cover shadow-md sm:h-44 sm:w-44"
+            />
           </div>
           <p className="pt-4 text-xl font-bold md:text-2xl">
             Hey there, I&apos;m a Software Engineer, mainly focused on front-end development.
