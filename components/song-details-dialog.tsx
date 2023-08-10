@@ -85,9 +85,11 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
             <span className="text-xs opacity-80 sm:text-sm">Popularity · {data.popularity}%</span>
           </p>
         </div>
-        <div className="h-64 w-full sm:h-80">
-          <AudioFeatsChart data={data} />
-        </div>
+        {data.audioFeats && (
+          <div className="h-64 w-full sm:h-80">
+            <AudioFeatsChart data={data.audioFeats} />
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   )

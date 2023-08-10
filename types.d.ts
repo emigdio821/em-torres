@@ -30,7 +30,7 @@ export interface SpotiResponse {
   popularity: number
   trackNumber: number
   albumTotalTracks: number
-  audioFeats: Partial<AudioFeats>
+  audioFeats?: AudioFeats
 }
 
 export interface SpotiAccessToken {

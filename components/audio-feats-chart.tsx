@@ -1,6 +1,6 @@
 'use client'
 
-import type { SpotiResponse } from '@/types'
+import type { AudioFeats } from '@/types'
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -12,7 +12,7 @@ import {
 } from 'recharts'
 
 interface AudioFeatsChartProps {
-  data: SpotiResponse
+  data: AudioFeats
 }
 
 const featuresToShow = [
@@ -40,7 +40,7 @@ function CustomTooltip({ active, payload, label }: TooltipProps<number, string>)
 }
 
 export function AudioFeatsChart({ data }: AudioFeatsChartProps) {
-  const chartData = Object.entries(data.audioFeats)
+  const chartData = Object.entries(data)
     .filter(([key, _]) => featuresToShow.includes(key))
     .map(([key, value]) => ({
       name: key,

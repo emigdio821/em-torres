@@ -20,7 +20,6 @@ const initialState = {
   popularity: 0,
   trackNumber: 0,
   albumTotalTracks: 0,
-  audioFeats: {},
 }
 
 const basic = Buffer.from(`${clientId ?? ''}:${clientSecret ?? ''}`).toString('base64')
@@ -70,13 +69,29 @@ async function getAudioFeatures(trackId: string) {
 export async function GET(): Promise<NextResponse<SpotiResponse>> {
   const response = await getNowPlaying()
 
-  if (response.status === 204 || response.status >= 400) {
+  if (!response.ok) {
+    console.log({
+      origin: 'getNowPlaying',
+      status: response.status,
+      message: response.statusText,
+    })
     return NextResponse.json(initialState)
   }
 
+  let audioFeats
   const song: SpotiSong = await response.json()
-  const audioFeatsRes = await getAudioFeatures(song.item.id)
-  const audioFeats = await audioFeatsRes.json()
+  const featsResponse = await getAudioFeatures(song.item.id)
+
+  if (!featsResponse.ok) {
+    console.log({
+      origin: 'getAudioFeatures',
+      status: featsResponse.status,
+      message: featsResponse.statusText,
+    })
+  } else {
+    audioFeats = await featsResponse.json()
+  }
+
   const title = song.item.name
   const isPlaying = song.is_playing
   const album = song.item.album.name
