@@ -69,7 +69,7 @@ async function getAudioFeatures(trackId: string) {
 export async function GET(): Promise<NextResponse<SpotiResponse>> {
   const response = await getNowPlaying()
 
-  if (!response.ok) {
+  if (response.status === 204 || !response.ok) {
     console.log({
       origin: 'getNowPlaying',
       status: response.status,
