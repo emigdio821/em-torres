@@ -34,9 +34,6 @@ async function getAccessToken() {
       Authorization: `Basic ${basic}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    next: {
-      revalidate: 2400,
-    },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: refreshToken as string,
@@ -70,11 +67,13 @@ export async function GET(): Promise<NextResponse<SpotiResponse>> {
   const response = await getNowPlaying()
 
   if (response.status === 204 || !response.ok) {
-    console.log({
-      origin: 'getNowPlaying',
-      status: response.status,
-      message: response.statusText,
-    })
+    if (!response.ok) {
+      console.log({
+        origin: 'getNowPlaying',
+        status: response.status,
+        message: response.statusText,
+      })
+    }
     return NextResponse.json(initialState)
   }
 
