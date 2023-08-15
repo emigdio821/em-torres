@@ -79,7 +79,13 @@ export function AudioFeatsChart({ data }: AudioFeatsChartProps) {
           style={{ textTransform: 'capitalize', fontWeight: 500 }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Radar dataKey="value" stroke="#1DB954" fill="#1DB954" fillOpacity={0.5} />
+        <Radar
+          dataKey="value"
+          stroke="#1DB954"
+          fill="#1DB954"
+          fillOpacity={0.5}
+          animationDuration={500}
+        />
       </RadarChart>
     </ResponsiveContainer>
   )
