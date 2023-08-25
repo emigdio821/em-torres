@@ -2,11 +2,12 @@
 
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LuCoffee, LuFileText } from 'react-icons/lu'
+import { LuFileText } from 'react-icons/lu'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
+import { Coffee } from './icons/coffee'
 import { ThemeToggler } from './theme-toggler'
 import { buttonVariants } from './ui/button'
 
@@ -17,7 +18,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full bg-background/90 px-4 backdrop-blur-md dark:bg-background/90 print:hidden">
       <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
-        <div>
+        <div className="flex items-center">
           <NextLink
             href="/"
             className={cn(
@@ -25,7 +26,7 @@ export function Navbar() {
               'px-0 text-lg font-bold transition-opacity duration-200 hover:no-underline hover:opacity-80',
             )}
           >
-            <LuCoffee className="mr-2 animate-coffee-icon" />
+            <Coffee className="mr-2 h-full" />
             {siteConfig.brand}
           </NextLink>
         </div>

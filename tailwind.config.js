@@ -76,12 +76,12 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
-        'coffee-icon': {
+        'coffee-steam': {
           '0%': {
-            transform: 'rotate(40deg) scale(1.15)',
+            transform: 'translateY(-12%)',
           },
           '30%, 100%': {
-            transform: 'rotate(0)',
+            transform: 'translateY(0)',
           },
         },
       },
@@ -89,7 +89,7 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         blinking: 'blinking 0.5s alternate infinite ease-out',
-        'coffee-icon': 'coffee-icon 2s alternate infinite',
+        'coffee-steam': 'coffee-steam 2s alternate infinite ease-out',
       },
     },
   },
