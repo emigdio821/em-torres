@@ -1,5 +1,7 @@
+import { BiLogoTailwindCss } from 'react-icons/bi'
+import { DiJavascript1 } from 'react-icons/di'
+import { FaReact } from 'react-icons/fa'
 import {
-  LuAtom,
   LuBinary,
   LuGamepad,
   LuGitPullRequest,
@@ -9,7 +11,7 @@ import {
   LuKeyboard,
   LuMusic3,
 } from 'react-icons/lu'
-import { TbBrandCss3, TbBrandHtml5, TbBrandJavascript, TbBrandTailwind } from 'react-icons/tb'
+import { TbBrandCss3, TbBrandHtml5 } from 'react-icons/tb'
 
 import { expData } from '@/lib/exp-data'
 
@@ -58,10 +60,10 @@ export function RightContent() {
         <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 gap-y-3 text-center md:grid-cols-[repeat(7,_max-content)]">
           <IconWithText Icon={TbBrandCss3} text="CSS" />
           <IconWithText Icon={TbBrandHtml5} text="HTML" />
-          <IconWithText Icon={TbBrandJavascript} text="JS/TS" />
-          <IconWithText Icon={TbBrandTailwind} text="Tailwind" />
+          <IconWithText Icon={DiJavascript1} text="JS/TS" />
+          <IconWithText Icon={BiLogoTailwindCss} text="Tailwind" />
           <IconWithText Icon={LuGitPullRequest} text="Git" />
-          <IconWithText Icon={LuAtom} text="React" />
+          <IconWithText Icon={FaReact} text="React" />
           <IconWithText Icon={LuHexagon} text="Node.js" />
         </div>
       </div>
