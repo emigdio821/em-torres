@@ -57,7 +57,7 @@ export function RightContent() {
       </div>
       <div>
         <h3 className="mb-2 text-lg font-bold">Skills</h3>
-        <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 gap-y-3 text-center md:grid-cols-[repeat(7,_max-content)]">
+        <div className="flex flex-wrap gap-4">
           <IconWithText Icon={TbBrandCss3} text="CSS" />
           <IconWithText Icon={TbBrandHtml5} text="HTML" />
           <IconWithText Icon={DiJavascript1} text="JS/TS" />
@@ -69,7 +69,7 @@ export function RightContent() {
       </div>
       <div>
         <h3 className="mb-2 text-lg font-bold">Hobbies & Interests</h3>
-        <div className="grid grid-cols-[repeat(5,_max-content)] gap-4 gap-y-3 text-center md:grid-cols-[repeat(7,_max-content)]">
+        <div className="flex flex-wrap gap-4">
           <IconWithText Icon={LuMusic3} text="Drums" />
           <IconWithText Icon={LuHeadphones} text="Music" />
           <IconWithText Icon={LuGamepad} text="Games" />

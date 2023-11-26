@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 
 import { type PropsWithChildren } from 'react'
-import { type Metadata } from 'next'
+import { Viewport, type Metadata } from 'next'
 
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
@@ -17,10 +17,6 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   authors: [
     {
       name: 'Emigdio Torres',
@@ -45,6 +41,13 @@ export const metadata: Metadata = {
   },
   robots: '/robots.txt',
   manifest: '/site.webmanifest',
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
