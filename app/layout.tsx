@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 
 import { type PropsWithChildren } from 'react'
-import { Viewport, type Metadata } from 'next'
+import { type Metadata, type Viewport } from 'next'
 
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'

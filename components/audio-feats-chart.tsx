@@ -37,7 +37,7 @@ const featsIcons = {
 }
 
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
-  if (active && payload && payload.length) {
+  if (active && payload?.length) {
     const key = label as keyof typeof featsIcons
     const Icon = featsIcons[key] || LuMusic
 
