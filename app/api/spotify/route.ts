@@ -36,6 +36,7 @@ async function getAccessToken() {
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       refresh_token: refreshToken as string,
     }),
   })

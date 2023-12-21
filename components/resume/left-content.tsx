@@ -23,6 +23,7 @@ function ContactLink({ Icon, href, text }: ContactLinkProps) {
   return (
     <a
       href={href}
+      target="_blank"
       className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 transition-none')}
     >
       <Icon className="mr-2" size={16} />
