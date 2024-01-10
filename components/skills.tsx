@@ -7,7 +7,7 @@ import { FaReact } from 'react-icons/fa'
 import { LuHexagon } from 'react-icons/lu'
 import { TbBrandNextjs } from 'react-icons/tb'
 
-import { TypeScript } from './icons'
+import { TypeScriptIcon } from './icons'
 
 interface SkillIconProps {
   delay?: number
@@ -52,7 +52,7 @@ export function Skills() {
             <span className="font-semibold text-sm">JavaScript</span>
           </SkillIcon>
           <SkillIcon delay={0.2}>
-            <TypeScript />
+            <TypeScriptIcon />
             <span className="font-semibold text-sm">TypeScript</span>
           </SkillIcon>
           <SkillIcon delay={0.3}>

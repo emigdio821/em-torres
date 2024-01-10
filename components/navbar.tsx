@@ -7,7 +7,7 @@ import { LuFileText } from 'react-icons/lu'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
-import { Coffee } from './icons'
+import { CoffeeIcon } from './icons'
 import { ThemeToggler } from './theme-toggler'
 import { buttonVariants } from './ui/button'
 
@@ -26,7 +26,7 @@ export function Navbar() {
               'px-0 text-lg font-bold transition-opacity duration-200 hover:no-underline hover:opacity-80',
             )}
           >
-            <Coffee className="mr-2 h-full" />
+            <CoffeeIcon className="mr-2 h-full" />
             {siteConfig.brand}
           </NextLink>
         </div>

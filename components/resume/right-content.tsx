@@ -14,6 +14,7 @@ import {
 import { TbBrandCss3, TbBrandHtml5 } from 'react-icons/tb'
 
 import { expData } from '@/lib/exp-data'
+import { TypeScriptIcon } from '@/components/icons'
 
 import { TimeLine } from './timeline'
 
@@ -25,7 +26,7 @@ interface IconWithTextProps {
 function IconWithText({ Icon, text }: IconWithTextProps) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <Icon size={24} />
+      <Icon size={24} width={24} height={24} />
       <span className="text-xs font-medium">{text}</span>
     </div>
   )
@@ -60,7 +61,8 @@ export function RightContent() {
         <div className="flex flex-wrap gap-4">
           <IconWithText Icon={TbBrandCss3} text="CSS" />
           <IconWithText Icon={TbBrandHtml5} text="HTML" />
-          <IconWithText Icon={DiJavascript1} text="JS/TS" />
+          <IconWithText Icon={DiJavascript1} text="JavaScript" />
+          <IconWithText Icon={TypeScriptIcon} text="TypeScript" />
           <IconWithText Icon={BiLogoTailwindCss} text="Tailwind" />
           <IconWithText Icon={LuGitPullRequest} text="Git" />
           <IconWithText Icon={FaReact} text="React" />

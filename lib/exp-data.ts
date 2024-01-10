@@ -21,7 +21,7 @@ export const expData: ExperienceData[] = [
     year: '2019 - 2021',
     company: 'HCL Technologies',
     description:
-      'Frontend, using IBM Dojo Toolkit, migrating to React, Redux, and Material UI. Development of an application builder.',
+      'Frontend, using IBM Dojo Toolkit, migrating to React, Redux, and Material UI. Development of a web content manager.',
   },
   {
     id: 3,
