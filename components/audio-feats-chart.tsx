@@ -84,7 +84,7 @@ export function AudioFeatsChart({ data }: AudioFeatsChartProps) {
           stroke="#1DB954"
           fill="#1DB954"
           fillOpacity={0.5}
-          animationDuration={500}
+          animationDuration={0}
         />
       </RadarChart>
     </ResponsiveContainer>

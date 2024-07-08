@@ -45,6 +45,7 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
         </Tooltip>
       </TooltipProvider>
       <DialogContent
+        aria-describedby={undefined}
         onInteractOutside={(e) => {
           e.preventDefault()
         }}

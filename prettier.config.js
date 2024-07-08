@@ -6,6 +6,7 @@ const config = {
   tabWidth: 2,
   printWidth: 100,
   singleQuote: true,
+  endOfLine: 'lf',
   bracketSpacing: true,
   trailingComma: 'all',
   importOrder: [
