@@ -2,15 +2,7 @@
 
 import type { AudioFeats } from '@/types'
 import { LuHeadphones, LuMic2, LuMusic, LuMusic3, LuSmile, LuSpeaker, LuZap } from 'react-icons/lu'
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-  Tooltip,
-  type TooltipProps,
-} from 'recharts'
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, Tooltip, type TooltipProps } from 'recharts'
 
 interface AudioFeatsChartProps {
   data: AudioFeats
@@ -79,13 +71,7 @@ export function AudioFeatsChart({ data }: AudioFeatsChartProps) {
           style={{ textTransform: 'capitalize', fontWeight: 500 }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Radar
-          dataKey="value"
-          stroke="#1DB954"
-          fill="#1DB954"
-          fillOpacity={0.5}
-          animationDuration={0}
-        />
+        <Radar dataKey="value" stroke="#1DB954" fill="#1DB954" fillOpacity={0.5} animationDuration={0} />
       </RadarChart>
     </ResponsiveContainer>
   )

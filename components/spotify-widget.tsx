@@ -1,23 +1,32 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import type { SpotiResponse } from '@/types'
+import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BiLogoSpotify } from 'react-icons/bi'
 import { LuMusic2 } from 'react-icons/lu'
-import useSWR, { type Fetcher } from 'swr'
-
-import { cn } from '@/lib/utils'
-
 import { Equalizer } from './equalizer'
 import { SongDetailsDialog } from './song-details-dialog'
 import { Skeleton } from './ui/skeleton'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
 
 export default function SpotiWidget() {
-  const fetcher: Fetcher<SpotiResponse> = async (url: string) => {
-    return await fetch(url).then(async (r) => await r.json())
+  async function getCurrentPlayingSong() {
+    try {
+      const res = await fetch('/api/spotify')
+      const data: SpotiResponse = await res.json()
+
+      return data
+    } catch (err) {
+      console.log('[GET_CURRENT_PLAYING_SONG]', err)
+    }
   }
-  const { data, mutate, error, isLoading } = useSWR('/api/spotify', fetcher)
+
+  const { data, error, isLoading, refetch } = useQuery({
+    queryKey: ['current-playing'],
+    queryFn: getCurrentPlayingSong,
+  })
   const isPlaying = data?.isPlaying
 
   return (
@@ -43,7 +52,7 @@ export default function SpotiWidget() {
               <Tooltip>
                 <TooltipTrigger
                   onClick={() => {
-                    void mutate()
+                    refetch()
                   }}
                   className="rounded-full outline-none transition-opacity hover:opacity-80 focus-visible:opacity-80 focus-visible:ring-2 focus-visible:ring-ring"
                 >
@@ -63,11 +72,7 @@ export default function SpotiWidget() {
           </div>
           {isPlaying ? (
             <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex flex-col"
-              >
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col">
                 <span className="line-clamp-2 font-semibold">{data.title}</span>
                 <span className="line-clamp-2">{data.artist}</span>
               </motion.div>
@@ -89,7 +94,7 @@ export default function SpotiWidget() {
           )}
         </div>
       </div>
-      {error ? <p className="mt-2 text-xs text-red-500 dark:text-red-400">{error}</p> : null}
+      {error ? <p className="mt-2 text-xs text-red-500 dark:text-red-400">{error.message}</p> : null}
     </>
   )
 }

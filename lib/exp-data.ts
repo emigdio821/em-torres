@@ -13,7 +13,7 @@ export const expData: ExperienceData[] = [
     year: 'Present',
     company: 'Wizeline',
     description:
-      'Currently working on Frontend, using JavaScript, TypeScript, Next.js, Node.js, Tailwind CSS, and Jest. Development and support for the Dow Jones products.',
+      'Mainly working on Frontend, using JavaScript, TypeScript, Next.js, Node.js, and Tailwind. Development and support for the Dow Jones products.',
   },
   {
     id: 2,

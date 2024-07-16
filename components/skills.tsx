@@ -6,7 +6,6 @@ import { DiJavascript1 } from 'react-icons/di'
 import { FaReact } from 'react-icons/fa'
 import { LuHexagon } from 'react-icons/lu'
 import { TbBrandNextjs } from 'react-icons/tb'
-
 import { TypeScriptIcon } from './icons'
 
 interface SkillIconProps {

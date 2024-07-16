@@ -1,15 +1,13 @@
-import '@/styles/globals.css'
-
-import { type PropsWithChildren } from 'react'
-import { type Metadata, type Viewport } from 'next'
-
+import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
+import { Providers } from '@/components/providers'
+import { TailwindIndicator } from '@/components/tw-indicator'
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
-import { Footer } from '@/components/footer'
-import { Navbar } from '@/components/navbar'
-import { ThemeProvider } from '@/components/theme-provider'
-import { TailwindIndicator } from '@/components/tw-indicator'
+import '@/styles/globals.css'
+import type { Metadata, Viewport } from 'next'
+import type { PropsWithChildren } from 'react'
 
 export const metadata: Metadata = {
   title: {
@@ -23,15 +21,7 @@ export const metadata: Metadata = {
       url: siteConfig.url,
     },
   ],
-  keywords: [
-    'Emigdio Torres',
-    'Emigdio',
-    'Torres',
-    'Em Torres',
-    'Software Engineer',
-    'emtorres',
-    'Mexico',
-  ],
+  keywords: ['Emigdio Torres', 'Emigdio', 'Torres', 'Em Torres', 'Software Engineer', 'emtorres', 'Mexico'],
   metadataBase: new URL(siteConfig.url),
   creator: 'Emigdio Torres',
   icons: {
@@ -71,17 +61,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn(
-          'relative flex min-h-screen flex-col bg-background font-sans antialiased ',
-          fontSans.variable,
-        )}
+        className={cn('relative flex min-h-screen flex-col bg-background font-sans antialiased ', fontSans.variable)}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Providers>
           <Navbar />
           <main className="flex flex-col gap-4">{children}</main>
           <Footer />
           <TailwindIndicator />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )

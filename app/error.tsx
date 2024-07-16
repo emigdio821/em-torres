@@ -1,17 +1,16 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { LuFrown, LuRotateCcw } from 'react-icons/lu'
-
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import { LuFrown, LuRotateCcw } from 'react-icons/lu'
 
 interface ErrorProps {
   error: Error & { digest?: string }
 }
 
-export default function Error({ error }: ErrorProps) {
+export default function ErrorPage({ error }: ErrorProps) {
   const router = useRouter()
 
   useEffect(() => {
@@ -26,9 +25,7 @@ export default function Error({ error }: ErrorProps) {
             <LuFrown size={32} className="mx-auto mb-2" />
             Uh oh!
           </CardTitle>
-          <CardContent className="text-center text-lg font-semibold">
-            Something went wrong.
-          </CardContent>
+          <CardContent className="text-center text-lg font-semibold">Something went wrong.</CardContent>
           <CardFooter className="items-center justify-center">
             <Button
               className="mt-6"

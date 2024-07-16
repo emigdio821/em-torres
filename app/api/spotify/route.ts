@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
 import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
+import { NextResponse } from 'next/server'
 
 export const revalidate = 0
 
@@ -78,7 +78,7 @@ export async function GET(): Promise<NextResponse<SpotiResponse>> {
     return NextResponse.json(initialState)
   }
 
-  let audioFeats
+  let audioFeats: SpotiResponse['audioFeats']
   const song: SpotiSong = await response.json()
   const featsResponse = await getAudioFeatures(song.item.id)
 

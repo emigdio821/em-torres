@@ -1,10 +1,8 @@
-import Image from 'next/image'
+import { cn } from '@/lib/utils'
 import type { SpotiResponse } from '@/types'
 import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import { LuArrowUpRight } from 'react-icons/lu'
-
-import { cn } from '@/lib/utils'
-
 import { AudioFeatsChart } from './audio-feats-chart'
 import { Button, buttonVariants } from './ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
@@ -21,10 +19,7 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
         <Tooltip>
           <DialogTrigger asChild>
             <TooltipTrigger asChild>
-              <Button
-                type="button"
-                className="group h-auto rounded-md bg-transparent p-0 hover:bg-transparent"
-              >
+              <Button type="button" className="group h-auto rounded-md bg-transparent p-0 hover:bg-transparent">
                 <AnimatePresence mode="wait" key={data.albumImageUrl}>
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                     <Image
@@ -68,6 +63,7 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
               <h4 className="line-clamp-2 font-semibold">{data.artist}</h4>
               <a
                 target="_blank"
+                rel="noreferrer"
                 href={data.songUrl}
                 className={cn(
                   buttonVariants({ variant: 'unstyled', size: 'sm' }),

@@ -1,12 +1,10 @@
 'use client'
 
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { LuFileText } from 'react-icons/lu'
-
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-
 import { CoffeeIcon } from './icons'
 import { ThemeToggler } from './theme-toggler'
 import { buttonVariants } from './ui/button'

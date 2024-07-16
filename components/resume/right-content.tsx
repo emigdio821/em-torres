@@ -1,3 +1,5 @@
+import { TypeScriptIcon } from '@/components/icons'
+import { expData } from '@/lib/exp-data'
 import { BiLogoTailwindCss } from 'react-icons/bi'
 import { DiJavascript1 } from 'react-icons/di'
 import { FaReact } from 'react-icons/fa'
@@ -12,10 +14,6 @@ import {
   LuMusic3,
 } from 'react-icons/lu'
 import { TbBrandCss3, TbBrandHtml5 } from 'react-icons/tb'
-
-import { expData } from '@/lib/exp-data'
-import { TypeScriptIcon } from '@/components/icons'
-
 import { TimeLine } from './timeline'
 
 interface IconWithTextProps {
@@ -40,11 +38,7 @@ export function RightContent() {
         <div className="flex flex-col gap-2">
           {expData.map((item, idx) => (
             <div className="flex gap-4" key={`${item.id}-${item.company}`}>
-              <TimeLine
-                delay={idx * 0.15}
-                isFirst={idx === 0}
-                isLast={idx + 1 === expData.length}
-              />
+              <TimeLine delay={idx * 0.15} isFirst={idx === 0} isLast={idx + 1 === expData.length} />
               <div>
                 <p>
                   {item.year} · <span className="font-semibold">{item.company}</span>

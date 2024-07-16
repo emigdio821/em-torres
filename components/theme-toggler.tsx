@@ -1,10 +1,9 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { LuMoonStar, LuSun } from 'react-icons/lu'
-
-import { Button } from '@/components/ui/button'
 
 export function ThemeToggler() {
   const { setTheme, resolvedTheme } = useTheme()

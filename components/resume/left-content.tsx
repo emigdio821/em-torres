@@ -1,10 +1,7 @@
-import Image from 'next/image'
-import { LuAtSign, LuFileText, LuGithub, LuMapPin, LuSmartphone } from 'react-icons/lu'
-import { RiLinkedinLine } from 'react-icons/ri'
-
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-
+import { LuAtSign, LuFileText, LuGithub, LuMapPin, LuSmartphone } from 'react-icons/lu'
+import { RiLinkedinLine } from 'react-icons/ri'
 import { Spinner } from '../spinner'
 import { Button, buttonVariants } from '../ui/button'
 
@@ -24,6 +21,7 @@ function ContactLink({ Icon, href, text }: ContactLinkProps) {
     <a
       href={href}
       target="_blank"
+      rel="noreferrer"
       className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 transition-none')}
     >
       <Icon className="mr-2" size={16} />
@@ -36,15 +34,7 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
   return (
     <div className="flex flex-col gap-4 bg-white__nav_bg p-4 dark:bg-dark__nav_bg">
       <div>
-        <Image
-          priority
-          width={280}
-          height={280}
-          alt="Emigdio"
-          src="/images/em.jpg"
-          className="h-28 w-28 rounded-full object-cover shadow-md sm:h-32 sm:w-32"
-        />
-        <div className="mb-4 mt-6">
+        <div className="mb-4">
           <h3 className="text-2xl font-extrabold">Emigdio Torres</h3>
           <h4 className="text-lg font-bold">Software Engineer</h4>
         </div>
@@ -70,23 +60,18 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
           <ContactLink Icon={LuGithub} href={siteConfig.links.github} text="@emigdio821" />
           <ContactLink Icon={LuMapPin} href={siteConfig.links.location} text="Jalisco, Mexico" />
           <ContactLink Icon={LuSmartphone} href="tel:+523139617676" text="+52 (313) 961-7676" />
-          <ContactLink
-            Icon={LuAtSign}
-            href="mailto:emigdio821@gmail.com"
-            text="emigdio821@gmail.com"
-          />
+          <ContactLink Icon={LuAtSign} href="mailto:emigdio821@gmail.com" text="emigdio821@gmail.com" />
         </div>
       </div>
       <div>
         <h3 className="text-lg font-bold">Profile</h3>
         <div className="text-sm">
           <p>
-            <span className="font-semibold">Telematics Engineer</span> with experience in Software
-            Engineering using current programming standards.
+            <span className="font-semibold">Telematics Engineer</span> with experience in Software Engineering using
+            current programming standards.
           </p>
           <p>
-            I am currently working as a Software Engineer at{' '}
-            <span className="font-semibold">Wizeline</span>.
+            I am currently working as a Software Engineer at <span className="font-semibold">Wizeline</span>.
           </p>
         </div>
       </div>

@@ -1,10 +1,8 @@
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { LuGithub } from 'react-icons/lu'
 import { RiLinkedinLine } from 'react-icons/ri'
-
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-
 import SpotiWidget from './spotify-widget'
 import { buttonVariants } from './ui/button'
 
@@ -62,8 +60,8 @@ export function HomeHero() {
             />
           </div>
           <p className="pt-4 text-xl font-bold md:text-2xl">
-            Hey there, I&apos;m a Software Engineer, mainly focused on front-end development.
-            Currently, I&apos;m contributing to{' '}
+            Hey there, I&apos;m a Software Engineer, mainly focused on front-end development. Currently, I&apos;m
+            contributing to{' '}
             <a
               className={cn(
                 buttonVariants({

@@ -1,8 +1,6 @@
-import { LuGithub } from 'react-icons/lu'
-
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-
+import { LuGithub } from 'react-icons/lu'
 import { buttonVariants } from './ui/button'
 
 export function Footer() {
@@ -14,10 +12,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             href={siteConfig.links.sourceCode}
-            className={cn(
-              buttonVariants({ variant: 'link', size: 'sm' }),
-              'h-auto p-0 font-semibold transition-none',
-            )}
+            className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 font-semibold transition-none')}
           >
             <LuGithub className="mr-2" />
             Source

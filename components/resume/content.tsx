@@ -1,11 +1,9 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { useReactToPrint } from 'react-to-print'
-
 import { fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
-
+import { useRef, useState } from 'react'
+import { useReactToPrint } from 'react-to-print'
 import { LeftContent } from './left-content'
 import { RightContent } from './right-content'
 

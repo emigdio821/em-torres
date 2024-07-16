@@ -1,6 +1,5 @@
-import { CgSpinnerAlt } from 'react-icons/cg'
-
 import { cn } from '@/lib/utils'
+import { CgSpinnerAlt } from 'react-icons/cg'
 
 interface SpinnerProps {
   className?: string
