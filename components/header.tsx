@@ -1,9 +1,9 @@
 'use client'
 
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import { CoffeeIcon } from './icons'
 import { ThemeToggler } from './theme-toggler'
 import { Button } from './ui/button'
@@ -15,7 +15,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full bg-background/90 px-4 backdrop-blur-md print:hidden">
       <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
-        <Button asChild variant="unstyled" className="font-bold text-lg hover:text-muted-foreground">
+        <Button asChild variant="unstyled" className="text-lg font-bold hover:text-muted-foreground">
           <Link href="/">
             <CoffeeIcon className="mr-2 h-full" />
             {siteConfig.brand}
