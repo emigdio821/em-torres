@@ -2,7 +2,7 @@ import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { BlurImage } from '@/components/blur-image'
-import { SpotiWidget } from '@/components/spotify-widget'
+import { SpotifyWidget } from '@/components/spotify-widget'
 
 export function HomeHero() {
   return (
@@ -31,7 +31,7 @@ export function HomeHero() {
                   </a>
                 </Button>
               </div>
-              <SpotiWidget />
+              <SpotifyWidget />
             </div>
 
             <div className="size-36 rounded-full sm:size-44">

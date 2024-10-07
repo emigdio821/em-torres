@@ -1,10 +1,6 @@
-import { motion } from 'framer-motion'
+import { motion, type SVGMotionProps } from 'framer-motion'
 
-interface CoffeeProps {
-  className?: string
-}
-
-export function CoffeeIcon({ className }: CoffeeProps) {
+export function CoffeeIcon(props: SVGMotionProps<SVGSVGElement>) {
   return (
     <motion.svg
       role="img"
@@ -15,12 +11,12 @@ export function CoffeeIcon({ className }: CoffeeProps) {
       strokeWidth="2"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      className={className}
       strokeLinecap="round"
       strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       animate={{ opacity: 1, rotate: 0 }}
       initial={{ opacity: 0, rotate: 90 }}
+      {...props}
     >
       <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
       <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />

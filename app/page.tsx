@@ -1,6 +1,6 @@
-import { Hobbies } from '@/components/hobbies'
 import { HomeHero } from '@/components/home/hero'
-import { Skills } from '@/components/skills'
+import { Hobbies } from '@/components/home/hobbies'
+import { Skills } from '@/components/home/skills'
 
 export default async function HomePage() {
   return (

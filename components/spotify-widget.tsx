@@ -1,29 +1,34 @@
 'use client'
 
 import type { SpotiResponse } from '@/types'
+import { IconMusic, IconRefresh } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
+import axios, { AxiosError } from 'axios'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BiLogoSpotify } from 'react-icons/bi'
-import { LuMusic2 } from 'react-icons/lu'
 import { cn } from '@/lib/utils'
-import { Equalizer } from './equalizer'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Equalizer } from '@/components/equalizer'
 import { SongDetailsDialog } from './song-details-dialog'
-import { Skeleton } from './ui/skeleton'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
+import { Button } from './ui/button'
 
-export function SpotiWidget() {
+export function SpotifyWidget() {
   async function getCurrentPlayingSong() {
     try {
-      const res = await fetch('/api/spotify')
-      const data: SpotiResponse = await res.json()
+      const { data } = await axios.get<SpotiResponse>('/api/spotify')
 
       return data
     } catch (err) {
-      console.log('[GET_CURRENT_PLAYING_SONG]', err)
+      const errTitle = 'Unable to fetch Spotify status:'
+      if (err instanceof AxiosError) {
+        console.log(errTitle, err.message)
+      } else {
+        console.log(errTitle, err)
+      }
     }
   }
 
-  const { data, error, isLoading, refetch } = useQuery({
+  const { data, isLoading, refetch, error } = useQuery({
     queryKey: ['current-playing'],
     queryFn: getCurrentPlayingSong,
   })
@@ -36,42 +41,36 @@ export function SpotiWidget() {
           <SongDetailsDialog data={data} />
         ) : (
           <div
-            className={cn(
-              'flex h-20 w-20 min-w-[5rem] items-center justify-center rounded-md bg-zinc-800 text-sm transition-all group-hover:brightness-75 group-focus-visible:brightness-75',
-              {
-                'animate-pulse': isLoading,
-              },
-            )}
+            className={cn('flex size-20 items-center justify-center rounded-md bg-muted', {
+              'animate-pulse': isLoading,
+            })}
           >
-            <LuMusic2 className="text-white" />
+            <IconMusic className="size-4" />
           </div>
         )}
-        <div className="flex w-full flex-col items-start gap-1 sm:w-80">
+        <div className="flex w-full flex-1 flex-col items-start gap-1 sm:w-80">
           <div className="flex items-center gap-2">
-            <TooltipProvider delayDuration={100}>
-              <Tooltip>
-                <TooltipTrigger
-                  onClick={() => {
-                    refetch()
-                  }}
-                  className="rounded-full outline-none transition-opacity hover:opacity-80 focus-visible:opacity-80 focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <BiLogoSpotify
-                    size={20}
-                    className={cn({
+            <Tooltip>
+              <TooltipTrigger
+                onClick={() => {
+                  void refetch()
+                }}
+                asChild
+              >
+                <Button variant="unstyled" className="hover:text-muted-foreground">
+                  <IconRefresh
+                    className={cn('size-4', {
                       'animate-pulse': isLoading,
                     })}
                   />
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                  <span>Refresh song data</span>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">Refresh song data</TooltipContent>
+            </Tooltip>
             {isPlaying ? <Equalizer /> : null}
           </div>
           {isPlaying ? (
-            <AnimatePresence mode="wait" key={isPlaying ? data.albumImageUrl : ''}>
+            <AnimatePresence mode="wait" key={data.albumImageUrl || ''}>
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col">
                 <span className="line-clamp-2 font-semibold">{data.title}</span>
                 <span className="line-clamp-2">{data.artist}</span>
