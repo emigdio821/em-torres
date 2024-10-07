@@ -1,7 +1,15 @@
 'use client'
 
 import type { AudioFeats } from '@/types'
-import { LuHeadphones, LuMic2, LuMusic, LuMusic3, LuSmile, LuSpeaker, LuZap } from 'react-icons/lu'
+import {
+  IconBolt,
+  IconDeviceSpeaker,
+  IconHeadphones,
+  IconMicrophone2,
+  IconMoodSmile,
+  IconMusic,
+  IconMusicBolt,
+} from '@tabler/icons-react'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, Tooltip, type TooltipProps } from 'recharts'
 
 interface AudioFeatsChartProps {
@@ -19,24 +27,23 @@ const featuresToShow = [
 ]
 
 const featsIcons = {
-  danceability: LuSpeaker,
-  energy: LuZap,
-  instrumentalness: LuMusic3,
-  speechiness: LuMic2,
-  valence: LuSmile,
-  acousticness: LuHeadphones,
-  liveness: LuMusic,
+  danceability: IconDeviceSpeaker,
+  energy: IconBolt,
+  instrumentalness: IconMusic,
+  speechiness: IconMicrophone2,
+  valence: IconMoodSmile,
+  acousticness: IconHeadphones,
+  liveness: IconMusicBolt,
 }
 
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (active && payload?.length) {
     const key = label as keyof typeof featsIcons
-    const Icon = featsIcons[key] || LuMusic
-
+    const Icon = featsIcons[key]
     return (
       <div className="rounded-md border bg-popover px-3 py-1.5 text-sm shadow-md">
         <p className="flex flex-col items-center justify-center">
-          <Icon className="mb-1" />
+          <Icon className="mb-1 size-4" />
           <span className="font-medium capitalize">{label}</span>
           <span className="font-semibold">{payload[0].value}%</span>
         </p>

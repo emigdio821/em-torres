@@ -1,7 +1,7 @@
+import { IconBrandGithub } from '@tabler/icons-react'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-import { LuGithub } from 'react-icons/lu'
-import { buttonVariants } from './ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
 export function Footer() {
   return (
@@ -14,7 +14,7 @@ export function Footer() {
             href={siteConfig.links.sourceCode}
             className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 font-semibold transition-none')}
           >
-            <LuGithub className="mr-2" />
+            <IconBrandGithub className="mr-2 size-4" />
             Source
           </a>
           <span className="flex items-center gap-1 text-sm">

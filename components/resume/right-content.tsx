@@ -1,44 +1,37 @@
-import { TypeScriptIcon } from '@/components/icons'
-import { expData } from '@/lib/exp-data'
-import { BiLogoTailwindCss } from 'react-icons/bi'
-import { DiJavascript1 } from 'react-icons/di'
-import { FaReact } from 'react-icons/fa'
-import {
-  LuBinary,
-  LuGamepad,
-  LuGitPullRequest,
-  LuGlobe2,
-  LuHeadphones,
-  LuHexagon,
-  LuKeyboard,
-  LuMusic3,
-} from 'react-icons/lu'
-import { TbBrandCss3, TbBrandHtml5 } from 'react-icons/tb'
+import { IconBrandCss3, IconBrandGit, IconBrandHtml5, IconBrandJavascript } from '@tabler/icons-react'
+import { HOBBIES_ICONS, SKILLS_ICONS } from '@/lib/constants'
+import { EXPERIENCE } from '@/lib/exp-data'
 import { TimeLine } from './timeline'
 
-interface IconWithTextProps {
-  Icon: React.ElementType
-  text: string
-}
-
-function IconWithText({ Icon, text }: IconWithTextProps) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <Icon size={24} width={24} height={24} />
-      <span className="text-xs font-medium">{text}</span>
-    </div>
-  )
-}
+const SKILLS = [
+  {
+    icon: IconBrandHtml5,
+    label: 'HTML',
+  },
+  {
+    icon: IconBrandCss3,
+    label: 'CSS',
+  },
+  {
+    icon: IconBrandGit,
+    label: 'Git',
+  },
+  {
+    icon: IconBrandJavascript,
+    label: 'JavaScript',
+  },
+  ...SKILLS_ICONS,
+]
 
 export function RightContent() {
   return (
-    <section className="flex flex-col gap-6 bg-white__nav_bg/20 p-4 dark:bg-dark__nav_bg/50">
+    <section className="flex flex-col gap-6 bg-background p-4">
       <div className="flex flex-col">
         <h3 className="mb-2 text-lg font-bold">Experience</h3>
         <div className="flex flex-col gap-2">
-          {expData.map((item, idx) => (
+          {EXPERIENCE.map((item, idx) => (
             <div className="flex gap-4" key={`${item.id}-${item.company}`}>
-              <TimeLine delay={idx * 0.15} isFirst={idx === 0} isLast={idx + 1 === expData.length} />
+              <TimeLine delay={idx * 0.15} isFirst={idx === 0} isLast={idx + 1 === EXPERIENCE.length} />
               <div>
                 <p>
                   {item.year} · <span className="font-semibold">{item.company}</span>
@@ -53,25 +46,23 @@ export function RightContent() {
       <div>
         <h3 className="mb-2 text-lg font-bold">Skills</h3>
         <div className="flex flex-wrap gap-4">
-          <IconWithText Icon={TbBrandCss3} text="CSS" />
-          <IconWithText Icon={TbBrandHtml5} text="HTML" />
-          <IconWithText Icon={DiJavascript1} text="JavaScript" />
-          <IconWithText Icon={TypeScriptIcon} text="TypeScript" />
-          <IconWithText Icon={BiLogoTailwindCss} text="Tailwind" />
-          <IconWithText Icon={LuGitPullRequest} text="Git" />
-          <IconWithText Icon={FaReact} text="React" />
-          <IconWithText Icon={LuHexagon} text="Node.js" />
+          {SKILLS.map(({ icon: Icon, label }) => (
+            <div className="flex flex-col items-center gap-2">
+              <Icon className="size-6" />
+              <span className="text-xs font-medium text-muted-foreground">{label}</span>
+            </div>
+          ))}
         </div>
       </div>
       <div>
         <h3 className="mb-2 text-lg font-bold">Hobbies & Interests</h3>
         <div className="flex flex-wrap gap-4">
-          <IconWithText Icon={LuMusic3} text="Drums" />
-          <IconWithText Icon={LuHeadphones} text="Music" />
-          <IconWithText Icon={LuGamepad} text="Games" />
-          <IconWithText Icon={LuBinary} text="Tech" />
-          <IconWithText Icon={LuKeyboard} text="KBoards" />
-          <IconWithText Icon={LuGlobe2} text="Travel" />
+          {HOBBIES_ICONS.map(({ icon: Icon, label }) => (
+            <div className="flex flex-col items-center gap-2">
+              <Icon className="size-6" />
+              <span className="text-xs font-medium text-muted-foreground">{label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

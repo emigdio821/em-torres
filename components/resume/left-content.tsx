@@ -1,66 +1,34 @@
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import { LuAtSign, LuFileText, LuGithub, LuMapPin, LuSmartphone } from 'react-icons/lu'
-import { RiLinkedinLine } from 'react-icons/ri'
-import { Spinner } from '../spinner'
-import { Button, buttonVariants } from '../ui/button'
-
-interface ContactLinkProps {
-  Icon: React.ElementType
-  href: string
-  text: string | React.ReactNode
-}
+import { IconFileDownload } from '@tabler/icons-react'
+import { CONTACT_LINKS } from '@/lib/constants'
+import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/spinner'
 
 interface ResumeLeftProps {
-  isLoadingPdf: boolean
+  isPDFLoading: boolean
   pdfCallback: () => void
 }
 
-function ContactLink({ Icon, href, text }: ContactLinkProps) {
+export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'h-auto p-0 transition-none')}
-    >
-      <Icon className="mr-2" size={16} />
-      {text}
-    </a>
-  )
-}
-
-export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
-  return (
-    <div className="flex flex-col gap-4 bg-white__nav_bg p-4 dark:bg-dark__nav_bg">
+    <section className="flex flex-col gap-4 border-b p-4 sm:border-b-0 sm:border-r">
       <div>
         <div className="mb-4">
           <h3 className="text-2xl font-extrabold">Emigdio Torres</h3>
           <h4 className="text-lg font-bold">Software Engineer</h4>
         </div>
-        <Button
-          size="sm"
-          type="button"
-          variant="outline"
-          onClick={pdfCallback}
-          disabled={isLoadingPdf}
-          className="mb-6 w-[120px] print:hidden"
-        >
-          {isLoadingPdf ? (
-            <Spinner />
-          ) : (
-            <>
-              <LuFileText className="mr-2" />
-              Download
-            </>
-          )}
+        <Button type="button" variant="outline" onClick={pdfCallback} disabled={isPDFLoading} className="print:hidden">
+          {isPDFLoading ? <Spinner className="mr-2 size-4" /> : <IconFileDownload className="mr-2 size-4" />}
+          Download
         </Button>
-        <div className="flex flex-col items-start gap-1">
-          <ContactLink Icon={RiLinkedinLine} href={siteConfig.links.linkedin} text="@emigdio821" />
-          <ContactLink Icon={LuGithub} href={siteConfig.links.github} text="@emigdio821" />
-          <ContactLink Icon={LuMapPin} href={siteConfig.links.location} text="Jalisco, Mexico" />
-          <ContactLink Icon={LuSmartphone} href="tel:+523139617676" text="+52 (313) 961-7676" />
-          <ContactLink Icon={LuAtSign} href="mailto:emigdio821@gmail.com" text="emigdio821@gmail.com" />
+        <div className="mt-4 flex flex-col items-start space-y-1">
+          {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
+            <Button asChild variant="link">
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <Icon className="mr-2 size-4" />
+                {label}
+              </a>
+            </Button>
+          ))}
         </div>
       </div>
       <div>
@@ -84,6 +52,6 @@ export function LeftContent({ pdfCallback, isLoadingPdf }: ResumeLeftProps) {
           <p>2010 - 2014</p>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

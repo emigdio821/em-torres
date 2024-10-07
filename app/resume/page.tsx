@@ -1,5 +1,4 @@
 import type { Metadata } from 'next/types'
-
 import { siteConfig } from '@/config/site'
 import { ResumeContent } from '@/components/resume/content'
 

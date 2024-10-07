@@ -6,7 +6,7 @@ interface ExperienceData {
   description: string
 }
 
-export const expData: ExperienceData[] = [
+export const EXPERIENCE: ExperienceData[] = [
   {
     id: 1,
     title: 'Software Engineer',

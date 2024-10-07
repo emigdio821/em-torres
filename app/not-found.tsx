@@ -1,7 +1,6 @@
 import NextLink from 'next/link'
 import type { Metadata } from 'next/types'
-import { LuArrowLeft, LuGhost } from 'react-icons/lu'
-
+import { IconChevronLeft } from '@tabler/icons-react'
 import { siteConfig } from '@/config/site'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -32,19 +31,11 @@ export default function NotFound() {
     <div className="flex flex-col items-center justify-between p-4">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-center text-8xl font-extrabold">
-            <LuGhost size={32} className="mx-auto mb-2" />
-            404
-          </CardTitle>
-          <CardContent className="text-center text-lg font-semibold">
-            This page does not exist.
-          </CardContent>
+          <CardTitle className="text-center text-8xl font-extrabold">404</CardTitle>
+          <CardContent className="text-center text-lg font-semibold">This page does not exist.</CardContent>
           <CardFooter className="items-center justify-center">
-            <NextLink
-              href="/"
-              className={buttonVariants({ variant: 'outline', className: 'mt-6' })}
-            >
-              <LuArrowLeft className="mr-2" />
+            <NextLink href="/" className={buttonVariants({ variant: 'outline', className: 'mt-6' })}>
+              <IconChevronLeft className="mr-2 size-4" />
               Back to home
             </NextLink>
           </CardFooter>
