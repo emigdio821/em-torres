@@ -1,17 +1,17 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import type { SpotiResponse } from '@/types'
 import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BiLogoSpotify } from 'react-icons/bi'
 import { LuMusic2 } from 'react-icons/lu'
+import { cn } from '@/lib/utils'
 import { Equalizer } from './equalizer'
 import { SongDetailsDialog } from './song-details-dialog'
 import { Skeleton } from './ui/skeleton'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
 
-export default function SpotiWidget() {
+export function SpotiWidget() {
   async function getCurrentPlayingSong() {
     try {
       const res = await fetch('/api/spotify')
