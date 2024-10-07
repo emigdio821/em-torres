@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   creator: 'Emigdio Torres',
   icons: {
-    icon: 'images/favicon.ico',
+    icon: 'favicon.ico',
     shortcut: 'images/favicon-16x16.png',
     apple: 'images/apple-touch-icon.png',
   },
@@ -45,14 +45,13 @@ export const metadata: Metadata = {
     images: [siteConfig.ogUrl],
     creator: '@emigdio821',
   },
-  robots: '/robots.txt',
   manifest: '/site.webmanifest',
 }
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000' },
   ],
 }
 
@@ -60,9 +59,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body
-        className={cn('relative flex min-h-screen flex-col bg-background font-sans antialiased ', fontSans.variable)}
-      >
+      <body className={cn('relative flex min-h-screen flex-col font-sans antialiased ', fontSans.variable)}>
         <Providers>
           <Navbar />
           <main className="flex flex-col gap-4">{children}</main>

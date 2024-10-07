@@ -1,7 +1,0 @@
-{
-  "editor.codeActionsOnSave": {
-    "quickfix.biome": "explicit",
-    "source.organizeImports": "explicit"
-  },
-  "editor.formatOnSave": true
-}
