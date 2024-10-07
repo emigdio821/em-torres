@@ -1,5 +1,5 @@
 import { Footer } from '@/components/footer'
-import { Navbar } from '@/components/navbar'
+import { Header } from '@/components/header'
 import { Providers } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tw-indicator'
 import { siteConfig } from '@/config/site'
@@ -59,9 +59,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn('relative flex min-h-screen flex-col font-sans antialiased ', fontSans.variable)}>
+      <body className={cn('antialiased', fontSans.className)}>
         <Providers>
-          <Navbar />
+          <Header />
           <main className="flex flex-col gap-4">{children}</main>
           <Footer />
           <TailwindIndicator />
