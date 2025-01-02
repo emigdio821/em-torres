@@ -40,7 +40,7 @@ async function fetchSpotify(endpoint: string, options: RequestInit = {}) {
   return response
 }
 
-async function getAccessToken(): Promise<SpotiAccessToken | null> {
+async function getAccessToken() {
   const response = await fetchSpotify(TOKEN_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -53,10 +53,18 @@ async function getAccessToken(): Promise<SpotiAccessToken | null> {
     }),
   })
   if (!response) return null
-  return (await response.json()) as SpotiAccessToken
+  let token = null
+
+  try {
+    token = (await response.json()) as SpotiAccessToken
+  } catch {
+    token = null
+  }
+
+  return token
 }
 
-async function getNowPlaying(): Promise<SpotiSong | null> {
+async function getNowPlaying() {
   const { access_token: accessToken } = (await getAccessToken()) ?? {}
   if (!accessToken) return null
 
@@ -65,9 +73,18 @@ async function getNowPlaying(): Promise<SpotiSong | null> {
       Authorization: `Bearer ${accessToken}`,
     },
   })
+
   if (!response) return null
 
-  return (await response.json()) as SpotiSong
+  let nowPlayingRes = null
+
+  try {
+    nowPlayingRes = (await response.json()) as SpotiSong
+  } catch {
+    nowPlayingRes = null
+  }
+
+  return nowPlayingRes
 }
 
 function mapSongData(song: SpotiSong) {
@@ -92,10 +109,10 @@ function mapSongData(song: SpotiSong) {
     popularity,
     trackNumber: track_number,
     albumTotalTracks,
-  }
+  } satisfies SpotiResponse
 }
 
-export async function GET(): Promise<NextResponse<SpotiResponse>> {
+export async function GET() {
   const song = await getNowPlaying()
 
   if (!song) return NextResponse.json(initialState)
