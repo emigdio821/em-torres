@@ -1,5 +1,5 @@
-import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
 import { NextResponse } from 'next/server'
+import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
 
 export const revalidate = 0
 
@@ -36,8 +36,7 @@ async function getAccessToken() {
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
-      refresh_token: refreshToken as string,
+      refresh_token: refreshToken ?? '',
     }),
   })
 

@@ -1,8 +1,15 @@
 import type { SpotiResponse } from '@/types'
 import { IconExternalLink } from '@tabler/icons-react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { AudioFeatsChart } from '@/components/audio-feats-chart'
 import { BlurImage } from '@/components/blur-image'
@@ -32,15 +39,11 @@ export function SongDetailsDialog({ data }: SongDetailsDialogProps) {
           <span>Song details</span>
         </TooltipContent>
       </Tooltip>
-      <DialogContent
-        aria-describedby={undefined}
-        onInteractOutside={(e) => {
-          e.preventDefault()
-        }}
-      >
+      <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold">Song details</DialogTitle>
         </DialogHeader>
+        <DialogDescription className="sr-only">Song details dialog</DialogDescription>
         <div className="flex flex-col items-center justify-center gap-2">
           <div className="relative h-48 w-full overflow-hidden rounded-md bg-muted shadow-md sm:h-56">
             <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center bg-black/70 p-4 text-center text-white">

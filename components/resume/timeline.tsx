@@ -1,5 +1,5 @@
+import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 
 interface TimelineProps {
   isLast?: boolean

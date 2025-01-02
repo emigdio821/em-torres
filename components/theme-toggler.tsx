@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { AnimatePresence, motion } from 'framer-motion'
+import { IconMoonStars, IconSun } from '@tabler/icons-react'
+import { AnimatePresence, motion } from 'motion/react'
 import { useTheme } from 'next-themes'
-import { IconSun, IconMoonStars } from '@tabler/icons-react'
+import { Button } from '@/components/ui/button'
 
 export function ThemeToggler() {
   const { setTheme, resolvedTheme } = useTheme()
@@ -19,8 +19,8 @@ export function ThemeToggler() {
     >
       <AnimatePresence initial={false} mode="wait">
         <motion.span key={resolvedTheme} animate={{ rotate: 0 }} initial={{ rotate: 90 }}>
-          <IconSun className="hidden dark:block size-4" />
-          <IconMoonStars className="block dark:hidden size-4" />
+          <IconSun className="hidden size-4 dark:block" />
+          <IconMoonStars className="block size-4 dark:hidden" />
           <span className="sr-only">Toggle theme</span>
         </motion.span>
       </AnimatePresence>
