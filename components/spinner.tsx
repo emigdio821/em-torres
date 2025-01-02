@@ -12,7 +12,10 @@ export function Spinner({ className, barsClassName }: SpinnerProps) {
       <div className="relative left-1/2 top-1/2 h-[inherit] w-[inherit]">
         {Array.from({ length: 12 }).map((_, n) => (
           <div
-            key={`spinner-bar-${n}`}
+            key={`spinner-bar-${
+              // biome-ignore lint/suspicious/noArrayIndexKey: safe to use
+              n
+            }`}
             className={cn(
               'absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] animate-spinner rounded-[6px] bg-current',
               styles['spinner-bar'],

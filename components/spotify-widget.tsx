@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Equalizer } from '@/components/equalizer'
-import { SongDetailsDialog } from './song-details-dialog'
+import { SongDetails } from './song-details'
 import { Button } from './ui/button'
 
 export function SpotifyWidget() {
@@ -38,7 +38,7 @@ export function SpotifyWidget() {
     <>
       <div className="flex items-center gap-4">
         {isPlaying ? (
-          <SongDetailsDialog data={data} />
+          <SongDetails data={data} />
         ) : (
           <div
             className={cn('flex size-20 items-center justify-center rounded-md bg-muted', {

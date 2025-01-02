@@ -22,7 +22,7 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         </Button>
         <div className="mt-4 flex flex-col items-start space-y-1">
           {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
-            <Button asChild variant="link">
+            <Button asChild variant="link" key={href}>
               <a href={href} target="_blank" rel="noopener noreferrer">
                 <Icon className="mr-2 size-4" />
                 {label}
