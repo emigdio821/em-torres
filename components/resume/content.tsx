@@ -21,7 +21,7 @@ export function ResumeContent() {
   })
 
   return (
-    <div ref={pdfRef} className="print:p-4">
+    <div ref={pdfRef} className="print:p-4" style={{ fontFamily: '"Figtree", ui-sans-serif, system-ui, sans-serif' }}>
       <div className="mx-auto grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-lg border text-sm sm:grid-cols-[0.5fr_1fr] print:max-w-full print:grid-cols-[0.5fr_1fr]">
         <LeftContent isPDFLoading={pdfLoading} pdfCallback={handlePdfDownload} />
         <RightContent />

@@ -1,7 +1,8 @@
 import { Figtree as FontSans } from 'next/font/google'
 
 export const fontSans = FontSans({
+  preload: true,
   subsets: ['latin'],
   variable: '--font-sans',
-  preload: true,
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 })

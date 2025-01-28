@@ -1,13 +1,12 @@
+import type { PropsWithChildren } from 'react'
+import type { Metadata, Viewport } from 'next'
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+// import { Header } from '@/components/header'
 import { Providers } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tw-indicator'
 import '@/styles/globals.css'
-import type { PropsWithChildren } from 'react'
-import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: {
@@ -59,9 +58,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn('flex h-dvh flex-col antialiased', fontSans.className)}>
+      <body className={`${fontSans.variable} flex h-svh flex-col font-sans antialiased`}>
         <Providers>
-          <Header />
+          {/* <Header /> */}
           <main className="flex flex-col gap-4">{children}</main>
           <Footer />
           <TailwindIndicator />
