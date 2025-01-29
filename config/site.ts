@@ -17,6 +17,7 @@ export const siteConfig = {
     github: 'https://github.com/emigdio821/',
     sourceCode: 'https://github.com/emigdio821/em-torres',
     linkedin: 'https://www.linkedin.com/in/emigdio821/',
+    twitter: 'https://x.com/emigdio821',
     jobCompany: 'https://www.wizeline.com/',
     location: 'https://www.google.com.mx/maps/place/Jalisco',
   },

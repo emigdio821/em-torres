@@ -1,14 +1,43 @@
-// import { HomeHero } from '@/components/home/hero'
-// import { Hobbies } from '@/components/home/hobbies'
-// import { Skills } from '@/components/home/skills'
+import NextLink from 'next/link'
+import { siteConfig } from '@/config/site'
+import { SKILLS_ICONS } from '@/lib/constants'
+import { Button } from '@/components/ui/button'
+
+const SKILLS = SKILLS_ICONS.filter((skill) => skill.label !== 'React Native')
 
 export default async function HomePage() {
   return (
-    <section className="mx-auto w-full max-w-2xl">
-      <h4 className="text-base font-semibold leading-none tracking-tight sm:text-lg">Emigdio Torres</h4>
-      {/* <HomeHero />
-      <Skills />
-      <Hobbies /> */}
+    <section className="mx-auto w-full max-w-xl space-y-4">
+      <h4 className="text-base leading-none font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
+      <p className="text-sm">
+        Hey there, I'm a Software Engineer, mainly focused on frontend development. Currently, I'm contributing to{' '}
+        <Button variant="underline" asChild>
+          <a href="https://www.wizeline.com/" target="_blank" rel="noreferrer">
+            Wizeline
+          </a>
+        </Button>{' '}
+        projects.
+      </p>
+      <p className="text-sm">Technologies I currently use: {SKILLS.map((skill) => skill.label).join(', ')}.</p>
+      <p className="text-sm">
+        I love music. On my free time I like to play videogames or play drums. I like to build custom PC&apos;s.
+        I&apos;m also passionate about new technology topics 🤓.
+      </p>
+      <div className="flex flex-col items-start justify-start gap-2">
+        <Button variant="underline" asChild>
+          <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </Button>
+        <Button variant="underline" asChild>
+          <a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+        </Button>
+        <Button variant="underline" asChild>
+          <NextLink href="/resume">Resume</NextLink>
+        </Button>
+      </div>
     </section>
   )
 }

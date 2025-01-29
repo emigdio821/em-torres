@@ -13,9 +13,8 @@ export function ThemeToggler() {
       size="icon"
       type="button"
       variant="outline"
-      onClick={() => {
-        setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
-      }}
+      className="text-muted-foreground size-6"
+      onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
     >
       <AnimatePresence initial={false} mode="wait">
         <motion.span key={resolvedTheme} animate={{ rotate: 0 }} initial={{ rotate: 90 }}>

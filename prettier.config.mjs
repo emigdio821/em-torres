@@ -9,6 +9,7 @@ export default {
   endOfLine: 'lf',
   bracketSpacing: true,
   trailingComma: 'all',
+  tailwindFunctions: ['cn', 'cva'],
   importOrder: [
     '^(react/(.*)$)|^(react$)',
     '^(next/(.*)$)|^(next$)',

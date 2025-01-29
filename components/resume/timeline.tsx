@@ -11,10 +11,7 @@ export function TimeLine({ isLast = false, isFirst = false, delay = 0 }: Timelin
   return (
     <div className="relative">
       <motion.div
-        className={cn(
-          'mt-[6px] h-2 w-2 bg-[#333] dark:bg-[#f0efef] print:!translate-y-0 print:!opacity-100',
-          isFirst ? 'rounded-[2px]' : 'rounded-full',
-        )}
+        className={cn('bg-foreground mt-1.5 size-2', isFirst ? 'rounded-[2px]' : 'rounded-full')}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: isFirst ? 0 : delay }}
@@ -24,7 +21,7 @@ export function TimeLine({ isLast = false, isFirst = false, delay = 0 }: Timelin
           style={{
             transform: 'translate(0.188rem, 0)',
           }}
-          className="absolute w-[2px] bg-[#333] dark:bg-[#f0efef] print:!h-full print:!opacity-60"
+          className="bg-muted-foreground absolute w-0.5"
           initial={{ opacity: 0, height: '0%' }}
           transition={{ delay: isFirst ? 0 : delay }}
           animate={{ opacity: 0.6, height: '100%' }}

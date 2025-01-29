@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next'
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
 import { Footer } from '@/components/footer'
-// import { Header } from '@/components/header'
 import { Providers } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tw-indicator'
 import '@/styles/globals.css'
@@ -58,10 +57,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={`${fontSans.variable} flex h-svh flex-col font-sans antialiased`}>
+      <body className={`${fontSans.variable} flex h-dvh flex-col font-sans antialiased`}>
         <Providers>
-          {/* <Header /> */}
-          <main className="flex flex-col gap-4">{children}</main>
+          <main className="p-4">{children}</main>
           <Footer />
           <TailwindIndicator />
         </Providers>

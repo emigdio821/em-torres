@@ -13,9 +13,9 @@ export function Header() {
   const isResumePage = pathname === '/resume'
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-background/90 px-4 backdrop-blur-md print:hidden">
-      <nav className="mx-auto flex h-16 max-w-3xl items-center justify-between">
-        <Button asChild variant="unstyled" className="text-lg font-bold hover:text-muted-foreground">
+    <header className="bg-background/90 sticky top-0 z-40 mx-auto w-full max-w-3xl border-b p-2 backdrop-blur-md print:hidden">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between">
+        <Button asChild variant="unstyled" className="hover:text-muted-foreground text-lg font-bold">
           <Link href="/">
             <CoffeeIcon className="mr-2 h-full" />
             {siteConfig.brand}

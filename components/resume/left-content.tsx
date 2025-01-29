@@ -1,7 +1,8 @@
-import { IconFileDownload } from '@tabler/icons-react'
+import NextLink from 'next/link'
+import { IconChevronLeft, IconPrinter } from '@tabler/icons-react'
 import { CONTACT_LINKS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
-import { Spinner } from '@/components/spinner'
+import { SpinnerIcon } from '@/components/icons'
 
 interface ResumeLeftProps {
   isPDFLoading: boolean
@@ -10,16 +11,26 @@ interface ResumeLeftProps {
 
 export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
   return (
-    <section className="flex flex-col gap-4 border-b p-4 sm:border-b-0 sm:border-r">
+    <section className="flex flex-col gap-4 border-b p-4 sm:border-r sm:border-b-0">
       <div>
         <div className="mb-4">
-          <h3 className="text-2xl font-extrabold">Emigdio Torres</h3>
-          <h4 className="text-lg font-bold">Software Engineer</h4>
+          <h4 className="text-base font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
+          <h5 className="text-muted-foreground text-sm leading-none font-medium tracking-tight sm:text-base">
+            Software Engineer
+          </h5>
         </div>
-        <Button type="button" variant="outline" onClick={pdfCallback} disabled={isPDFLoading} className="print:hidden">
-          {isPDFLoading ? <Spinner className="mr-2 size-4" /> : <IconFileDownload className="mr-2 size-4" />}
-          Download
-        </Button>
+        <div className="flex items-center gap-2 print:hidden">
+          <Button variant="outline" size="sm" asChild>
+            <NextLink href="/">
+              <IconChevronLeft size={16} className="mr-2" />
+              Home
+            </NextLink>
+          </Button>
+          <Button size="sm" type="button" variant="outline" onClick={pdfCallback} disabled={isPDFLoading}>
+            {isPDFLoading ? <SpinnerIcon className="mr-2" /> : <IconPrinter size={16} className="mr-2" />}
+            Print
+          </Button>
+        </div>
         <div className="mt-4 flex flex-col items-start space-y-1">
           {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
             <Button asChild variant="link" key={href}>
@@ -32,7 +43,7 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         </div>
       </div>
       <div>
-        <h3 className="text-lg font-bold">Profile</h3>
+        <h5 className="text-sm font-semibold tracking-tight sm:text-base">Profile</h5>
         <div className="text-sm">
           <p>
             <span className="font-semibold">Telematics Engineer</span> with experience in Software Engineering using
@@ -44,8 +55,8 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         </div>
       </div>
       <div>
-        <h3 className="text-lg font-bold">Education</h3>
-        <h5 className="text-sm font-semibold">Telematics Engineer</h5>
+        <h5 className="text-sm font-semibold tracking-tight sm:text-base">Education</h5>
+        <h6 className="text-sm font-medium">Telematics Engineer</h6>
         <div className="text-sm">
           <p>Engineer&apos;s Degree</p>
           <p>University of Colima</p>
