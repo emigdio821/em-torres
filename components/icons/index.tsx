@@ -1,11 +1,10 @@
-import { motion, type SVGMotionProps } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
-export function CoffeeIcon(props: SVGMotionProps<SVGSVGElement>) {
+export function CoffeeIcon(props: IconProps) {
   return (
-    <motion.svg
+    <svg
       role="img"
       aria-label="Coffee"
       fill="none"
@@ -17,8 +16,6 @@ export function CoffeeIcon(props: SVGMotionProps<SVGSVGElement>) {
       strokeLinecap="round"
       strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
-      animate={{ opacity: 1, rotate: 0 }}
-      initial={{ opacity: 0, rotate: 90 }}
       {...props}
     >
       <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
@@ -26,7 +23,7 @@ export function CoffeeIcon(props: SVGMotionProps<SVGSVGElement>) {
       <line x1="6" x2="6" y1="2" y2="4" className="animate-coffee-steam delay-100" />
       <line x1="10" x2="10" y1="2" y2="4" className="animate-coffee-steam delay-300" />
       <line x1="14" x2="14" y1="2" y2="4" className="animate-coffee-steam delay-500" />
-    </motion.svg>
+    </svg>
   )
 }
 

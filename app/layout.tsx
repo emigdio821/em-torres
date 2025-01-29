@@ -4,7 +4,6 @@ import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
 import { Footer } from '@/components/footer'
 import { Providers } from '@/components/providers'
-import { TailwindIndicator } from '@/components/tw-indicator'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Providers>
           <main className="p-4">{children}</main>
           <Footer />
-          <TailwindIndicator />
         </Providers>
       </body>
     </html>

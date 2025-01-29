@@ -48,7 +48,7 @@ export function RightContent() {
         <div className="flex flex-wrap gap-4">
           {SKILLS.map(({ icon: Icon, label }) => (
             <div className="flex flex-col items-center gap-2" key={label}>
-              <Icon className="size-6" />
+              <Icon size={24} />
               <span className="text-muted-foreground text-xs font-medium">{label}</span>
             </div>
           ))}
@@ -59,7 +59,7 @@ export function RightContent() {
         <div className="flex flex-wrap gap-4">
           {HOBBIES_ICONS.map(({ icon: Icon, label }) => (
             <div className="flex flex-col items-center gap-2" key={label}>
-              <Icon className="size-6" />
+              <Icon size={24} />
               <span className="text-muted-foreground text-xs font-medium">{label}</span>
             </div>
           ))}

@@ -18,24 +18,18 @@ export default function ErrorPage({ error }: ErrorProps) {
   }, [error])
 
   return (
-    <div className="flex flex-col items-center justify-between p-4">
+    <div className="flex flex-col items-center justify-between">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-center">Error</CardTitle>
+          <CardTitle className="text-center text-xl">Error</CardTitle>
           <CardDescription className="text-center">Something went wrong</CardDescription>
-          <CardFooter className="items-center justify-center">
-            <Button
-              className="mt-6"
-              variant="outline"
-              onClick={() => {
-                router.refresh()
-              }}
-            >
-              <IconRefresh className="mr-2 size-4" />
-              Reload
-            </Button>
-          </CardFooter>
         </CardHeader>
+        <CardFooter className="items-center justify-center">
+          <Button variant="outline" onClick={() => router.refresh()}>
+            <IconRefresh className="mr-2 size-4" />
+            Reload
+          </Button>
+        </CardFooter>
       </Card>
     </div>
   )

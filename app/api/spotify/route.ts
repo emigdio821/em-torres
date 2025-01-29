@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import type { SpotiAccessToken, SpotiResponse, SpotiSong } from '@/types'
+import type { IRecentlyPlayed, ISpotifyAccessToken, SimplifiedTrack } from '@/types'
+import axios from 'axios'
 import { envServerSchema } from '@/lib/server-env'
 
 export const revalidate = 0
@@ -11,112 +12,73 @@ const {
 } = envServerSchema
 
 const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
-const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
+const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played?limit=1'
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
-const initialState = {
-  album: '',
-  title: '',
-  artist: '',
-  songUrl: '',
-  isPlaying: false,
-  albumImageUrl: '',
-  albumReleaseDate: '',
-  popularity: 0,
-  trackNumber: 0,
-  albumTotalTracks: 0,
-}
+async function getAccessToken() {
+  try {
+    const { data } = await axios.post<ISpotifyAccessToken>(
+      TOKEN_ENDPOINT,
+      new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refreshToken,
+      }).toString(),
+      {
+        headers: {
+          Authorization: `Basic ${basic}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      },
+    )
 
-async function fetchSpotify(endpoint: string, options: RequestInit = {}) {
-  const response = await fetch(endpoint, options)
-  if (!response.ok) {
-    console.log({
-      origin: endpoint,
-      status: response.status,
-      message: response.statusText,
-    })
+    return data
+  } catch (err) {
+    console.error('Unable to get access token', err)
     return null
   }
-  return response
 }
 
-async function getAccessToken() {
-  const response = await fetchSpotify(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: refreshToken,
-    }),
-  })
-  if (!response) return null
-  let token = null
-
+async function getRecentlyPlayed() {
   try {
-    token = (await response.json()) as SpotiAccessToken
-  } catch {
-    token = null
-  }
+    const token = await getAccessToken()
+    if (!token) throw new Error('Missing token')
 
-  return token
+    const { data } = await axios.get<IRecentlyPlayed>(NOW_PLAYING_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${token.access_token}`,
+      },
+    })
+
+    return data
+  } catch (err) {
+    console.error('Unable to get recently played', err)
+    return null
+  }
 }
 
-async function getNowPlaying() {
-  const { access_token: accessToken } = (await getAccessToken()) ?? {}
-  if (!accessToken) return null
+function getSimplifiedTrack(recentlyPlayed: IRecentlyPlayed) {
+  const { items } = recentlyPlayed
+  const item = items[0]
+  const track = item.track
 
-  const response = await fetchSpotify(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-
-  if (!response) return null
-
-  let nowPlayingRes = null
-
-  try {
-    nowPlayingRes = (await response.json()) as SpotiSong
-  } catch {
-    nowPlayingRes = null
-  }
-
-  return nowPlayingRes
-}
-
-function mapSongData(song: SpotiSong) {
-  const {
-    item: { name, album, external_urls, popularity, track_number, artists },
-    is_playing,
-  } = song
-
-  const artist = artists.map((_artist) => _artist.name).join(', ')
-  const albumImageUrl = album.images[0]?.url || ''
-  const albumReleaseDate = album.release_date
-  const albumTotalTracks = album.total_tracks
+  const artist = track.artists.map((_artist) => _artist.name).join(', ')
+  const albumImageUrl = track.album.images[0]?.url || ''
 
   return {
-    album: album.name,
-    title: name,
     artist,
-    songUrl: external_urls.spotify,
-    isPlaying: is_playing,
-    albumImageUrl,
-    albumReleaseDate,
-    popularity,
-    trackNumber: track_number,
-    albumTotalTracks,
-  } satisfies SpotiResponse
+    name: track.name,
+    played_at: item.played_at,
+    album_name: track.album.name,
+    album_img_url: albumImageUrl,
+    href: track.external_urls.spotify,
+  } satisfies SimplifiedTrack
 }
 
 export async function GET() {
-  const song = await getNowPlaying()
+  const recentlyPlayed = await getRecentlyPlayed()
 
-  if (!song) return NextResponse.json(initialState)
+  if (!recentlyPlayed) return NextResponse.json(null)
 
-  const mappedData = mapSongData(song)
-  return NextResponse.json(mappedData)
+  const track = getSimplifiedTrack(recentlyPlayed)
+  return NextResponse.json(track)
 }

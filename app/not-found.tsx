@@ -28,10 +28,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-between p-4">
+    <div className="flex flex-col items-center justify-between">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-center text-3xl font-extrabold">404</CardTitle>
+          <CardTitle className="text-center text-xl">404</CardTitle>
           <CardDescription className="text-center">This page does not exist.</CardDescription>
         </CardHeader>
         <CardFooter className="items-center justify-center">
