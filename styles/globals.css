@@ -8,6 +8,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-coffee-steam: coffee-steam 2s alternate infinite ease-out;
+}
+
 @theme inline {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -94,5 +98,15 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes coffee-steam {
+  0% {
+    transform: translateY(-12%);
+  }
+  30%,
+  100% {
+    transform: translateY(0);
   }
 }
