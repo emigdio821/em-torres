@@ -38,7 +38,7 @@ export function SpotifyActivity() {
               animate={{ opacity: 1, y: 0 }}
               className="flex gap-2 sm:flex-row sm:items-center"
             >
-              <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-sm shadow-xs">
+              <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-sm shadow-lg">
                 {data?.album_img_url ? (
                   <>
                     {data.href ? (

@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 import { siteConfig } from '@/config/site'
 import { SKILLS_ICONS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
+import { BlurImage } from '@/components/blur-image'
 import { SpotifyActivity } from '@/components/spotify-activity'
 
 const SKILLS = SKILLS_ICONS.filter((skill) => skill.label !== 'React Native')
@@ -9,6 +10,9 @@ const SKILLS = SKILLS_ICONS.filter((skill) => skill.label !== 'React Native')
 export default async function HomePage() {
   return (
     <section className="mx-auto w-full max-w-xl space-y-4">
+      <div className="size-10 rounded-full shadow-lg transition-all hover:size-32">
+        <BlurImage src="/images/em.jpg" alt="Emigdio" />
+      </div>
       <h4 className="text-base leading-none font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
       <p className="text-sm">
         Hey there, I'm a Software Engineer, mainly focused on frontend development. Currently, I'm contributing to{' '}
