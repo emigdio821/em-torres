@@ -36,27 +36,29 @@ export function SpotifyActivity() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2"
+              className="flex gap-2 sm:flex-row sm:items-center"
             >
-              <div className="bg-muted flex size-10 items-center justify-center rounded-sm shadow-xs">
+              <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-sm shadow-xs">
                 {data?.album_img_url ? (
-                  <BlurImage priority src={data.album_img_url} alt="Song cover" />
+                  <>
+                    {data.href ? (
+                      <Button variant="plain" className="size-[inherit] rounded-[inherit]" asChild>
+                        <a href={data.href} target="_blank" rel="noreferrer">
+                          <BlurImage priority src={data.album_img_url} alt="Song cover" />
+                        </a>
+                      </Button>
+                    ) : (
+                      <BlurImage priority src={data.album_img_url} alt="Song cover" />
+                    )}
+                  </>
                 ) : (
                   <IconHeadphones size={14} />
                 )}
               </div>
 
-              <div className="text-sm">
-                {data?.name && data.href ? (
-                  <Button variant="link" asChild>
-                    <a href={data.href} target="_blank" rel="noreferrer">
-                      {data.name}
-                    </a>
-                  </Button>
-                ) : (
-                  <p className="truncate font-medium">{data?.name || 'Spotify'}</p>
-                )}
-                <p className="truncate text-xs">{`by ${data?.artist}` || 'Nothing'}</p>
+              <div className="min-w-0 text-sm">
+                <p className="truncate font-medium">{data?.name || 'Spotify'}</p>
+                <p className="truncate text-xs">{`by ${data?.artist || 'No one'}`}</p>
               </div>
             </motion.div>
           </AnimatePresence>
