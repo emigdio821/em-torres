@@ -25,7 +25,7 @@ const SKILLS = [
 
 export function RightContent() {
   return (
-    <section className="bg-background flex flex-col gap-6 p-4">
+    <section className="flex flex-col gap-6 p-4">
       <div className="flex flex-col">
         <h5 className="text-sm font-semibold tracking-tight sm:text-base">Experience</h5>
         <div className="flex flex-col gap-2">

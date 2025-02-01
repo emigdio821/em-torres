@@ -25,10 +25,10 @@ export function SpotifyActivity() {
       <div>
         {isLoading ? (
           <div className="flex items-center gap-2">
-            <Skeleton className="size-10 rounded-sm shadow-md" />
+            <Skeleton className="size-11 rounded-sm shadow-md" />
             <div className="flex flex-col gap-1">
-              <Skeleton className="mt-2 h-1 w-24 rounded-md" />
-              <Skeleton className="my-2 h-1 w-28 rounded-md" />
+              <Skeleton className="mt-3 h-1 w-24 rounded-md" />
+              <Skeleton className="my-3 h-1 w-28 rounded-md" />
             </div>
           </div>
         ) : (
@@ -38,7 +38,7 @@ export function SpotifyActivity() {
               animate={{ opacity: 1, y: 0 }}
               className="flex gap-2 sm:flex-row sm:items-center"
             >
-              <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-sm shadow-lg">
+              <div className="bg-muted flex size-11 shrink-0 items-center justify-center rounded-sm shadow-lg">
                 {data?.album_img_url ? (
                   <>
                     {data.href ? (
@@ -56,9 +56,9 @@ export function SpotifyActivity() {
                 )}
               </div>
 
-              <div className="min-w-0 text-sm">
+              <div className="min-w-0 text-base">
                 <p className="truncate font-medium">{data?.name || 'Spotify'}</p>
-                <p className="truncate text-xs">{`by ${data?.artist || 'No one'}`}</p>
+                <p className="truncate text-sm">{`by ${data?.artist || 'No one'}`}</p>
               </div>
             </motion.div>
           </AnimatePresence>
