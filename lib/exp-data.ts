@@ -21,7 +21,7 @@ export const EXPERIENCE: ExperienceData[] = [
     year: '2019 - 2021',
     company: 'HCL Technologies',
     description:
-      'Frontend, using IBM Dojo Toolkit, migrating to React, Redux, and Material UI. Development of a web content manager.',
+      'Frontend, using IBM Dojo Toolkit, after some time we migrated to React, Redux, and Material UI. Development of a web content manager.',
   },
   {
     id: 3,
@@ -37,6 +37,6 @@ export const EXPERIENCE: ExperienceData[] = [
     year: '2014 - 2017',
     company: 'TATA Consultancy Services',
     description:
-      'Frontend, using JavaScript under a framework called: ExtJS. Development of banking web apps for Morgan Stanley.',
+      'Frontend, using JavaScript under a framework called: Ext JS. Development of banking web apps for Morgan Stanley.',
   },
 ]
