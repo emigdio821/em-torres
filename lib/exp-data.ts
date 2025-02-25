@@ -13,7 +13,10 @@ export const EXPERIENCE: ExperienceData[] = [
     year: 'Present',
     company: 'Wizeline',
     description:
-      'Mainly working on Frontend, using JavaScript, TypeScript, Next.js, Node.js, and Tailwind. Development and support for the Dow Jones products.',
+      'Mainly working as a Frontend engineer, development and support for the B2B and B2C login pages from the Dow Jones company. Sometimes I work in the backend using Node.js and Express.' +
+      'Updated UI and refactored two jQuery legacy projects to React, TypeScript and Tailwind, increasing performance and application a11y. ' +
+      'Created internal application from scratch to manage some internal data, using Next.js, and Tailwind.' +
+      'Currently we are migrating our backend to TypeScript and improving our unit testing using Jest.',
   },
   {
     id: 2,

@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-const fontReq = fetch(new URL('../../../public/fonts/Figtree-Bold.ttf', import.meta.url)).then(
+const fontReq = fetch(new URL('../../../public/fonts/Geist-Bold.ttf', import.meta.url)).then(
   async (res) => await res.arrayBuffer(),
 )
 
@@ -20,7 +20,7 @@ export async function GET() {
             display: 'flex',
             color: '#ededed',
             textAlign: 'center',
-            fontFamily: 'Figtree',
+            fontFamily: 'Geist',
             alignItems: 'center',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -68,7 +68,7 @@ export async function GET() {
         height: 600,
         fonts: [
           {
-            name: 'Figtree',
+            name: 'Geist',
             data: fontData,
             style: 'normal',
           },
