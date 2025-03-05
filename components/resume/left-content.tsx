@@ -14,7 +14,7 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
     <section className="flex flex-col gap-4 border-b p-4 sm:border-r sm:border-b-0">
       <div>
         <div className="mb-4">
-          <h4 className="text-base font-semibold tracking-tight sm:text-lg">Emigdio</h4>
+          <h4 className="text-base font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
           <h5 className="text-muted-foreground text-sm leading-none font-medium tracking-tight sm:text-base">
             Software Engineer
           </h5>
