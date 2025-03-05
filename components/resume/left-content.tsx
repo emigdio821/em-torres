@@ -14,7 +14,7 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
     <section className="flex flex-col gap-4 border-b p-4 sm:border-r sm:border-b-0">
       <div>
         <div className="mb-4">
-          <h4 className="text-base font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
+          <h4 className="text-base font-semibold tracking-tight sm:text-lg">Emigdio</h4>
           <h5 className="text-muted-foreground text-sm leading-none font-medium tracking-tight sm:text-base">
             Software Engineer
           </h5>
@@ -46,11 +46,11 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         <h5 className="text-sm font-semibold tracking-tight sm:text-base">Profile</h5>
         <div className="text-sm">
           <p>
-            <span className="font-semibold">Telematics Engineer</span> with experience in Software Engineering using
-            current programming standards.
-          </p>
-          <p>
-            I am currently working as a Software Engineer at <span className="font-semibold">Wizeline</span>.
+            Experienced <span className="font-semibold">Software Engineer</span> with{' '}
+            <span className="font-semibold">9+</span> in the technology industry specializing in{' '}
+            <span className="font-semibold">JavaScript</span>. Over the years, I’ve refined my skills in building web
+            applications, with <span className="font-semibold">5+</span> years of hands-on experience using{' '}
+            <span className="font-semibold">React.js</span>, and <span className="font-semibold">Node.js</span>.
           </p>
         </div>
       </div>
