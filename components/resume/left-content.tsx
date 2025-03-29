@@ -47,7 +47,7 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         <div className="text-sm">
           <p>
             Experienced <span className="font-semibold">Software Engineer</span> with{' '}
-            <span className="font-semibold">9+</span> in the technology industry specializing in{' '}
+            <span className="font-semibold">9+</span> years in the technology industry specializing in{' '}
             <span className="font-semibold">JavaScript</span>. Over the years, I’ve refined my skills in building web
             applications, with <span className="font-semibold">5+</span> years of hands-on experience using{' '}
             <span className="font-semibold">React.js</span>, and <span className="font-semibold">Node.js</span>.
