@@ -10,8 +10,8 @@ export function RightContent() {
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Senior Software Engineer</h5>
             <p className="mb-2">
-              Mainly working as a frontend engineer, development and support for the B2B and B2C login pages from the
-              Dow Jones company. Sometimes I work in the backend using Node.js and Express.
+              Working as a FullStack Engineer, development and support for the B2B and B2C identity products from the
+              Dow Jones company.
             </p>
             <ul className="ml-4 list-inside list-disc">
               <li>
@@ -21,7 +21,10 @@ export function RightContent() {
               <li>
                 Created internal application from scratch to manage some internal data, using Next.js, and Tailwind.
               </li>
-              <li>Currently we are migrating our backend to TypeScript and improving our unit testing using Jest.</li>
+              <li>
+                Currently we are migrating our backend from Express.js to TypeScript using Nest.js framework and
+                improving our unit testing using Jest.
+              </li>
             </ul>
           </div>
 
