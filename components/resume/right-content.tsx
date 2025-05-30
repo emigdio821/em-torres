@@ -10,7 +10,7 @@ export function RightContent() {
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Senior Software Engineer</h5>
             <p className="mb-2">
-              Working as a FullStack Engineer, development and support for the B2B and B2C identity products from the
+              Working as a full-stack engineer, development and support for the B2B and B2C identity products from the
               Dow Jones company.
             </p>
             <ul className="ml-4 list-inside list-disc">
