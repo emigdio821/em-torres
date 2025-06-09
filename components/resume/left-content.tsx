@@ -46,11 +46,12 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         <h5 className="text-sm font-semibold tracking-tight sm:text-base">Profile</h5>
         <div className="text-sm">
           <p>
-            Experienced <span className="font-semibold">Software Engineer</span> with{' '}
-            <span className="font-semibold">9+</span> years in the technology industry specializing in{' '}
-            <span className="font-semibold">JavaScript</span>. Over the years, I’ve refined my skills in building web
-            applications, with <span className="font-semibold">5+</span> years of hands-on experience using{' '}
-            <span className="font-semibold">React.js</span>, and <span className="font-semibold">Node.js</span>.
+            Experienced <span className="font-semibold">Software Engineer</span> with over{' '}
+            <span className="font-semibold">10</span> years in the tech industry, specializing in{' '}
+            <span className="font-semibold">JavaScript</span>. Skilled in building scalable, performant web applications
+            with over <span className="font-semibold">6</span> years of hands-on experience using{' '}
+            <span className="font-semibold">React.js</span> and <span className="font-semibold">Node.js</span>. Strong
+            background in frontend, UI/UX decision-making, and modern development practices.
           </p>
         </div>
       </div>

@@ -10,20 +10,22 @@ export function RightContent() {
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Senior Software Engineer</h5>
             <p className="mb-2">
-              Working as a full-stack engineer, development and support for the B2B and B2C identity products from the
-              Dow Jones company.
+              Full-stack engineer contributing to the development and support of B2B and B2C identity products for Dow
+              Jones.
             </p>
             <ul className="ml-4 list-inside list-disc">
               <li>
-                Updated UI and refactored two jQuery legacy projects to React, TypeScript and Tailwind, increasing
-                performance and application a11y.
+                Currently leading the frontend team, responsible for driving UI/UX decisions, conducting code reviews,
+                writing technical documentation, and mentoring teammates to ensure code quality and consistency.
               </li>
               <li>
-                Created internal application from scratch to manage some internal data, using Next.js, and Tailwind.
+                Refactored two legacy jQuery projects to modern stacks (React, TypeScript, Tailwind), significantly
+                improving performance and accessibility (a11y).
               </li>
+              <li>Built an internal application from scratch to manage business data, using Next.js and Tailwind.</li>
               <li>
-                Currently we are migrating our backend from Express.js to TypeScript using Nest.js framework and
-                improving our unit testing using Jest.
+                Actively migrating the backend from Express.js to TypeScript with Nest.js, while improving unit test
+                coverage using Jest.
               </li>
             </ul>
           </div>
@@ -33,15 +35,12 @@ export function RightContent() {
               2019 - 2021 · <span className="font-semibold">HCL Technologies</span>
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Software Engineer</h5>
-            <p className="mb-2">Worked as a frontend engineer, development and support for an internal tool.</p>
+            <p className="mb-2">Frontend engineer for an internal web-based content management tool.</p>
             <ul className="ml-4 list-inside list-disc">
+              <li>Initially worked with Dojo Toolkit to develop a drag-and-drop email template builder.</li>
               <li>
-                I worked in this internal tool similar to a web content manager, the user was able to drag and drop some
-                components to create email templates effortless, using a JavaScript library called Dojo Toolkit.
-              </li>
-              <li>
-                After some time, I helped to migrate the whole application to React, Material UI (MUI), and Redux to
-                increase the application performance and a11y.
+                Later led the migration of the entire application to React, Redux, and Material UI (MUI), significantly
+                boosting performance and accessibility.
               </li>
             </ul>
           </div>
@@ -52,18 +51,14 @@ export function RightContent() {
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Software Engineer</h5>
             <p className="mb-2">
-              Worked mainly as a frontend engineer, development and support of a payments portal, and an inventory
-              system. Sometimes I worked in the backend using Ruby on Rails.
+              Frontend-focused engineer supporting a payments portal and inventory system, with occasional backend work
+              using Ruby on Rails.
             </p>
             <ul className="ml-4 list-inside list-disc">
+              <li>Developed features for an invoicing and payment platform (cash/card), using jQuery and Sass.</li>
               <li>
-                I worked in this payments portal, it was able to generate invoices, perform payments with cash and
-                cards, using jQuery, and Sass.
-              </li>
-              <li>
-                I contributed in the inventory system refactoring existing code, updated some legacy UI to have a better
-                UX, improved the invoice generation, etc. It was a pretty huge project. I was using Ruby on Rails and
-                its own template system using Haml and Sass.
+                Refactored legacy code and redesigned UI elements to improve UX and system maintainability using Haml
+                and Sass.
               </li>
             </ul>
           </div>
@@ -73,15 +68,13 @@ export function RightContent() {
               2014 - 2017 · <span className="font-semibold">TATA Consultancy Services</span>
             </p>
             <h5 className="text-sm font-semibold tracking-tight sm:text-base">Software Engineer</h5>
-            <p className="mb-2">
-              Worked as a frontend engineer, development and support for Morgan Stanley bank internal tools.
-            </p>
+            <p className="mb-2">Frontend engineer supporting internal tools for Morgan Stanley. </p>
             <ul className="ml-4 list-inside list-disc">
               <li>
-                I contributed in fixing existing bugs as well as implementing new features, I was part of the Credit
-                Risk team, we managed internal tools to validate user data, money management, loans, etc. I was using a
-                JavaScript framework called Ext JS.
+                Part of the Credit Risk team, responsible for developing and maintaining tools related to user data
+                validation, money management, and loan processing.
               </li>
+              <li>Used Ext JS to implement new features and resolve bugs.</li>
             </ul>
           </div>
         </div>
