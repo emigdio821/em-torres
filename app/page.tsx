@@ -1,58 +1,60 @@
 import NextLink from 'next/link'
+import { LinkSquare01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { siteConfig } from '@/config/site'
-import { SKILLS_ICONS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
-import { BlurImage } from '@/components/blur-image'
+// import { BlurImage } from '@/components/blur-image'
 import { SpotifyActivity } from '@/components/spotify-activity'
 
-const SKILLS = SKILLS_ICONS.filter((skill) => skill.label !== 'React Native')
 
 export default async function HomePage() {
   return (
-    <section className="mx-auto w-full max-w-xl space-y-4">
-      <div className="size-11 rounded-full shadow-lg transition-all hover:size-32">
+    <section className="mx-auto w-full max-w-xl space-y-4 text-sm">
+      {/* <div className="size-11 rounded-full shadow-lg transition-all hover:size-32">
         <BlurImage src="/images/em.jpg" alt="Emigdio" />
-      </div>
-      <h4 className="text-base leading-none font-semibold tracking-tight sm:text-lg">Emigdio Torres</h4>
+      </div> */}
+      <h4 className="text-base leading-none font-semibold tracking-tight">Emigdio Torres</h4>
       <p>
         Hey there, I'm a Software Engineer, mainly focused on frontend development. Currently, I'm contributing to{' '}
-        <Button className="text-base" variant="underline" asChild>
+        <Button variant="link" asChild>
           <a href="https://www.wizeline.com/" target="_blank" rel="noreferrer">
             Wizeline
           </a>
         </Button>{' '}
         projects.
       </p>
-      <p>Technologies I currently use: {SKILLS.map((skill) => skill.label).join(', ')}.</p>
+      <p>Technologies I currently use: TypeScript, React, Tailwind, Next.js and Node.js.</p>
       <p>
         I love music. On my free time I like to play videogames or play drums. I like to build custom PC&apos;s.
         I&apos;m also passionate about new technology topics.
       </p>
 
-      <h4 className="text-base leading-none font-semibold tracking-tight sm:text-lg">Links</h4>
+      <h4 className="text-base leading-none font-semibold tracking-tight">Links</h4>
       <ul>
         <li>
-          <Button className="text-base" variant="underline" asChild>
+          <Button variant="link" asChild>
+            <NextLink href="/resume">Resume</NextLink>
+          </Button>
+        </li>
+        <li>
+          <Button variant="link" asChild>
             <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
               GitHub
+              <HugeiconsIcon icon={LinkSquare01Icon} className="size-4" />
             </a>
           </Button>
         </li>
         <li>
-          <Button className="text-base" variant="underline" asChild>
+          <Button variant="link" asChild>
             <a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
+              <HugeiconsIcon icon={LinkSquare01Icon} className="size-4" />
             </a>
-          </Button>
-        </li>
-        <li>
-          <Button className="text-base" variant="underline" asChild>
-            <NextLink href="/resume">Resume</NextLink>
           </Button>
         </li>
       </ul>
 
-      <h4 className="text-base leading-none font-semibold tracking-tight sm:text-lg">Recently played</h4>
+      <h4 className="text-base leading-none font-semibold tracking-tight">Recently played</h4>
       <SpotifyActivity />
     </section>
   )

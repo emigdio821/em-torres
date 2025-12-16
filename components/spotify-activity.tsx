@@ -1,7 +1,8 @@
 'use client'
 
 import type { SimplifiedTrack } from '@/types'
-import { IconHeadphones } from '@tabler/icons-react'
+import { HeadphonesIcon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { AnimatePresence, motion } from 'motion/react'
@@ -25,7 +26,7 @@ export function SpotifyActivity() {
       <div>
         {isLoading ? (
           <div className="flex items-center gap-2">
-            <Skeleton className="size-11 rounded-sm shadow-md" />
+            <Skeleton className="size-11 rounded-sm shadow-xs" />
             <div className="flex flex-col gap-1">
               <Skeleton className="mt-3 h-1 w-24 rounded-md" />
               <Skeleton className="my-3 h-1 w-28 rounded-md" />
@@ -38,27 +39,25 @@ export function SpotifyActivity() {
               animate={{ opacity: 1, y: 0 }}
               className="flex gap-2 sm:flex-row sm:items-center"
             >
-              <div className="bg-muted flex size-11 shrink-0 items-center justify-center rounded-sm shadow-lg">
+              <div className="bg-muted flex size-11 shrink-0 items-center justify-center rounded-sm shadow-xs">
                 {data?.album_img_url ? (
-                  <>
-                    {data.href ? (
-                      <Button variant="plain" className="size-[inherit] rounded-[inherit]" asChild>
-                        <a href={data.href} target="_blank" rel="noreferrer">
-                          <BlurImage priority src={data.album_img_url} alt="Song cover" />
-                        </a>
-                      </Button>
-                    ) : (
-                      <BlurImage priority src={data.album_img_url} alt="Song cover" />
-                    )}
-                  </>
+                  data.href ? (
+                    <Button variant="unstyled" className="size-[inherit] rounded-[inherit]" asChild>
+                      <a href={data.href} target="_blank" rel="noreferrer">
+                        <BlurImage src={data.album_img_url} alt="Song cover" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <BlurImage src={data.album_img_url} alt="Song cover" />
+                  )
                 ) : (
-                  <IconHeadphones size={14} />
+                  <HugeiconsIcon icon={HeadphonesIcon} className="size-4" />
                 )}
               </div>
 
-              <div className="min-w-0 text-base">
+              <div className="min-w-0 text-sm">
                 <p className="truncate font-medium">{data?.name || 'Spotify'}</p>
-                <p className="truncate text-sm">{`by ${data?.artist || 'No one'}`}</p>
+                <p className="text-muted-foreground truncate">{`by ${data?.artist || 'No one'}`}</p>
               </div>
             </motion.div>
           </AnimatePresence>

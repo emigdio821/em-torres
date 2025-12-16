@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     remotePatterns: [{ protocol: 'https', hostname: 'i.scdn.co' }],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 }
 
 export default nextConfig
