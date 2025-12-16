@@ -2,8 +2,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Refresh01Icon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
+import { IconReload } from '@tabler/icons-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -27,7 +26,7 @@ export default function ErrorPage({ error }: ErrorProps) {
         </CardHeader>
         <CardFooter className="items-center justify-center">
           <Button variant="outline" onClick={() => router.refresh()}>
-            <HugeiconsIcon icon={Refresh01Icon} className="size-4" />
+            <IconReload className="size-4" />
             Reload
           </Button>
         </CardFooter>

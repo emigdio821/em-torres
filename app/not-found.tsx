@@ -1,7 +1,6 @@
 import NextLink from 'next/link'
 import type { Metadata } from 'next/types'
-import { ArrowLeft01Icon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
+import { IconChevronLeft } from '@tabler/icons-react'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -38,7 +37,7 @@ export default function NotFound() {
         <CardFooter className="items-center justify-center">
           <Button variant="outline" asChild>
             <NextLink href="/">
-              <HugeiconsIcon icon={ArrowLeft01Icon} className="size-4" />
+              <IconChevronLeft className="size-4" />
               Back to home
             </NextLink>
           </Button>

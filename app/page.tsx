@@ -1,11 +1,9 @@
 import NextLink from 'next/link'
-import { LinkSquare01Icon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
+import { IconExternalLink } from '@tabler/icons-react'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 // import { BlurImage } from '@/components/blur-image'
 import { SpotifyActivity } from '@/components/spotify-activity'
-
 
 export default async function HomePage() {
   return (
@@ -40,7 +38,7 @@ export default async function HomePage() {
           <Button variant="link" asChild>
             <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
               GitHub
-              <HugeiconsIcon icon={LinkSquare01Icon} className="size-4" />
+              <IconExternalLink className="size-4" />
             </a>
           </Button>
         </li>
@@ -48,7 +46,7 @@ export default async function HomePage() {
           <Button variant="link" asChild>
             <a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
-              <HugeiconsIcon icon={LinkSquare01Icon} className="size-4" />
+              <IconExternalLink className="size-4" />
             </a>
           </Button>
         </li>

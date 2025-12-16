@@ -1,8 +1,7 @@
 'use client'
 
 import type { SimplifiedTrack } from '@/types'
-import { HeadphonesIcon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
+import { IconHeadphones } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { AnimatePresence, motion } from 'motion/react'
@@ -51,7 +50,7 @@ export function SpotifyActivity() {
                     <BlurImage src={data.album_img_url} alt="Song cover" />
                   )
                 ) : (
-                  <HugeiconsIcon icon={HeadphonesIcon} className="size-4" />
+                  <IconHeadphones className="size-4" />
                 )}
               </div>
 

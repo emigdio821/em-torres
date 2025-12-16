@@ -1,6 +1,5 @@
 import NextLink from 'next/link'
-import { ArrowLeft01Icon, PrinterIcon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
+import { IconChevronLeft, IconPrinter } from '@tabler/icons-react'
 import { CONTACT_LINKS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
 import { SpinnerIcon } from '@/components/icons'
@@ -23,19 +22,19 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         <div className="flex items-center gap-2 print:hidden">
           <Button variant="outline" size="icon-sm" aria-label="Home" asChild>
             <NextLink href="/">
-              <HugeiconsIcon icon={ArrowLeft01Icon} className="size-4" />
+              <IconChevronLeft className="size-4" />
             </NextLink>
           </Button>
           <Button size="sm" type="button" variant="outline" onClick={pdfCallback} disabled={isPDFLoading}>
-            {isPDFLoading ? <SpinnerIcon /> : <HugeiconsIcon icon={PrinterIcon} className="size-4" />}
+            {isPDFLoading ? <SpinnerIcon /> : <IconPrinter className="size-4" />}
             Print
           </Button>
         </div>
         <div className="mt-4 flex flex-col items-start space-y-1">
-          {CONTACT_LINKS.map(({ href, icon, label }) => (
+          {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
             <Button asChild variant="link" className="print:no-underline" key={href}>
               <a href={href} target="_blank" rel="noopener noreferrer">
-                <HugeiconsIcon icon={icon} className="size-4" />
+                <Icon className="size-4" />
                 {label}
               </a>
             </Button>
