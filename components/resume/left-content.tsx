@@ -60,17 +60,12 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
         <div className="text-sm">
           <p>Engineer&apos;s Degree</p>
           <p>University of Colima</p>
-          <p>2010 - 2014</p>
         </div>
       </div>
 
       <div>
         <h5 className="text-sm font-semibold tracking-tight sm:text-base">Skills</h5>
         <p>HTML, CSS, Git, Docker, JavaScript, TypeScript, React, React Native, Tailwind, Next.js, and Node.js</p>
-      </div>
-      <div>
-        <h5 className="text-sm font-semibold tracking-tight sm:text-base">Hobbies & Interests</h5>
-        <p>Drums, Music, Games, Tech, and Travel.</p>
       </div>
     </section>
   )
