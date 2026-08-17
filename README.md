@@ -3,6 +3,7 @@
 </kbd>
 
 ## Emigdio's Homepage
+
 This is just my personal homepage. <br/>
 Stack: **Next.js**, **TypeScript** and **Tailwind CSS**. <br/><br/>
 The project is runnin' **[here](https://emtorres.vercel.app/)** 👈<br/>
