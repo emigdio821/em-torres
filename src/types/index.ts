@@ -1,8 +1,11 @@
-export interface ISpotifyAccessToken {
+export interface SpotifyAccessToken {
   access_token: string
+  token_type: string
+  expires_in: number
+  scope: string
 }
 
-export interface IRecentlyPlayed {
+export interface RecentlyPlayed {
   href: string
   limit: number
   next: string

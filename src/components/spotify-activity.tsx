@@ -2,7 +2,6 @@
 
 import { RiMusicLine } from '@remixicon/react'
 import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import type { SimplifiedTrack } from '@/types'
@@ -10,8 +9,9 @@ import { BlurImage } from './blur-image'
 
 export function SpotifyActivity() {
   async function getSpotifyActivity() {
-    const { data } = await axios.get<SimplifiedTrack | null>('/api/spotify')
-    return data
+    const response = await fetch('/api/spotify')
+    if (!response.ok) throw new Error('Unable to fetch Spotify activity')
+    return (await response.json()) as SimplifiedTrack | null
   }
 
   const { data, isLoading, error } = useQuery({
@@ -23,11 +23,12 @@ export function SpotifyActivity() {
     <>
       <div>
         {isLoading ? (
-          <div className="flex items-center gap-2">
-            <Skeleton className="size-11 rounded-sm shadow-xs" />
-            <div className="flex flex-col gap-1">
-              <Skeleton className="mt-3 h-1 w-24 rounded-md" />
-              <Skeleton className="my-3 h-1 w-28 rounded-md" />
+          <div className="flex gap-2 sm:flex-row sm:items-center">
+            <Skeleton className="bg-muted flex size-11 shrink-0 items-center justify-center rounded-sm shadow-xs" />
+
+            <div className="flex flex-col gap-3">
+              <Skeleton className="h-2 w-20" />
+              <Skeleton className="h-2 w-24" />
             </div>
           </div>
         ) : (
@@ -54,7 +55,9 @@ export function SpotifyActivity() {
 
             <div className="min-w-0 text-sm">
               <p className="truncate font-medium">{data?.name || 'Spotify'}</p>
-              <p className="text-muted-foreground truncate">{`by ${data?.artist || 'No one'}`}</p>
+              <p className="text-muted-foreground truncate">
+                {data?.artist ? `by ${data?.artist}` : 'No data available'}
+              </p>
             </div>
           </div>
         )}
