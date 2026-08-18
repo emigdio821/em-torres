@@ -1,57 +1,30 @@
-import { IconExternalLink } from '@tabler/icons-react'
-import NextLink from 'next/link'
-// import { BlurImage } from '@/components/blur-image'
 import { SpotifyActivity } from '@/components/spotify-activity'
 import { Button } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
 
 export default async function HomePage() {
   return (
     <section className="mx-auto w-full max-w-xl space-y-4 text-sm">
-      {/* <div className="size-11 rounded-full shadow-lg transition-all hover:size-32">
-        <BlurImage src="/images/em.jpg" alt="Emigdio" />
-      </div> */}
-      <h4 className="text-base leading-none font-semibold tracking-tight">Emigdio Torres</h4>
       <p>
-        Hey there, I'm a Software Engineer, mainly focused on frontend development. Currently, I'm
-        contributing to{' '}
-        <Button variant="link" asChild>
-          <a href="https://www.wizeline.com/" target="_blank" rel="noreferrer">
-            Wizeline
-          </a>
-        </Button>{' '}
-        projects.
+        Hi, I&apos;m a Software Engineer specializing in frontend development. I&apos;m currently building
+        products with the team at{' '}
+        <Button
+          variant="link"
+          render={
+            <a href="https://www.wizeline.com/" target="_blank" rel="noreferrer">
+              Wizeline
+            </a>
+          }
+        />
+        , where I focus on crafting fast, accessible, and maintainable user interfaces.
       </p>
-      <p>Technologies I currently use: TypeScript, React, Tailwind, Next.js and Node.js.</p>
       <p>
-        I love music. On my free time I like to play videogames or play drums. I like to build custom
-        PC&apos;s. I&apos;m also passionate about new technology topics.
+        I work primarily with TypeScript, React, Next.js, Tailwind CSS, and Node.js to deliver polished
+        end-to-end experiences.
       </p>
-
-      <h4 className="text-base leading-none font-semibold tracking-tight">Links</h4>
-      <ul>
-        <li>
-          <Button variant="link" asChild>
-            <NextLink href="/resume">Resume</NextLink>
-          </Button>
-        </li>
-        <li>
-          <Button variant="link" asChild>
-            <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
-              GitHub
-              <IconExternalLink className="size-4" />
-            </a>
-          </Button>
-        </li>
-        <li>
-          <Button variant="link" asChild>
-            <a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn
-              <IconExternalLink className="size-4" />
-            </a>
-          </Button>
-        </li>
-      </ul>
+      <p>
+        In my free time, I like to play the drums and play video games. I&apos;m always trying to stay up to
+        date with the latest technology topics, and I really enjoy learning new things.
+      </p>
 
       <h4 className="text-base leading-none font-semibold tracking-tight">Recently played</h4>
       <SpotifyActivity />

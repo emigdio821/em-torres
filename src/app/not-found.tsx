@@ -1,4 +1,4 @@
-import { IconChevronLeft } from '@tabler/icons-react'
+import { RiArrowDropLeftFill } from '@remixicon/react'
 import NextLink from 'next/link'
 import type { Metadata } from 'next/types'
 import { Button } from '@/components/ui/button'
@@ -35,12 +35,15 @@ export default function NotFound() {
           <CardDescription className="text-center">This page does not exist.</CardDescription>
         </CardHeader>
         <CardFooter className="items-center justify-center">
-          <Button variant="outline" asChild>
-            <NextLink href="/">
-              <IconChevronLeft className="size-4" />
-              Back to home
-            </NextLink>
-          </Button>
+          <Button
+            variant="outline"
+            render={
+              <NextLink href="/">
+                <RiArrowDropLeftFill className="size-4" />
+                Back to home
+              </NextLink>
+            }
+          />
         </CardFooter>
       </Card>
     </div>

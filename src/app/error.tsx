@@ -1,6 +1,6 @@
 'use client'
 
-import { IconReload } from '@tabler/icons-react'
+import { RiRefreshLine } from '@remixicon/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
@@ -26,7 +26,7 @@ export default function ErrorPage({ error }: ErrorProps) {
         </CardHeader>
         <CardFooter className="items-center justify-center">
           <Button variant="outline" onClick={() => router.refresh()}>
-            <IconReload className="size-4" />
+            <RiRefreshLine className="size-4" />
             Reload
           </Button>
         </CardFooter>

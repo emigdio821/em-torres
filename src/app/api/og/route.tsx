@@ -1,9 +1,8 @@
-// oxlint-disable next/no-img-element
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-const fontReq = fetch(new URL('../../../public/fonts/Geist-Bold.ttf', import.meta.url)).then(
+const fontReq = fetch(new URL('../../../../public/fonts/Geist-Bold.ttf', import.meta.url)).then(
   async (res) => await res.arrayBuffer(),
 )
 
@@ -28,16 +27,6 @@ export async function GET() {
           backgroundImage: 'url("https://emtorres.vercel.app/images/og-bg.png")',
         }}
       >
-        <img
-          alt="em"
-          width={240}
-          height={240}
-          src="https://emtorres.vercel.app/images/em.jpg"
-          style={{
-            borderRadius: 128,
-            objectFit: 'cover',
-          }}
-        />
         <p
           style={{
             display: 'flex',

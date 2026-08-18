@@ -1,35 +1,29 @@
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconDeviceMobile,
-  IconMail,
-  IconMapPin,
-} from '@tabler/icons-react'
+import { RiGithubLine, RiLinkedinLine, RiMailLine, RiMapPinLine, RiPhoneLine } from '@remixicon/react'
 import { siteConfig } from '@/config/site'
 
 export const CONTACT_LINKS = [
   {
-    icon: IconBrandLinkedin,
+    icon: RiLinkedinLine,
     href: siteConfig.links.linkedin,
     label: '@emigdio821',
   },
   {
-    icon: IconBrandGithub,
+    icon: RiGithubLine,
     href: siteConfig.links.github,
     label: '@emigdio821',
   },
   {
-    icon: IconMapPin,
+    icon: RiMapPinLine,
     href: siteConfig.links.location,
     label: 'Jalisco, Mexico',
   },
   {
-    icon: IconDeviceMobile,
+    icon: RiPhoneLine,
     href: 'tel:+523139617676',
     label: '+52 (313) 961-7676',
   },
   {
-    icon: IconMail,
+    icon: RiMailLine,
     href: 'mailto:emigdio821@gmail.com',
     label: 'emigdio821@gmail.com',
   },

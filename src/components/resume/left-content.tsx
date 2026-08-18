@@ -1,6 +1,4 @@
-import { IconChevronLeft, IconPrinter } from '@tabler/icons-react'
-import NextLink from 'next/link'
-import { SpinnerIcon } from '@/components/icons'
+import { RiPrinterLine } from '@remixicon/react'
 import { Button } from '@/components/ui/button'
 import { CONTACT_LINKS } from '@/lib/constants'
 
@@ -20,24 +18,31 @@ export function LeftContent({ pdfCallback, isPDFLoading }: ResumeLeftProps) {
           </h5>
         </div>
         <div className="flex items-center gap-2 print:hidden">
-          <Button variant="outline" size="icon-sm" aria-label="Home" asChild>
-            <NextLink href="/">
-              <IconChevronLeft className="size-4" />
-            </NextLink>
-          </Button>
-          <Button size="sm" type="button" variant="outline" onClick={pdfCallback} disabled={isPDFLoading}>
-            {isPDFLoading ? <SpinnerIcon /> : <IconPrinter className="size-4" />}
+          <Button
+            size="sm"
+            type="button"
+            variant="outline"
+            loading={isPDFLoading}
+            onClick={pdfCallback}
+            disabled={isPDFLoading}
+          >
+            <RiPrinterLine className="size-4" />
             Print
           </Button>
         </div>
         <div className="mt-4 flex flex-col items-start space-y-1">
           {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
-            <Button asChild variant="link" className="print:no-underline" key={href}>
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                <Icon className="size-4" />
-                {label}
-              </a>
-            </Button>
+            <Button
+              variant="link"
+              className="print:no-underline"
+              key={href}
+              render={
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <Icon className="size-4" />
+                  {label}
+                </a>
+              }
+            />
           ))}
         </div>
       </div>

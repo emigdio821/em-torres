@@ -1,10 +1,16 @@
 import type { Metadata, Viewport } from 'next'
+import { Geist_Mono, Geist } from 'next/font/google'
 import type { PropsWithChildren } from 'react'
-import { Footer } from '@/components/footer'
+import { AppFooter } from '@/components/app-footer'
+import { AppHeader } from '@/components/app-header'
 import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
-import { fontSans } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
+
+const fontMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
+const fontHeading = Geist({ subsets: ['latin'], variable: '--font-heading' })
+const fontSans = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
   title: {
@@ -54,12 +60,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn('font-mono', fontSans.variable, fontHeading.variable, fontMono.variable)}
+    >
       <head />
-      <body className={`${fontSans.variable} flex h-dvh flex-col font-sans antialiased`}>
+      <body className="flex h-dvh flex-col font-sans antialiased">
         <Providers>
+          <AppHeader />
           <main className="p-4">{children}</main>
-          <Footer />
+          <AppFooter />
         </Providers>
       </body>
     </html>
