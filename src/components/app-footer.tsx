@@ -6,8 +6,8 @@ import { Separator } from './ui/separator'
 
 export function AppFooter() {
   return (
-    <footer className="mt-auto px-4 print:hidden border-t">
-      <div className="flex gap-2 max-w-xl w-full items-center justify-center py-4 mx-auto">
+    <footer className="mt-auto print:hidden border-t py-2 px-4 sm:p-4">
+      <div className="flex gap-2 max-w-xl size-full items-center justify-center  mx-auto">
         <Button
           variant="link"
           render={
@@ -17,7 +17,7 @@ export function AppFooter() {
           }
         />
 
-        <Separator orientation="vertical" />
+        <Separator orientation="vertical" className="h-4" />
 
         <Button
           variant="link"
