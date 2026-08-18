@@ -1,72 +1,67 @@
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
+export const contentType = 'image/png'
+export const size = {
+  width: 1200,
+  height: 630,
+}
 
-const fontReq = fetch(new URL('../../../../public/fonts/Geist-Bold.ttf', import.meta.url)).then(
-  async (res) => await res.arrayBuffer(),
-)
+const GeistBold = await readFile(join(process.cwd(), 'public/fonts/Geist-Bold.ttf'))
 
 export async function GET() {
-  try {
-    const fontData = await fontReq
-
-    return new ImageResponse(
-      <div
+  return new ImageResponse(
+    <div
+      style={{
+        gap: '20px',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        color: '#ededed',
+        textAlign: 'center',
+        fontFamily: 'Geist',
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        backgroundColor: '#141414',
+        backgroundImage: 'url("https://emtorres.vercel.app/images/og-bg.png")',
+      }}
+    >
+      <p
         style={{
-          gap: '20px',
-          width: '100%',
-          height: '100%',
           display: 'flex',
-          color: '#ededed',
-          textAlign: 'center',
-          fontFamily: 'Geist',
           alignItems: 'center',
           flexDirection: 'column',
-          justifyContent: 'center',
-          backgroundColor: '#141414',
-          backgroundImage: 'url("https://emtorres.vercel.app/images/og-bg.png")',
         }}
       >
-        <p
+        <span
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
+            fontSize: 50,
           }}
         >
-          <span
-            style={{
-              fontSize: 50,
-            }}
-          >
-            Emigdio Torres
-          </span>
-          <span
-            style={{
-              fontSize: 30,
-              opacity: 0.8,
-            }}
-          >
-            Software Engineer
-          </span>
-        </p>
-      </div>,
-      {
-        width: 1000,
-        height: 600,
-        fonts: [
-          {
-            name: 'Geist',
-            data: fontData,
-            style: 'normal',
-          },
-        ],
-      },
-    )
-  } catch (e) {
-    console.log(e)
-    return new Response('Failed to generate the image', {
-      status: 500,
-    })
-  }
+          Emigdio Torres
+        </span>
+        <span
+          style={{
+            fontSize: 30,
+            opacity: 0.8,
+          }}
+        >
+          Software Engineer
+        </span>
+      </p>
+    </div>,
+    {
+      ...size,
+      fonts: [
+        {
+          name: 'Geis',
+          data: GeistBold,
+          style: 'normal',
+          weight: 400,
+        },
+      ],
+    },
+  )
 }
